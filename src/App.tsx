@@ -75,7 +75,7 @@ const Input = ({
       onChange={onChange}
       required={required}
       className={cn(
-        "w-full bg-stone-50 border border-stone-200 rounded-xl py-3 px-4 text-stone-900 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all dark:bg-stone-900 dark:border-stone-700 dark:text-stone-100 dark:placeholder:text-stone-500",
+        "w-full bg-stone-100 border border-stone-300 rounded-xl py-3 px-4 text-stone-800 placeholder:text-stone-500 focus:outline-none focus:ring-2 focus:ring-emerald-400/20 focus:border-emerald-400 transition-all dark:bg-stone-800 dark:border-stone-600 dark:text-stone-200 dark:placeholder:text-stone-400",
         Icon && "pl-11"
       )}
     />
@@ -100,10 +100,10 @@ const Button = ({
   icon?: any;
 }) => {
   const variants = {
-    primary: 'bg-emerald-600 text-white hover:bg-emerald-700 shadow-sm',
-    secondary: 'bg-stone-800 text-white hover:bg-stone-900 shadow-sm',
-    outline: 'border-2 border-stone-200 text-stone-700 hover:bg-stone-50 dark:border-stone-700 dark:text-stone-200 dark:hover:bg-stone-800',
-    ghost: 'text-stone-600 hover:bg-stone-100 dark:text-stone-300 dark:hover:bg-stone-800',
+    primary: 'bg-emerald-500 text-white hover:bg-emerald-600 shadow-sm',
+    secondary: 'bg-stone-700 text-white hover:bg-stone-800 shadow-sm',
+    outline: 'border-2 border-stone-300 text-stone-600 hover:bg-stone-100 dark:border-stone-600 dark:text-stone-300 dark:hover:bg-stone-700',
+    ghost: 'text-stone-500 hover:bg-stone-200 dark:text-stone-300 dark:hover:bg-stone-700',
     danger: 'bg-rose-600 text-white hover:bg-rose-700 shadow-sm',
   };
 
@@ -129,7 +129,7 @@ const Card = ({ children, className, delay = 0 }: { children: React.ReactNode; c
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.4, delay }}
-    className={cn('bg-white p-6 rounded-2xl shadow-sm border border-stone-100 dark:bg-stone-900 dark:border-stone-800', className)}
+    className={cn('bg-stone-50 p-6 rounded-2xl shadow-sm border border-stone-200 dark:bg-stone-800 dark:border-stone-600', className)}
   >
     {children}
   </motion.div>
@@ -145,7 +145,7 @@ const LanguageSwitcher = ({ className }: { className?: string }) => {
       type="button"
       onClick={() => i18n.changeLanguage(next)}
       className={cn(
-        'inline-flex items-center justify-center w-10 h-10 rounded-lg border border-stone-200 text-stone-600 hover:bg-stone-50 transition-colors dark:border-stone-700 dark:text-stone-200 dark:hover:bg-stone-800',
+        'inline-flex items-center justify-center w-10 h-10 rounded-lg border border-stone-300 text-stone-500 hover:bg-stone-100 transition-colors dark:border-stone-600 dark:text-stone-300 dark:hover:bg-stone-700',
         className
       )}
       aria-label="Toggle language"
@@ -153,7 +153,7 @@ const LanguageSwitcher = ({ className }: { className?: string }) => {
     >
       <div className="relative">
         <Globe size={18} />
-        <span className="absolute -bottom-2 -right-3 text-[10px] font-bold bg-emerald-600 text-white px-1.5 py-0.5 rounded-full">
+        <span className="absolute -bottom-2 -right-3 text-[10px] font-bold bg-emerald-500 text-white px-1.5 py-0.5 rounded-full">
           {current.toUpperCase()}
         </span>
       </div>
@@ -166,7 +166,7 @@ const ThemeToggle = ({ theme, onToggle, className }: { theme: ThemeMode; onToggl
     type="button"
     onClick={onToggle}
     className={cn(
-      'inline-flex items-center justify-center w-10 h-10 rounded-lg border border-stone-200 text-stone-600 hover:bg-stone-50 transition-colors dark:border-stone-700 dark:text-stone-200 dark:hover:bg-stone-800',
+      'inline-flex items-center justify-center w-10 h-10 rounded-lg border border-stone-300 text-stone-500 hover:bg-stone-100 transition-colors dark:border-stone-600 dark:text-stone-300 dark:hover:bg-stone-700',
       className
     )}
     aria-label="Toggle theme"
@@ -297,11 +297,11 @@ export default function App() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-stone-50 dark:bg-stone-950">
+      <div className="min-h-screen flex items-center justify-center bg-stone-100 dark:bg-stone-800">
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
-          className="text-emerald-600"
+          className="text-emerald-500"
         >
           <RefreshCw size={48} />
         </motion.div>
@@ -311,7 +311,7 @@ export default function App() {
 
   if (!user) {
     return (
-      <div className="min-h-screen bg-stone-50 dark:bg-stone-950 flex flex-col items-center justify-center p-6">
+      <div className="min-h-screen bg-stone-100 dark:bg-stone-800 flex flex-col items-center justify-center p-6">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -332,19 +332,19 @@ export default function App() {
                 className="w-28 h-28 rounded-3xl object-cover border border-stone-200 shadow-sm"
               />
             </div>
-            <h1 className="text-4xl font-bold text-stone-900 dark:text-stone-100 tracking-tight">{t('auth.title')}</h1>
+            <h1 className="text-4xl font-bold text-stone-800 dark:text-stone-200 tracking-tight">{t('auth.title')}</h1>
             <p className="text-stone-600 dark:text-stone-300 text-lg">
               {t('auth.subtitle')}
             </p>
           </div>
           
           <Card className="space-y-6 text-left">
-            <div className="flex border-b border-stone-100 mb-6">
+            <div className="flex border-b border-stone-200 mb-6">
               <button 
                 onClick={() => { setAuthMode('login'); setAuthError(null); }}
                 className={cn(
                   "flex-1 py-3 font-bold text-sm transition-all border-b-2",
-                  authMode === 'login' ? "border-emerald-500 text-emerald-600" : "border-transparent text-stone-400 dark:text-stone-500"
+                  authMode === 'login' ? "border-emerald-400 text-emerald-500" : "border-transparent text-stone-500 dark:text-stone-400"
                 )}
               >
                 {t('auth.loginTab')}
@@ -353,7 +353,7 @@ export default function App() {
                 onClick={() => { setAuthMode('register'); setAuthError(null); }}
                 className={cn(
                   "flex-1 py-3 font-bold text-sm transition-all border-b-2",
-                  authMode === 'register' ? "border-emerald-500 text-emerald-600" : "border-transparent text-stone-400 dark:text-stone-500"
+                  authMode === 'register' ? "border-emerald-400 text-emerald-500" : "border-transparent text-stone-500 dark:text-stone-400"
                 )}
               >
                 {t('auth.registerTab')}
@@ -400,10 +400,10 @@ export default function App() {
 
             <div className="relative py-4">
               <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-stone-100 dark:border-stone-800"></div>
+                <div className="w-full border-t border-stone-200 dark:border-stone-700"></div>
               </div>
               <div className="relative flex justify-center text-xs uppercase">
-                <span className="bg-white dark:bg-stone-900 px-2 text-stone-400 font-bold">{t('auth.or')}</span>
+                <span className="bg-stone-50 dark:bg-stone-800 px-2 text-stone-500 font-bold">{t('auth.or')}</span>
               </div>
             </div>
 
@@ -418,12 +418,12 @@ export default function App() {
 
   return (
     <ErrorBoundary>
-      <div className="min-h-screen bg-stone-50 text-stone-900 dark:bg-stone-950 dark:text-stone-100 font-sans">
+      <div className="min-h-screen bg-stone-100 text-stone-800 dark:bg-stone-800 dark:text-stone-200 font-sans">
         {/* Navigation */}
-        <nav className="sticky top-0 z-50 bg-white/80 dark:bg-stone-950/80 backdrop-blur-md border-b border-stone-100 dark:border-stone-800 px-6 py-4">
+        <nav className="sticky top-0 z-50 bg-stone-50/80 dark:bg-stone-800/80 backdrop-blur-md border-b border-stone-200 dark:border-stone-600 px-6 py-4">
           <div className="max-w-5xl mx-auto flex items-center justify-between">
             <div className="flex items-center gap-3 cursor-pointer" onClick={() => setView('home')}>
-              <div className="p-2 bg-emerald-600 text-white rounded-lg">
+              <div className="p-2 bg-emerald-500 text-white rounded-lg">
                 <Globe size={20} />
               </div>
               <span className="font-bold text-xl tracking-tight hidden sm:block">{t('common.brand')}</span>
@@ -440,15 +440,15 @@ export default function App() {
                 className={cn(
                   "p-2 rounded-lg transition-colors",
                   view === 'leaderboard'
-                    ? "bg-stone-100 text-emerald-600 dark:bg-stone-800 dark:text-emerald-400"
-                    : "text-stone-500 hover:bg-stone-50 dark:text-stone-300 dark:hover:bg-stone-900"
+                    ? "bg-stone-200 text-emerald-500 dark:bg-stone-800 dark:text-emerald-300"
+                    : "text-stone-500 hover:bg-stone-100 dark:text-stone-300 dark:hover:bg-stone-800"
                 )}
               >
                 <Trophy size={24} />
               </button>
-              <div className="flex items-center gap-3 pl-4 border-l border-stone-100 dark:border-stone-800">
-                <img src={user.photoURL} alt={user.displayName} className="w-8 h-8 rounded-full border border-stone-200 dark:border-stone-700" />
-                <button onClick={handleLogout} className="text-stone-400 hover:text-rose-600 transition-colors dark:hover:text-rose-400">
+              <div className="flex items-center gap-3 pl-4 border-l border-stone-200 dark:border-stone-700">
+                <img src={user.photoURL} alt={user.displayName} className="w-8 h-8 rounded-full border border-stone-300 dark:border-stone-600" />
+                <button onClick={handleLogout} className="text-stone-400 hover:text-rose-500 transition-colors dark:hover:text-rose-300">
                   <LogOut size={20} />
                 </button>
               </div>
@@ -504,28 +504,28 @@ function HomeView({ onStart, allScores }: { onStart: (mode: GameMode, topic: Top
       title: t('topics.josemaria.title'),
       desc: t('topics.josemaria.desc'),
       image: '/images/san josemaria.jpg',
-      color: 'bg-emerald-50 text-emerald-600',
+      color: 'bg-emerald-100/70 text-emerald-500',
     },
     {
       id: 'alvaro' as Topic,
       title: t('topics.alvaro.title'),
       desc: t('topics.alvaro.desc'),
       image: '/images/alvarodelportillo.jpg',
-      color: 'bg-blue-50 text-blue-600',
+      color: 'bg-blue-100/70 text-blue-600',
     },
     {
       id: 'javier' as Topic,
       title: t('topics.javier.title'),
       desc: t('topics.javier.desc'),
       image: '/images/javierechevarria.jpg',
-      color: 'bg-amber-50 text-amber-600',
+      color: 'bg-amber-100/70 text-amber-600',
     },
     {
       id: 'guadalupe' as Topic,
       title: t('topics.guadalupe.title'),
       desc: t('topics.guadalupe.desc'),
       image: '/images/guadalupeortiz.jpg',
-      color: 'bg-rose-50 text-rose-600',
+      color: 'bg-rose-100/70 text-rose-600',
     }
   ];
 
@@ -535,7 +535,7 @@ function HomeView({ onStart, allScores }: { onStart: (mode: GameMode, topic: Top
       title: t('modes.standard.title'),
       desc: t('modes.standard.desc'),
       iconSrc: '/icons/mode-standard.svg',
-      color: 'bg-stone-50 text-stone-600',
+      color: 'bg-stone-100 text-stone-600',
     },
     {
       id: 'time-trial' as GameMode,
@@ -576,19 +576,19 @@ function HomeView({ onStart, allScores }: { onStart: (mode: GameMode, topic: Top
               className={cn(
                 "flex items-center gap-4 p-6 rounded-2xl border-2 transition-all text-left",
                 selectedTopic === t.id 
-                  ? "border-emerald-500 bg-emerald-50 ring-4 ring-emerald-500/10 dark:bg-emerald-950/30" 
-                  : "border-stone-100 bg-white hover:border-stone-200 dark:border-stone-800 dark:bg-stone-900 dark:hover:border-stone-700"
+                  ? "border-emerald-400 bg-emerald-100/60 ring-4 ring-emerald-400/15 dark:bg-emerald-900/20" 
+                  : "border-stone-200 bg-stone-50 hover:border-stone-300 dark:border-stone-600 dark:bg-stone-800 dark:hover:border-stone-500"
               )}
             >
-              <div className={cn("w-16 h-16 sm:w-20 sm:h-20 rounded-xl overflow-hidden shrink-0 border-2", selectedTopic === t.id ? "border-emerald-200" : "border-stone-100 dark:border-stone-800")}>
+              <div className={cn("w-16 h-16 sm:w-20 sm:h-20 rounded-xl overflow-hidden shrink-0 border-2", selectedTopic === t.id ? "border-emerald-300" : "border-stone-100 dark:border-stone-800")}>
                 <img src={t.image} alt={t.title} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
               </div>
               <div>
                 <h4 className="font-bold text-lg">{t.title}</h4>
-                <p className="text-stone-500 dark:text-stone-400 text-sm">{t.desc}</p>
+                <p className="text-stone-600 dark:text-stone-400 text-sm">{t.desc}</p>
               </div>
               {selectedTopic === t.id && (
-                <div className="ml-auto text-emerald-600">
+                <div className="ml-auto text-emerald-500">
                   <CheckCircle2 size={24} />
                 </div>
               )}
@@ -614,20 +614,20 @@ function HomeView({ onStart, allScores }: { onStart: (mode: GameMode, topic: Top
               className="group cursor-pointer"
               onClick={() => onStart(mode.id, selectedTopic)}
             >
-              <Card className="h-full flex flex-col items-start gap-6 p-8 border-2 border-transparent hover:border-emerald-500 transition-all">
+              <Card className="h-full flex flex-col items-start gap-6 p-8 border-2 border-transparent hover:border-emerald-400 transition-all">
                 <div className={cn('p-2 rounded-2xl', mode.color)}>
                   <img src={mode.iconSrc} alt={mode.title} className="w-14 h-14" />
                 </div>
                 <div className="space-y-2">
                   <h3 className="text-xl font-bold">{mode.title}</h3>
-                  <p className="text-stone-500 dark:text-stone-400 leading-relaxed">{mode.desc}</p>
+                  <p className="text-stone-600 dark:text-stone-400 leading-relaxed">{mode.desc}</p>
                   {mode.extra && (
-                    <p className="text-amber-600 font-bold text-sm bg-amber-50 dark:bg-amber-950/40 px-3 py-1 rounded-full inline-block">
+                    <p className="text-amber-600 font-bold text-sm bg-amber-100/70 dark:bg-amber-900/30 px-3 py-1 rounded-full inline-block">
                       {mode.extra}
                     </p>
                   )}
                 </div>
-                <div className="mt-auto pt-4 flex items-center text-emerald-600 font-bold gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="mt-auto pt-4 flex items-center text-emerald-500 font-bold gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
                   {t('common.playNow')} <ChevronRight size={20} />
                 </div>
               </Card>
@@ -774,7 +774,7 @@ function GameView({ user, mode, topic, allScores, onFinish, onCancel }: { user: 
   if (isTranslating) {
     return (
       <div className="min-h-[50vh] flex items-center justify-center">
-        <div className="bg-white border border-stone-100 dark:bg-stone-900 dark:border-stone-800 rounded-2xl px-6 py-4 text-stone-600 dark:text-stone-300 font-semibold shadow-sm">
+        <div className="bg-stone-50 border border-stone-200 dark:bg-stone-800 dark:border-stone-600 rounded-2xl px-6 py-4 text-stone-600 dark:text-stone-300 font-semibold shadow-sm">
           {t('game.translating')}
         </div>
       </div>
@@ -794,12 +794,12 @@ function GameView({ user, mode, topic, allScores, onFinish, onCancel }: { user: 
           </div>
           <h2 className="text-4xl font-bold">{t('game.finishedTitle')}</h2>
           <p className="text-stone-500 dark:text-stone-400 text-lg">{t('game.finishedSubtitle')}</p>
-          <div className="text-6xl font-black text-emerald-600">{t('game.pointsEarned', { points })}</div>
+          <div className="text-6xl font-black text-emerald-500">{t('game.pointsEarned', { points })}</div>
           {mode === 'time-trial' && (
             <div className="space-y-2">
               <p className="text-stone-600 dark:text-stone-300 font-medium">{t('game.timeResult', { time: (timer / 1000).toFixed(2) })}</p>
               {bonusAwarded ? (
-                <p className="text-emerald-600 font-bold bg-emerald-50 p-2 rounded-lg">{t('game.newRecordBonus')}</p>
+                <p className="text-emerald-500 font-bold bg-emerald-100/70 p-2 rounded-lg">{t('game.newRecordBonus')}</p>
               ) : (
                 <p className="text-stone-400 dark:text-stone-500 text-sm">
                   {bestTimeTrial === Infinity
@@ -834,7 +834,7 @@ function GameView({ user, mode, topic, allScores, onFinish, onCancel }: { user: 
     >
       <div className="flex items-center justify-between">
         <div className="space-y-1">
-          <p className="text-sm font-bold text-emerald-600 uppercase tracking-widest">
+          <p className="text-sm font-bold text-emerald-500 uppercase tracking-widest">
             {mode === 'survival' ? t('game.survivalLabel') : t('game.questionOf', { current: currentIndex + 1, total: 10 })}
           </p>
           <div className="flex flex-col">
@@ -855,7 +855,7 @@ function GameView({ user, mode, topic, allScores, onFinish, onCancel }: { user: 
 
       <div className="w-full h-2 bg-stone-200 dark:bg-stone-800 rounded-full overflow-hidden">
         <motion.div 
-          className="h-full bg-emerald-500" 
+          className="h-full bg-emerald-400" 
           initial={{ width: 0 }}
           animate={{ width: `${progress}%` }}
         />
@@ -870,7 +870,7 @@ function GameView({ user, mode, topic, allScores, onFinish, onCancel }: { user: 
             exit={{ opacity: 0, x: -20 }}
             className="space-y-8"
           >
-            <h2 className="text-2xl sm:text-3xl font-bold leading-tight text-stone-900">
+            <h2 className="text-2xl sm:text-3xl font-bold leading-tight text-stone-800 dark:text-stone-100">
               {currentQuestion.text}
             </h2>
 
@@ -882,15 +882,15 @@ function GameView({ user, mode, topic, allScores, onFinish, onCancel }: { user: 
                   disabled={!!showResult}
                   className={cn(
                     "p-6 text-left rounded-2xl border-2 transition-all font-medium text-lg",
-                    showResult === null && "border-stone-100 hover:border-emerald-500 hover:bg-emerald-50 dark:border-stone-800 dark:hover:bg-emerald-950/40",
-                    showResult === 'correct' && i === currentQuestion.correctAnswer && "border-emerald-500 bg-emerald-50 text-emerald-700",
-                    showResult === 'wrong' && i === currentQuestion.correctAnswer && "border-emerald-500 bg-emerald-50 text-emerald-700",
+                    showResult === null && "border-stone-200 hover:border-emerald-400 hover:bg-emerald-100/50 dark:border-stone-700 dark:hover:bg-emerald-900/20",
+                    showResult === 'correct' && i === currentQuestion.correctAnswer && "border-emerald-400 bg-emerald-100/60 text-emerald-500",
+                    showResult === 'wrong' && i === currentQuestion.correctAnswer && "border-emerald-400 bg-emerald-100/60 text-emerald-500",
                     showResult === 'wrong' && i !== currentQuestion.correctAnswer && "border-stone-100 opacity-50 dark:border-stone-800"
                   )}
                 >
                   <div className="flex items-center justify-between">
                     <span>{option}</span>
-                    {showResult && i === currentQuestion.correctAnswer && <CheckCircle2 className="text-emerald-600" />}
+                    {showResult && i === currentQuestion.correctAnswer && <CheckCircle2 className="text-emerald-500" />}
                   </div>
                 </button>
               ))}
@@ -904,11 +904,11 @@ function GameView({ user, mode, topic, allScores, onFinish, onCancel }: { user: 
             animate={{ opacity: 1, scale: 1 }}
             className={cn(
               "absolute inset-0 flex items-center justify-center pointer-events-none",
-              showResult === 'correct' ? "bg-emerald-500/10" : "bg-rose-500/10"
+              showResult === 'correct' ? "bg-emerald-400/10" : "bg-rose-400/10"
             )}
           >
             {showResult === 'correct' ? (
-              <CheckCircle2 size={120} className="text-emerald-500" />
+              <CheckCircle2 size={120} className="text-emerald-400" />
             ) : (
               <XCircle size={120} className="text-rose-500" />
             )}
@@ -940,7 +940,7 @@ function LeaderboardView({ scores, onPlayAgain }: { scores: ScoreRecord[]; onPla
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse">
             <thead>
-              <tr className="bg-stone-50 dark:bg-stone-900 border-b border-stone-100 dark:border-stone-800">
+              <tr className="bg-stone-50 dark:bg-stone-800 border-b border-stone-100 dark:border-stone-700">
                 <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-stone-400">{t('leaderboard.headers.position')}</th>
                 <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-stone-400">{t('leaderboard.headers.user')}</th>
                 <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-stone-400">{t('leaderboard.headers.points')}</th>
@@ -961,11 +961,11 @@ function LeaderboardView({ scores, onPlayAgain }: { scores: ScoreRecord[]; onPla
                   </td>
                   <td className="px-6 py-4">
                     <div className="flex items-center gap-3">
-                      <span className="font-bold text-stone-900">{score.displayName}</span>
+                      <span className="font-bold text-stone-800 dark:text-stone-100">{score.displayName}</span>
                     </div>
                   </td>
                   <td className="px-6 py-4">
-                    <span className="font-black text-emerald-600 text-lg">{score.score}</span>
+                    <span className="font-black text-emerald-500 text-lg">{score.score}</span>
                   </td>
                 </tr>
               ))}
