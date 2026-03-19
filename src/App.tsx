@@ -740,11 +740,9 @@ function GameView({ user, mode, topic, allScores, onFinish, onCancel }: { user: 
     if (timerRef.current) clearInterval(timerRef.current);
     
     const timeTaken = Date.now() - startTime;
-    let finalPoints = points;
-    if (lastWasCorrect) {
-      if (mode === 'standard') finalPoints += 10;
-      if (mode === 'survival') finalPoints += 2;
-    }
+    let finalPoints = 0;
+    if (mode === 'standard') finalPoints = finalCorrectCount * 10;
+    if (mode === 'survival') finalPoints = finalCorrectCount * 2;
 
     let isNewRecord = false;
     if (mode === 'time-trial' && finalCorrectCount === 10) {
@@ -757,6 +755,7 @@ function GameView({ user, mode, topic, allScores, onFinish, onCancel }: { user: 
       }
     }
     
+    setCorrectCount(finalCorrectCount);
     setPoints(finalPoints);
 
     await saveScore({
