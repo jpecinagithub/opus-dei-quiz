@@ -1,21 +1,21 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { useTranslation } from 'react-i18next';
 import { 
   Trophy, 
   Play, 
-  Timer, 
-  Heart, 
   LogOut, 
   ChevronRight, 
   CheckCircle2, 
   XCircle, 
-  BookOpen, 
   Globe, 
   History,
   User as UserIcon,
   Home as HomeIcon,
   RefreshCw,
-  Award
+  Award,
+  Moon,
+  Sun
 } from 'lucide-react';
 import { auth, googleProvider, signInWithPopup, signOut, onAuthStateChanged, collection, query, orderBy, limit, onSnapshot, db, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from './firebase';
 import { QUESTIONS_POOL } from './questions';
@@ -23,42 +23,29 @@ import { ALVARO_QUESTIONS_POOL } from './questions_alvaro';
 import { JAVIER_QUESTIONS_POOL } from './questions_javier';
 import { GUADALUPE_QUESTIONS_POOL } from './questions_guadalupe';
 import { GameMode, Question, ScoreRecord, UserProfile, Topic, OperationType } from './types';
-import { saveScore, saveUserProfile, handleFirestoreError, getUserProfile } from './services';
+import { saveScore, saveUserProfile, handleFirestoreError } from './services';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 import { Mail, Lock, User as UserIconOutline } from 'lucide-react';
+import { LANGUAGE_LABELS, SUPPORTED_LANGUAGES, normalizeLanguage } from './i18n/languages';
+import { localizeQuestions } from './i18n/questions';
 
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-const SCHOOL_GROUPS = [
-  {
-    region: 'Bizkaia',
-    schools: [
-      'Ayalde - Munabe',
-      'Umedi',
-      'Unbe Ikastola',
-      'Haurkabi',
-    ],
-  },
-  {
-    region: 'Gipuzkoa',
-    schools: [
-      'Erain - Eskibel',
-      'Erain Txiki',
-    ],
-  },
-  {
-    region: 'La Rioja',
-    schools: [
-      'Alcaste - Las Fuentes',
-    ],
-  },
-];
-
 // --- Components ---
+
+type ThemeMode = 'light' | 'dark';
+
+function getInitialTheme(): ThemeMode {
+  if (typeof window === 'undefined') return 'light';
+  const stored = localStorage.getItem('theme');
+  if (stored === 'light' || stored === 'dark') return stored;
+  const prefersDark = window.matchMedia?.('(prefers-color-scheme: dark)').matches;
+  return prefersDark ? 'dark' : 'light';
+}
 
 const Input = ({ 
   type = 'text', 
@@ -88,7 +75,7 @@ const Input = ({
       onChange={onChange}
       required={required}
       className={cn(
-        "w-full bg-stone-50 border border-stone-200 rounded-xl py-3 px-4 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all",
+        "w-full bg-stone-50 border border-stone-200 rounded-xl py-3 px-4 text-stone-900 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all dark:bg-stone-900 dark:border-stone-700 dark:text-stone-100 dark:placeholder:text-stone-500",
         Icon && "pl-11"
       )}
     />
@@ -115,8 +102,8 @@ const Button = ({
   const variants = {
     primary: 'bg-emerald-600 text-white hover:bg-emerald-700 shadow-sm',
     secondary: 'bg-stone-800 text-white hover:bg-stone-900 shadow-sm',
-    outline: 'border-2 border-stone-200 text-stone-700 hover:bg-stone-50',
-    ghost: 'text-stone-600 hover:bg-stone-100',
+    outline: 'border-2 border-stone-200 text-stone-700 hover:bg-stone-50 dark:border-stone-700 dark:text-stone-200 dark:hover:bg-stone-800',
+    ghost: 'text-stone-600 hover:bg-stone-100 dark:text-stone-300 dark:hover:bg-stone-800',
     danger: 'bg-rose-600 text-white hover:bg-rose-700 shadow-sm',
   };
 
@@ -142,15 +129,57 @@ const Card = ({ children, className, delay = 0 }: { children: React.ReactNode; c
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.4, delay }}
-    className={cn('bg-white p-6 rounded-2xl shadow-sm border border-stone-100', className)}
+    className={cn('bg-white p-6 rounded-2xl shadow-sm border border-stone-100 dark:bg-stone-900 dark:border-stone-800', className)}
   >
     {children}
   </motion.div>
 );
 
+const LanguageSwitcher = ({ className }: { className?: string }) => {
+  const { i18n } = useTranslation();
+  const current = normalizeLanguage(i18n.resolvedLanguage || i18n.language);
+  const currentIndex = SUPPORTED_LANGUAGES.indexOf(current);
+  const next = SUPPORTED_LANGUAGES[(currentIndex + 1) % SUPPORTED_LANGUAGES.length];
+  return (
+    <button
+      type="button"
+      onClick={() => i18n.changeLanguage(next)}
+      className={cn(
+        'inline-flex items-center justify-center w-10 h-10 rounded-lg border border-stone-200 text-stone-600 hover:bg-stone-50 transition-colors dark:border-stone-700 dark:text-stone-200 dark:hover:bg-stone-800',
+        className
+      )}
+      aria-label="Toggle language"
+      title={LANGUAGE_LABELS[current]}
+    >
+      <div className="relative">
+        <Globe size={18} />
+        <span className="absolute -bottom-2 -right-3 text-[10px] font-bold bg-emerald-600 text-white px-1.5 py-0.5 rounded-full">
+          {current.toUpperCase()}
+        </span>
+      </div>
+    </button>
+  );
+};
+
+const ThemeToggle = ({ theme, onToggle, className }: { theme: ThemeMode; onToggle: () => void; className?: string }) => (
+  <button
+    type="button"
+    onClick={onToggle}
+    className={cn(
+      'inline-flex items-center justify-center w-10 h-10 rounded-lg border border-stone-200 text-stone-600 hover:bg-stone-50 transition-colors dark:border-stone-700 dark:text-stone-200 dark:hover:bg-stone-800',
+      className
+    )}
+    aria-label="Toggle theme"
+  >
+    {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+  </button>
+);
+
 // --- Main App ---
 
 export default function App() {
+  const { t, i18n } = useTranslation();
+  const [theme, setTheme] = useState<ThemeMode>(() => getInitialTheme());
   const [user, setUser] = useState<UserProfile | null>(null);
   const [loading, setLoading] = useState(true);
   const [view, setView] = useState<'home' | 'game' | 'leaderboard'>('home');
@@ -163,40 +192,31 @@ export default function App() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [displayName, setDisplayName] = useState('');
-  const [school, setSchool] = useState('');
   const [authError, setAuthError] = useState<string | null>(null);
-  const [schoolError, setSchoolError] = useState<string | null>(null);
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
+    document.documentElement.lang = normalizeLanguage(i18n.language);
+  }, [i18n.language]);
+
+  useEffect(() => {
+    document.documentElement.classList.toggle('dark', theme === 'dark');
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
       if (firebaseUser) {
-        const baseProfile = {
+        const fallbackName = t('common.defaultUser');
+        const profile = {
           uid: firebaseUser.uid,
-          displayName: firebaseUser.displayName || 'Usuario',
-          photoURL: firebaseUser.photoURL || `https://ui-avatars.com/api/?name=${encodeURIComponent(firebaseUser.displayName || 'U')}&background=random`,
+          displayName: firebaseUser.displayName || fallbackName,
+          photoURL: firebaseUser.photoURL || `https://ui-avatars.com/api/?name=${encodeURIComponent(firebaseUser.displayName || fallbackName)}&background=random`,
           email: firebaseUser.email || '',
         };
-        let storedSchool = '';
-        let storedProfile: any = null;
-        try {
-          storedProfile = await getUserProfile(firebaseUser.uid);
-          storedSchool = storedProfile?.school || '';
-        } catch (error) {
-          console.error('Error loading user profile:', error);
-        }
-        const profile = {
-          ...baseProfile,
-          school: storedSchool,
-        };
         setUser(profile);
-        setSchool(storedSchool);
-        if (!storedProfile && storedSchool) {
-          saveUserProfile(profile);
-        }
+        saveUserProfile(profile);
       } else {
         setUser(null);
-        setSchool('');
-        setSchoolError(null);
       }
       setLoading(false);
     });
@@ -228,7 +248,7 @@ export default function App() {
       await signInWithPopup(auth, googleProvider);
     } catch (error: any) {
       console.error('Google login error:', error);
-      setAuthError('Error al iniciar sesión con Google.');
+      setAuthError(t('auth.errors.google'));
     }
   };
 
@@ -239,18 +259,14 @@ export default function App() {
       await signInWithEmailAndPassword(auth, email, password);
     } catch (error: any) {
       console.error('Email login error:', error);
-      setAuthError('Credenciales incorrectas o usuario no encontrado.');
+      setAuthError(t('auth.errors.invalidCredentials'));
     }
   };
 
   const handleEmailRegister = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!displayName) {
-      setAuthError('Por favor, introduce un nombre de usuario.');
-      return;
-    }
-    if (!school) {
-      setAuthError('Por favor, selecciona tu colegio.');
+      setAuthError(t('auth.errors.missingName'));
       return;
     }
     try {
@@ -264,38 +280,24 @@ export default function App() {
         displayName: displayName,
         photoURL: `https://ui-avatars.com/api/?name=${encodeURIComponent(displayName)}&background=random`,
         email: email,
-        school: school,
       };
       setUser(profile);
       await saveUserProfile(profile);
     } catch (error: any) {
       console.error('Registration error:', error);
       if (error.code === 'auth/email-already-in-use') {
-        setAuthError('Este correo electrónico ya está en uso.');
+        setAuthError(t('auth.errors.emailInUse'));
       } else {
-        setAuthError('Error al crear la cuenta. Inténtalo de nuevo.');
+        setAuthError(t('auth.errors.registerGeneric'));
       }
     }
   };
 
   const handleLogout = () => signOut(auth);
 
-  const handleSchoolSave = async (selectedSchool: string) => {
-    if (!user) return;
-    if (!selectedSchool) {
-      setSchoolError('Por favor, selecciona tu colegio.');
-      return;
-    }
-    setSchoolError(null);
-    const updatedProfile = { ...user, school: selectedSchool };
-    setUser(updatedProfile);
-    await saveUserProfile(updatedProfile);
-    setView('home');
-  };
-
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-stone-50">
+      <div className="min-h-screen flex items-center justify-center bg-stone-50 dark:bg-stone-950">
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
@@ -309,19 +311,30 @@ export default function App() {
 
   if (!user) {
     return (
-      <div className="min-h-screen bg-stone-50 flex flex-col items-center justify-center p-6">
+      <div className="min-h-screen bg-stone-50 dark:bg-stone-950 flex flex-col items-center justify-center p-6">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           className="max-w-md w-full text-center space-y-8"
         >
+          <div className="flex justify-end gap-2">
+            <LanguageSwitcher />
+            <ThemeToggle
+              theme={theme}
+              onToggle={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+            />
+          </div>
           <div className="space-y-4">
-            <div className="inline-flex p-4 bg-emerald-100 text-emerald-700 rounded-3xl mb-4">
-              <Globe size={48} />
+            <div className="inline-flex mb-4">
+              <img
+                src="/images/san josemaria.jpg"
+                alt={t('topics.josemaria.title')}
+                className="w-28 h-28 rounded-3xl object-cover border border-stone-200 shadow-sm"
+              />
             </div>
-            <h1 className="text-4xl font-bold text-stone-900 tracking-tight">Huellas de San Josemaría</h1>
-            <p className="text-stone-600 text-lg">
-              Explora la vida, obra y legado del fundador del Opus Dei.
+            <h1 className="text-4xl font-bold text-stone-900 dark:text-stone-100 tracking-tight">{t('auth.title')}</h1>
+            <p className="text-stone-600 dark:text-stone-300 text-lg">
+              {t('auth.subtitle')}
             </p>
           </div>
           
@@ -331,54 +344,35 @@ export default function App() {
                 onClick={() => { setAuthMode('login'); setAuthError(null); }}
                 className={cn(
                   "flex-1 py-3 font-bold text-sm transition-all border-b-2",
-                  authMode === 'login' ? "border-emerald-500 text-emerald-600" : "border-transparent text-stone-400"
+                  authMode === 'login' ? "border-emerald-500 text-emerald-600" : "border-transparent text-stone-400 dark:text-stone-500"
                 )}
               >
-                INICIAR SESIÓN
+                {t('auth.loginTab')}
               </button>
               <button 
                 onClick={() => { setAuthMode('register'); setAuthError(null); }}
                 className={cn(
                   "flex-1 py-3 font-bold text-sm transition-all border-b-2",
-                  authMode === 'register' ? "border-emerald-500 text-emerald-600" : "border-transparent text-stone-400"
+                  authMode === 'register' ? "border-emerald-500 text-emerald-600" : "border-transparent text-stone-400 dark:text-stone-500"
                 )}
               >
-                REGISTRARSE
+                {t('auth.registerTab')}
               </button>
             </div>
 
             <form onSubmit={authMode === 'login' ? handleEmailLogin : handleEmailRegister} className="space-y-4">
               {authMode === 'register' && (
-                <>
-                  <Input 
-                    placeholder="Nombre de usuario" 
-                    value={displayName} 
-                    onChange={(e) => setDisplayName(e.target.value)} 
-                    icon={UserIconOutline}
-                    required
-                  />
-                  <div className="relative">
-                    <select
-                      value={school}
-                      onChange={(e) => setSchool(e.target.value)}
-                      required
-                      className="w-full bg-stone-50 border border-stone-200 rounded-xl py-3 px-4 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all"
-                    >
-                      <option value="" disabled>Selecciona tu colegio</option>
-                      {SCHOOL_GROUPS.map((group) => (
-                        <optgroup key={group.region} label={group.region}>
-                          {group.schools.map((schoolName) => (
-                            <option key={schoolName} value={schoolName}>{schoolName}</option>
-                          ))}
-                        </optgroup>
-                      ))}
-                    </select>
-                  </div>
-                </>
+                <Input 
+                  placeholder={t('auth.usernamePlaceholder')}
+                  value={displayName} 
+                  onChange={(e) => setDisplayName(e.target.value)} 
+                  icon={UserIconOutline}
+                  required
+                />
               )}
               <Input 
                 type="email"
-                placeholder="Correo electrónico" 
+                placeholder={t('auth.emailPlaceholder')}
                 value={email} 
                 onChange={(e) => setEmail(e.target.value)} 
                 icon={Mail}
@@ -386,7 +380,7 @@ export default function App() {
               />
               <Input 
                 type="password"
-                placeholder="Contraseña" 
+                placeholder={t('auth.passwordPlaceholder')}
                 value={password} 
                 onChange={(e) => setPassword(e.target.value)} 
                 icon={Lock}
@@ -394,27 +388,27 @@ export default function App() {
               />
 
               {authError && (
-                <p className="text-rose-600 text-sm font-medium bg-rose-50 p-3 rounded-lg border border-rose-100">
+                <p className="text-rose-600 text-sm font-medium bg-rose-50 p-3 rounded-lg border border-rose-100 dark:bg-rose-950/40 dark:border-rose-900/40">
                   {authError}
                 </p>
               )}
 
               <Button type="submit" className="w-full py-4 text-lg">
-                {authMode === 'login' ? 'Entrar' : 'Crear cuenta'}
+                {authMode === 'login' ? t('auth.loginButton') : t('auth.registerButton')}
               </Button>
             </form>
 
             <div className="relative py-4">
               <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-stone-100"></div>
+                <div className="w-full border-t border-stone-100 dark:border-stone-800"></div>
               </div>
               <div className="relative flex justify-center text-xs uppercase">
-                <span className="bg-white px-2 text-stone-400 font-bold">O también</span>
+                <span className="bg-white dark:bg-stone-900 px-2 text-stone-400 font-bold">{t('auth.or')}</span>
               </div>
             </div>
 
             <Button onClick={handleGoogleLogin} variant="outline" className="w-full py-3" icon={Globe}>
-              Continuar con Google
+              {t('auth.googleButton')}
             </Button>
           </Card>
         </motion.div>
@@ -424,79 +418,71 @@ export default function App() {
 
   return (
     <ErrorBoundary>
-      <div className="min-h-screen bg-stone-50 text-stone-900 font-sans">
-        {!user.school ? (
-          <SchoolSetupView 
-            selectedSchool={school}
-            error={schoolError}
-            onChange={(value) => {
-              setSchool(value);
-              setSchoolError(null);
-            }}
-            onSave={() => handleSchoolSave(school)}
-            onLogout={handleLogout}
-          />
-        ) : (
-          <>
-            {/* Navigation */}
-            <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-stone-100 px-6 py-4">
-              <div className="max-w-5xl mx-auto flex items-center justify-between">
-                <div className="flex items-center gap-3 cursor-pointer" onClick={() => setView('home')}>
-                  <div className="p-2 bg-emerald-600 text-white rounded-lg">
-                    <Globe size={20} />
-                  </div>
-                  <span className="font-bold text-xl tracking-tight hidden sm:block">Huellas</span>
-                </div>
-                
-                <div className="flex items-center gap-4">
-                  <button 
-                    onClick={() => setView('leaderboard')}
-                    className={cn(
-                      "p-2 rounded-lg transition-colors",
-                      view === 'leaderboard' ? "bg-stone-100 text-emerald-600" : "text-stone-500 hover:bg-stone-50"
-                    )}
-                  >
-                    <Trophy size={24} />
-                  </button>
-                  <div className="flex items-center gap-3 pl-4 border-l border-stone-100">
-                    <img src={user.photoURL} alt={user.displayName} className="w-8 h-8 rounded-full border border-stone-200" />
-                    <button onClick={handleLogout} className="text-stone-400 hover:text-rose-600 transition-colors">
-                      <LogOut size={20} />
-                    </button>
-                  </div>
-                </div>
+      <div className="min-h-screen bg-stone-50 text-stone-900 dark:bg-stone-950 dark:text-stone-100 font-sans">
+        {/* Navigation */}
+        <nav className="sticky top-0 z-50 bg-white/80 dark:bg-stone-950/80 backdrop-blur-md border-b border-stone-100 dark:border-stone-800 px-6 py-4">
+          <div className="max-w-5xl mx-auto flex items-center justify-between">
+            <div className="flex items-center gap-3 cursor-pointer" onClick={() => setView('home')}>
+              <div className="p-2 bg-emerald-600 text-white rounded-lg">
+                <Globe size={20} />
               </div>
-            </nav>
+              <span className="font-bold text-xl tracking-tight hidden sm:block">{t('common.brand')}</span>
+            </div>
+            
+            <div className="flex items-center gap-4">
+              <LanguageSwitcher />
+              <ThemeToggle
+                theme={theme}
+                onToggle={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+              />
+              <button 
+                onClick={() => setView('leaderboard')}
+                className={cn(
+                  "p-2 rounded-lg transition-colors",
+                  view === 'leaderboard'
+                    ? "bg-stone-100 text-emerald-600 dark:bg-stone-800 dark:text-emerald-400"
+                    : "text-stone-500 hover:bg-stone-50 dark:text-stone-300 dark:hover:bg-stone-900"
+                )}
+              >
+                <Trophy size={24} />
+              </button>
+              <div className="flex items-center gap-3 pl-4 border-l border-stone-100 dark:border-stone-800">
+                <img src={user.photoURL} alt={user.displayName} className="w-8 h-8 rounded-full border border-stone-200 dark:border-stone-700" />
+                <button onClick={handleLogout} className="text-stone-400 hover:text-rose-600 transition-colors dark:hover:text-rose-400">
+                  <LogOut size={20} />
+                </button>
+              </div>
+            </div>
+          </div>
+        </nav>
 
-            <main className="max-w-5xl mx-auto p-6">
-              <AnimatePresence mode="wait">
-                {view === 'home' && (
-                  <HomeView 
-                    allScores={scores}
-                    onStart={(mode, selectedTopic) => {
-                      setGameMode(mode);
-                      setTopic(selectedTopic);
-                      setView('game');
-                    }} 
-                  />
-                )}
-                {view === 'game' && (
-                  <GameView 
-                    user={user}
-                    mode={gameMode} 
-                    topic={topic}
-                    allScores={scores}
-                    onFinish={() => setView('leaderboard')} 
-                    onCancel={() => setView('home')}
-                  />
-                )}
-                {view === 'leaderboard' && (
-                  <LeaderboardView scores={scores} onPlayAgain={() => setView('home')} />
-                )}
-              </AnimatePresence>
-            </main>
-          </>
-        )}
+        <main className="max-w-5xl mx-auto p-6">
+          <AnimatePresence mode="wait">
+            {view === 'home' && (
+              <HomeView 
+                allScores={scores}
+                onStart={(mode, selectedTopic) => {
+                  setGameMode(mode);
+                  setTopic(selectedTopic);
+                  setView('game');
+                }} 
+              />
+            )}
+            {view === 'game' && (
+              <GameView 
+                user={user}
+                mode={gameMode} 
+                topic={topic}
+                allScores={scores}
+                onFinish={() => setView('leaderboard')} 
+                onCancel={() => setView('home')}
+              />
+            )}
+            {view === 'leaderboard' && (
+              <LeaderboardView scores={scores} onPlayAgain={() => setView('home')} />
+            )}
+          </AnimatePresence>
+        </main>
       </div>
     </ErrorBoundary>
   );
@@ -505,6 +491,7 @@ export default function App() {
 // --- Views ---
 
 function HomeView({ onStart, allScores }: { onStart: (mode: GameMode, topic: Topic) => void; allScores: ScoreRecord[] }) {
+  const { t } = useTranslation();
   const [selectedTopic, setSelectedTopic] = useState<Topic>('josemaria');
 
   const bestTimeTrial = allScores
@@ -514,29 +501,29 @@ function HomeView({ onStart, allScores }: { onStart: (mode: GameMode, topic: Top
   const topics = [
     {
       id: 'josemaria' as Topic,
-      title: 'San Josemaría',
-      desc: 'Fundador del Opus Dei',
+      title: t('topics.josemaria.title'),
+      desc: t('topics.josemaria.desc'),
       image: '/images/san josemaria.jpg',
       color: 'bg-emerald-50 text-emerald-600',
     },
     {
       id: 'alvaro' as Topic,
-      title: 'Álvaro del Portillo',
-      desc: 'Primer sucesor',
+      title: t('topics.alvaro.title'),
+      desc: t('topics.alvaro.desc'),
       image: '/images/alvarodelportillo.jpg',
       color: 'bg-blue-50 text-blue-600',
     },
     {
       id: 'javier' as Topic,
-      title: 'Javier Echevarría',
-      desc: 'Segundo sucesor',
+      title: t('topics.javier.title'),
+      desc: t('topics.javier.desc'),
       image: '/images/javierechevarria.jpg',
       color: 'bg-amber-50 text-amber-600',
     },
     {
       id: 'guadalupe' as Topic,
-      title: 'Guadalupe Ortiz',
-      desc: 'Científica y laica',
+      title: t('topics.guadalupe.title'),
+      desc: t('topics.guadalupe.desc'),
       image: '/images/guadalupeortiz.jpg',
       color: 'bg-rose-50 text-rose-600',
     }
@@ -545,24 +532,26 @@ function HomeView({ onStart, allScores }: { onStart: (mode: GameMode, topic: Top
   const modes = [
     {
       id: 'standard' as GameMode,
-      title: 'Modo Estándar',
-      desc: '10 puntos por acierto. 10 preguntas aleatorias.',
-      icon: BookOpen,
+      title: t('modes.standard.title'),
+      desc: t('modes.standard.desc'),
+      iconSrc: '/icons/mode-standard.svg',
       color: 'bg-stone-50 text-stone-600',
     },
     {
       id: 'time-trial' as GameMode,
-      title: 'Contrarreloj',
-      desc: 'Bono de 50 puntos si bates el récord actual.',
-      icon: Timer,
+      title: t('modes.timeTrial.title'),
+      desc: t('modes.timeTrial.desc'),
+      iconSrc: '/icons/mode-time.svg',
       color: 'bg-amber-50 text-amber-600',
-      extra: bestTimeTrial !== Infinity ? `Récord: ${(bestTimeTrial / 1000).toFixed(2)}s` : 'Sin récord aún'
+      extra: bestTimeTrial !== Infinity
+        ? t('modes.timeTrial.record', { time: (bestTimeTrial / 1000).toFixed(2) })
+        : t('modes.timeTrial.noRecord')
     },
     {
       id: 'survival' as GameMode,
-      title: 'Supervivencia',
-      desc: '2 puntos por acierto. Hasta que falles.',
-      icon: Heart,
+      title: t('modes.survival.title'),
+      desc: t('modes.survival.desc'),
+      iconSrc: '/icons/mode-survival.svg',
       color: 'bg-rose-50 text-rose-600',
     }
   ];
@@ -576,8 +565,8 @@ function HomeView({ onStart, allScores }: { onStart: (mode: GameMode, topic: Top
     >
       <div className="space-y-6">
         <div className="space-y-2">
-          <h2 className="text-3xl font-bold tracking-tight">1. Selecciona el tema</h2>
-          <p className="text-stone-500 text-lg">¿Sobre quién quieres poner a prueba tus conocimientos?</p>
+          <h2 className="text-3xl font-bold tracking-tight">{t('home.step1Title')}</h2>
+          <p className="text-stone-500 text-lg">{t('home.step1Desc')}</p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {topics.map((t) => (
@@ -587,16 +576,16 @@ function HomeView({ onStart, allScores }: { onStart: (mode: GameMode, topic: Top
               className={cn(
                 "flex items-center gap-4 p-6 rounded-2xl border-2 transition-all text-left",
                 selectedTopic === t.id 
-                  ? "border-emerald-500 bg-emerald-50 ring-4 ring-emerald-500/10" 
-                  : "border-stone-100 bg-white hover:border-stone-200"
+                  ? "border-emerald-500 bg-emerald-50 ring-4 ring-emerald-500/10 dark:bg-emerald-950/30" 
+                  : "border-stone-100 bg-white hover:border-stone-200 dark:border-stone-800 dark:bg-stone-900 dark:hover:border-stone-700"
               )}
             >
-              <div className={cn("w-16 h-16 sm:w-20 sm:h-20 rounded-xl overflow-hidden shrink-0 border-2", selectedTopic === t.id ? "border-emerald-200" : "border-stone-100")}>
+              <div className={cn("w-16 h-16 sm:w-20 sm:h-20 rounded-xl overflow-hidden shrink-0 border-2", selectedTopic === t.id ? "border-emerald-200" : "border-stone-100 dark:border-stone-800")}>
                 <img src={t.image} alt={t.title} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
               </div>
               <div>
                 <h4 className="font-bold text-lg">{t.title}</h4>
-                <p className="text-stone-500 text-sm">{t.desc}</p>
+                <p className="text-stone-500 dark:text-stone-400 text-sm">{t.desc}</p>
               </div>
               {selectedTopic === t.id && (
                 <div className="ml-auto text-emerald-600">
@@ -610,8 +599,8 @@ function HomeView({ onStart, allScores }: { onStart: (mode: GameMode, topic: Top
 
       <div className="space-y-6">
         <div className="space-y-2">
-          <h2 className="text-3xl font-bold tracking-tight">2. Selecciona un modo de juego</h2>
-          <p className="text-stone-500 text-lg">Elige cómo quieres jugar hoy.</p>
+          <h2 className="text-3xl font-bold tracking-tight">{t('home.step2Title')}</h2>
+          <p className="text-stone-500 text-lg">{t('home.step2Desc')}</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -626,20 +615,20 @@ function HomeView({ onStart, allScores }: { onStart: (mode: GameMode, topic: Top
               onClick={() => onStart(mode.id, selectedTopic)}
             >
               <Card className="h-full flex flex-col items-start gap-6 p-8 border-2 border-transparent hover:border-emerald-500 transition-all">
-                <div className={cn('p-4 rounded-2xl', mode.color)}>
-                  <mode.icon size={32} />
+                <div className={cn('p-2 rounded-2xl', mode.color)}>
+                  <img src={mode.iconSrc} alt={mode.title} className="w-14 h-14" />
                 </div>
                 <div className="space-y-2">
                   <h3 className="text-xl font-bold">{mode.title}</h3>
-                  <p className="text-stone-500 leading-relaxed">{mode.desc}</p>
+                  <p className="text-stone-500 dark:text-stone-400 leading-relaxed">{mode.desc}</p>
                   {mode.extra && (
-                    <p className="text-amber-600 font-bold text-sm bg-amber-50 px-3 py-1 rounded-full inline-block">
+                    <p className="text-amber-600 font-bold text-sm bg-amber-50 dark:bg-amber-950/40 px-3 py-1 rounded-full inline-block">
                       {mode.extra}
                     </p>
                   )}
                 </div>
                 <div className="mt-auto pt-4 flex items-center text-emerald-600 font-bold gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                  Jugar ahora <ChevronRight size={20} />
+                  {t('common.playNow')} <ChevronRight size={20} />
                 </div>
               </Card>
             </motion.div>
@@ -651,6 +640,8 @@ function HomeView({ onStart, allScores }: { onStart: (mode: GameMode, topic: Top
 }
 
 function GameView({ user, mode, topic, allScores, onFinish, onCancel }: { user: UserProfile; mode: GameMode; topic: Topic; allScores: ScoreRecord[]; onFinish: () => void; onCancel: () => void }) {
+  const { t, i18n } = useTranslation();
+  const [baseQuestions, setBaseQuestions] = useState<Question[]>([]);
   const [questions, setQuestions] = useState<Question[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [points, setPoints] = useState(0);
@@ -660,6 +651,7 @@ function GameView({ user, mode, topic, allScores, onFinish, onCancel }: { user: 
   const [startTime] = useState(Date.now());
   const [timer, setTimer] = useState(0);
   const [bonusAwarded, setBonusAwarded] = useState(false);
+  const [isTranslating, setIsTranslating] = useState(false);
   const timerRef = useRef<any>(null);
 
   const bestTimeTrial = allScores
@@ -679,6 +671,7 @@ function GameView({ user, mode, topic, allScores, onFinish, onCancel }: { user: 
     } else {
       selected = [...pool].sort(() => Math.random() - 0.5).slice(0, 10);
     }
+    setBaseQuestions(selected);
     setQuestions(selected);
 
     if (mode === 'time-trial') {
@@ -691,6 +684,30 @@ function GameView({ user, mode, topic, allScores, onFinish, onCancel }: { user: 
       if (timerRef.current) clearInterval(timerRef.current);
     };
   }, [mode, topic, startTime]);
+
+  useEffect(() => {
+    let active = true;
+    if (baseQuestions.length === 0) return;
+
+    const run = async () => {
+      const normalizedLang = normalizeLanguage(i18n.language);
+      if (normalizedLang === 'es') {
+        setIsTranslating(false);
+        setQuestions(baseQuestions);
+        return;
+      }
+      setIsTranslating(true);
+      const localized = await localizeQuestions(topic, normalizedLang, baseQuestions);
+      if (!active) return;
+      setQuestions(localized);
+      setIsTranslating(false);
+    };
+
+    run();
+    return () => {
+      active = false;
+    };
+  }, [baseQuestions, i18n.language, topic]);
 
   const handleAnswer = (index: number) => {
     if (showResult) return;
@@ -745,7 +762,6 @@ function GameView({ user, mode, topic, allScores, onFinish, onCancel }: { user: 
     await saveScore({
       uid: user.uid,
       displayName: user.displayName,
-      school: user.school || 'Sin colegio',
       score: finalPoints,
       mode,
       topic,
@@ -754,6 +770,16 @@ function GameView({ user, mode, topic, allScores, onFinish, onCancel }: { user: 
   };
 
   if (questions.length === 0) return null;
+
+  if (isTranslating) {
+    return (
+      <div className="min-h-[50vh] flex items-center justify-center">
+        <div className="bg-white border border-stone-100 dark:bg-stone-900 dark:border-stone-800 rounded-2xl px-6 py-4 text-stone-600 dark:text-stone-300 font-semibold shadow-sm">
+          {t('game.translating')}
+        </div>
+      </div>
+    );
+  }
 
   if (isFinished) {
     return (
@@ -766,27 +792,31 @@ function GameView({ user, mode, topic, allScores, onFinish, onCancel }: { user: 
           <div className="inline-flex p-6 bg-amber-100 text-amber-600 rounded-full">
             <Award size={64} />
           </div>
-          <h2 className="text-4xl font-bold">¡Partida finalizada!</h2>
-          <p className="text-stone-500 text-lg">Has obtenido:</p>
-          <div className="text-6xl font-black text-emerald-600">{points} Puntos</div>
+          <h2 className="text-4xl font-bold">{t('game.finishedTitle')}</h2>
+          <p className="text-stone-500 dark:text-stone-400 text-lg">{t('game.finishedSubtitle')}</p>
+          <div className="text-6xl font-black text-emerald-600">{t('game.pointsEarned', { points })}</div>
           {mode === 'time-trial' && (
             <div className="space-y-2">
-              <p className="text-stone-600 font-medium">Tiempo: {(timer / 1000).toFixed(2)}s</p>
+              <p className="text-stone-600 dark:text-stone-300 font-medium">{t('game.timeResult', { time: (timer / 1000).toFixed(2) })}</p>
               {bonusAwarded ? (
-                <p className="text-emerald-600 font-bold bg-emerald-50 p-2 rounded-lg">¡NUEVO RÉCORD! +50 Puntos de bono</p>
+                <p className="text-emerald-600 font-bold bg-emerald-50 p-2 rounded-lg">{t('game.newRecordBonus')}</p>
               ) : (
-                <p className="text-stone-400 text-sm">Mejor tiempo actual: {bestTimeTrial === Infinity ? 'N/A' : `${(bestTimeTrial / 1000).toFixed(2)}s`}</p>
+                <p className="text-stone-400 dark:text-stone-500 text-sm">
+                  {bestTimeTrial === Infinity
+                    ? t('game.bestTime', { time: t('common.na') })
+                    : t('game.bestTime', { time: (bestTimeTrial / 1000).toFixed(2) })}
+                </p>
               )}
             </div>
           )}
           {mode !== 'time-trial' && (
-            <p className="text-stone-500">Aciertos: {correctCount}</p>
+            <p className="text-stone-500 dark:text-stone-400">{t('game.correctCount', { count: correctCount })}</p>
           )}
         </div>
 
         <div className="flex flex-col gap-3">
-          <Button onClick={onFinish} className="w-full">Ver Clasificación</Button>
-          <Button variant="outline" onClick={onCancel} className="w-full">Volver al Inicio</Button>
+          <Button onClick={onFinish} className="w-full">{t('common.viewLeaderboard')}</Button>
+          <Button variant="outline" onClick={onCancel} className="w-full">{t('common.backHome')}</Button>
         </div>
       </motion.div>
     );
@@ -805,21 +835,25 @@ function GameView({ user, mode, topic, allScores, onFinish, onCancel }: { user: 
       <div className="flex items-center justify-between">
         <div className="space-y-1">
           <p className="text-sm font-bold text-emerald-600 uppercase tracking-widest">
-            {mode === 'survival' ? 'Supervivencia' : `Pregunta ${currentIndex + 1} de 10`}
+            {mode === 'survival' ? t('game.survivalLabel') : t('game.questionOf', { current: currentIndex + 1, total: 10 })}
           </p>
           <div className="flex flex-col">
-            <h3 className="text-xl font-bold text-stone-500">
-              {mode === 'time-trial' ? `Tiempo: ${(timer / 1000).toFixed(1)}s` : `Puntos: ${points}`}
+            <h3 className="text-xl font-bold text-stone-500 dark:text-stone-300">
+              {mode === 'time-trial'
+                ? t('game.timeLabel', { time: (timer / 1000).toFixed(1) })
+                : t('game.pointsLabel', { points })}
             </h3>
             {mode === 'time-trial' && bestTimeTrial !== Infinity && (
-              <span className="text-xs text-stone-400 font-medium">Récord a batir: {(bestTimeTrial / 1000).toFixed(2)}s</span>
+              <span className="text-xs text-stone-400 dark:text-stone-500 font-medium">
+                {t('game.recordToBeat', { time: (bestTimeTrial / 1000).toFixed(2) })}
+              </span>
             )}
           </div>
         </div>
-        <Button variant="ghost" onClick={onCancel} icon={XCircle}>Salir</Button>
+        <Button variant="ghost" onClick={onCancel} icon={XCircle}>{t('common.exit')}</Button>
       </div>
 
-      <div className="w-full h-2 bg-stone-200 rounded-full overflow-hidden">
+      <div className="w-full h-2 bg-stone-200 dark:bg-stone-800 rounded-full overflow-hidden">
         <motion.div 
           className="h-full bg-emerald-500" 
           initial={{ width: 0 }}
@@ -848,10 +882,10 @@ function GameView({ user, mode, topic, allScores, onFinish, onCancel }: { user: 
                   disabled={!!showResult}
                   className={cn(
                     "p-6 text-left rounded-2xl border-2 transition-all font-medium text-lg",
-                    showResult === null && "border-stone-100 hover:border-emerald-500 hover:bg-emerald-50",
+                    showResult === null && "border-stone-100 hover:border-emerald-500 hover:bg-emerald-50 dark:border-stone-800 dark:hover:bg-emerald-950/40",
                     showResult === 'correct' && i === currentQuestion.correctAnswer && "border-emerald-500 bg-emerald-50 text-emerald-700",
                     showResult === 'wrong' && i === currentQuestion.correctAnswer && "border-emerald-500 bg-emerald-50 text-emerald-700",
-                    showResult === 'wrong' && i !== currentQuestion.correctAnswer && "border-stone-100 opacity-50"
+                    showResult === 'wrong' && i !== currentQuestion.correctAnswer && "border-stone-100 opacity-50 dark:border-stone-800"
                   )}
                 >
                   <div className="flex items-center justify-between">
@@ -886,6 +920,7 @@ function GameView({ user, mode, topic, allScores, onFinish, onCancel }: { user: 
 }
 
 function LeaderboardView({ scores, onPlayAgain }: { scores: ScoreRecord[]; onPlayAgain: () => void }) {
+  const { t } = useTranslation();
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -895,26 +930,25 @@ function LeaderboardView({ scores, onPlayAgain }: { scores: ScoreRecord[]; onPla
     >
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
         <div className="space-y-2">
-          <h2 className="text-3xl font-bold tracking-tight">Clasificación</h2>
-          <p className="text-stone-500">Ranking general de puntos.</p>
+          <h2 className="text-3xl font-bold tracking-tight">{t('leaderboard.title')}</h2>
+          <p className="text-stone-500">{t('leaderboard.subtitle')}</p>
         </div>
-        <Button onClick={onPlayAgain} icon={Play}>Jugar de nuevo</Button>
+        <Button onClick={onPlayAgain} icon={Play}>{t('common.playAgain')}</Button>
       </div>
 
       <Card className="p-0 overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse">
             <thead>
-              <tr className="bg-stone-50 border-b border-stone-100">
-                <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-stone-400">Posición</th>
-                <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-stone-400">Usuario</th>
-                <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-stone-400">Colegio</th>
-                <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-stone-400">Puntos</th>
+              <tr className="bg-stone-50 dark:bg-stone-900 border-b border-stone-100 dark:border-stone-800">
+                <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-stone-400">{t('leaderboard.headers.position')}</th>
+                <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-stone-400">{t('leaderboard.headers.user')}</th>
+                <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-stone-400">{t('leaderboard.headers.points')}</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-stone-100">
+            <tbody className="divide-y divide-stone-100 dark:divide-stone-800">
               {scores.map((score, i) => (
-                <tr key={score.id} className="hover:bg-stone-50 transition-colors">
+                <tr key={score.id} className="hover:bg-stone-50 dark:hover:bg-stone-900 transition-colors">
                   <td className="px-6 py-4">
                     <div className={cn(
                       "w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm",
@@ -931,17 +965,14 @@ function LeaderboardView({ scores, onPlayAgain }: { scores: ScoreRecord[]; onPla
                     </div>
                   </td>
                   <td className="px-6 py-4">
-                    <span className="text-sm text-stone-500">{score.school || 'Sin colegio'}</span>
-                  </td>
-                  <td className="px-6 py-4">
                     <span className="font-black text-emerald-600 text-lg">{score.score}</span>
                   </td>
                 </tr>
               ))}
               {scores.length === 0 && (
                 <tr>
-                  <td colSpan={4} className="px-6 py-12 text-center text-stone-400">
-                    No hay puntuaciones registradas todavía.
+                  <td colSpan={3} className="px-6 py-12 text-center text-stone-400">
+                    {t('leaderboard.noScores')}
                   </td>
                 </tr>
               )}
@@ -950,62 +981,5 @@ function LeaderboardView({ scores, onPlayAgain }: { scores: ScoreRecord[]; onPla
         </div>
       </Card>
     </motion.div>
-  );
-}
-
-function SchoolSetupView({
-  selectedSchool,
-  error,
-  onChange,
-  onSave,
-  onLogout,
-}: {
-  selectedSchool: string;
-  error: string | null;
-  onChange: (value: string) => void;
-  onSave: () => void;
-  onLogout: () => void;
-}) {
-  return (
-    <div className="min-h-screen bg-stone-50 flex items-center justify-center p-6">
-      <motion.div
-        initial={{ opacity: 0, scale: 0.96 }}
-        animate={{ opacity: 1, scale: 1 }}
-        className="max-w-md w-full space-y-6"
-      >
-        <div className="space-y-2 text-center">
-          <h2 className="text-3xl font-bold tracking-tight">Selecciona tu colegio</h2>
-          <p className="text-stone-500">Es obligatorio para continuar.</p>
-        </div>
-
-        <Card className="space-y-4">
-          <select
-            value={selectedSchool}
-            onChange={(e) => onChange(e.target.value)}
-            className="w-full bg-stone-50 border border-stone-200 rounded-xl py-3 px-4 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all"
-          >
-            <option value="" disabled>Selecciona tu colegio</option>
-            {SCHOOL_GROUPS.map((group) => (
-              <optgroup key={group.region} label={group.region}>
-                {group.schools.map((schoolName) => (
-                  <option key={schoolName} value={schoolName}>{schoolName}</option>
-                ))}
-              </optgroup>
-            ))}
-          </select>
-
-          {error && (
-            <p className="text-rose-600 text-sm font-medium bg-rose-50 p-3 rounded-lg border border-rose-100">
-              {error}
-            </p>
-          )}
-
-          <div className="flex flex-col gap-2">
-            <Button onClick={onSave} className="w-full">Guardar colegio</Button>
-            <Button variant="outline" onClick={onLogout} className="w-full">Cerrar sesión</Button>
-          </div>
-        </Card>
-      </motion.div>
-    </div>
   );
 }

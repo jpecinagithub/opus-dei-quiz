@@ -1,7 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import App from '../App';
-import { getUserProfile } from '../services';
 
 let mockAuthUser: any = null;
 
@@ -34,7 +33,6 @@ vi.mock('../services', () => ({
   saveScore: vi.fn(),
   saveUserProfile: vi.fn(),
   handleFirestoreError: vi.fn(),
-  getUserProfile: vi.fn().mockResolvedValue(null),
 }));
 
 describe('App', () => {
@@ -54,9 +52,6 @@ describe('App', () => {
       photoURL: 'https://example.com/avatar.png',
       email: 'test@example.com',
     };
-    (getUserProfile as unknown as { mockResolvedValue: (value: any) => void }).mockResolvedValue({
-      school: 'Umedi',
-    });
     render(<App />);
     expect(await screen.findByText(/Selecciona el tema/i)).toBeInTheDocument();
   });

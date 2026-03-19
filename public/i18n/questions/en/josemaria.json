@@ -1,0 +1,517 @@
+[
+  {
+    "id": "josemaria-1",
+    "text": "In which city was Saint Josemaría Escrivá de Balaguer born?",
+    "options": ["Madrid", "Barbastro", "Zaragoza", "Logroño"]
+  },
+  {
+    "id": "josemaria-2",
+    "text": "On what date was Opus Dei founded?",
+    "options": ["October 2, 1928", "February 14, 1930", "June 26, 1975", "March 19, 1983"]
+  },
+  {
+    "id": "josemaria-3",
+    "text": "Which is Saint Josemaría's best-known book, first published in 1934 as \"Consideraciones Espirituales\"?",
+    "options": ["Surco", "Forja", "Camino", "Es Cristo que pasa"]
+  },
+  {
+    "id": "josemaria-4",
+    "text": "In what year was Saint Josemaría canonized by Saint John Paul II?",
+    "options": ["1992", "2002", "1975", "1982"]
+  },
+  {
+    "id": "josemaria-5",
+    "text": "What important event occurred on February 14, 1930?",
+    "options": [
+      "The founding of the Priestly Society of the Holy Cross",
+      "The beginning of Opus Dei for women",
+      "The move to Rome",
+      "The definitive approval of Opus Dei"
+    ]
+  },
+  {
+    "id": "josemaria-6",
+    "text": "How did Saint Josemaría affectionately call the Virgin Mary?",
+    "options": ["Mother", "Lady", "Our Mother", "Queen"]
+  },
+  {
+    "id": "josemaria-7",
+    "text": "Which of these books was published posthumously?",
+    "options": ["Camino", "Santo Rosario", "La Abadesa de las Huelgas", "Surco"]
+  },
+  {
+    "id": "josemaria-8",
+    "text": "In which country did Opus Dei's international expansion outside Spain begin?",
+    "options": ["Italy", "Portugal", "France", "Mexico"]
+  },
+  {
+    "id": "josemaria-9",
+    "text": "In what year did Saint Josemaría move permanently to Rome?",
+    "options": ["1939", "1946", "1950", "1975"]
+  },
+  {
+    "id": "josemaria-10",
+    "text": "What title did Opus Dei receive in 1982?",
+    "options": ["Secular Institute", "Personal Prelature", "Religious Order", "Association of the Faithful"]
+  },
+  {
+    "id": "josemaria-11",
+    "text": "What is the central theme of \"Es Cristo que pasa\"?",
+    "options": ["Spiritual aphorisms", "Homilies on the liturgical year", "Mystical poetry", "Historical accounts"]
+  },
+  {
+    "id": "josemaria-12",
+    "text": "At which university did Saint Josemaría earn his doctorate in Law?",
+    "options": ["University of Zaragoza", "Central University of Madrid", "University of Navarra", "Lateran University"]
+  },
+  {
+    "id": "josemaria-13",
+    "text": "Which educational institution did Saint Josemaría found in Pamplona in 1952?",
+    "options": ["IESE", "University of Navarra", "Colegio Retamar", "Tajamar"]
+  },
+  {
+    "id": "josemaria-14",
+    "text": "What is the name of the book that contains homilies on Christian life and virtues?",
+    "options": ["Amigos de Dios", "Surco", "Forja", "Camino"]
+  },
+  {
+    "id": "josemaria-15",
+    "text": "What is the name of Opus Dei's central headquarters in Rome?",
+    "options": ["Villa Tevere", "Palazzo Apostolico", "Santa Maria della Pace", "Castel Gandolfo"]
+  },
+  {
+    "id": "josemaria-16",
+    "text": "In what year did Opus Dei begin in Mexico?",
+    "options": ["1948", "1949", "1950", "1951"]
+  },
+  {
+    "id": "josemaria-17",
+    "text": "What event occurred on February 14, 1943?",
+    "options": [
+      "Founding of the Priestly Society of the Holy Cross",
+      "Pontifical approval",
+      "Appointment of Álvaro del Portillo as bishop",
+      "First trip to America"
+    ]
+  },
+  {
+    "id": "josemaria-18",
+    "text": "What is the first point of \"Camino\"?",
+    "options": [
+      "'May your life not be a sterile life...'",
+      "'Where your treasure is...'",
+      "'Do not say: it's my character...'",
+      "'Why don't you give yourself to God once and for all...?'"
+    ]
+  },
+  {
+    "id": "josemaria-19",
+    "text": "What was Saint Josemaría's father's name?",
+    "options": ["José", "Mariano", "Balaguer", "Santiago"]
+  },
+  {
+    "id": "josemaria-20",
+    "text": "In what year did Saint Josemaría die?",
+    "options": ["1970", "1975", "1980", "1985"]
+  },
+  {
+    "id": "josemaria-21",
+    "text": "Who was Saint Josemaría's first successor at the head of Opus Dei?",
+    "options": ["Javier Echevarría", "Álvaro del Portillo", "Fernando Ocáriz", "Pedro Casciaro"]
+  },
+  {
+    "id": "josemaria-22",
+    "text": "What was Saint Josemaría's father's profession?",
+    "options": ["Lawyer", "Textile merchant", "Doctor", "Architect"]
+  },
+  {
+    "id": "josemaria-23",
+    "text": "In which city did Saint Josemaría study Theology?",
+    "options": ["Zaragoza", "Madrid", "Rome", "Pamplona"]
+  },
+  {
+    "id": "josemaria-24",
+    "text": "Which book of Saint Josemaría focuses on spiritual childhood?",
+    "options": ["Santo Rosario", "Camino", "Surco", "Forja"]
+  },
+  {
+    "id": "josemaria-25",
+    "text": "In what year did Opus Dei begin in the United States?",
+    "options": ["1946", "1949", "1952", "1955"]
+  },
+  {
+    "id": "josemaria-26",
+    "text": "What is the name of the training center for priests in Rome founded by him?",
+    "options": ["Colegio Romano de la Santa Cruz", "Seminario de San José", "Pontificio Colegio Español", "Almo Colegio Capranica"]
+  },
+  {
+    "id": "josemaria-27",
+    "text": "What is the central message of Opus Dei?",
+    "options": ["The contemplative life", "The sanctification of ordinary work", "Charity to the poor", "The defense of the faith"]
+  },
+  {
+    "id": "josemaria-28",
+    "text": "Which book contains 1000 points of meditation?",
+    "options": ["Camino", "Surco", "Forja", "None of the above"]
+  },
+  {
+    "id": "josemaria-29",
+    "text": "In what year was Saint Josemaría beatified?",
+    "options": ["1982", "1992", "2002", "1975"]
+  },
+  {
+    "id": "josemaria-30",
+    "text": "What was Saint Josemaría's mother's name?",
+    "options": ["Dolores", "Josefa", "María", "Carmen"]
+  },
+  {
+    "id": "josemaria-31",
+    "text": "What did Saint Josemaría see in the snow that made him sense his vocation?",
+    "options": ["A dog", "A bird", "The footprints of a Discalced Carmelite", "A lamb"]
+  },
+  {
+    "id": "josemaria-32",
+    "text": "In what year did Opus Dei begin in Argentina?",
+    "options": ["1950", "1952", "1955", "1960"]
+  },
+  {
+    "id": "josemaria-33",
+    "text": "Which book of Saint Josemaría has 1055 points?",
+    "options": ["Camino", "Surco", "Forja", "Santo Rosario"]
+  },
+  {
+    "id": "josemaria-34",
+    "text": "What is the name of the church where Saint Josemaría's remains rest?",
+    "options": ["San Pedro", "Santa Maria della Pace", "San Juan de Letrán", "Santa María la Mayor"]
+  },
+  {
+    "id": "josemaria-35",
+    "text": "In what year was Opus Dei definitively approved by the Holy See?",
+    "options": ["1943", "1947", "1950", "1982"]
+  },
+  {
+    "id": "josemaria-36",
+    "text": "What trip did Saint Josemaría make in 1974?",
+    "options": ["To the Holy Land", "To Latin America", "To the United States", "To the Philippines"]
+  },
+  {
+    "id": "josemaria-37",
+    "text": "What is the name of the book of interviews with Saint Josemaría?",
+    "options": ["Conversaciones con Mons. Escrivá de Balaguer", "Amar al mundo apasionadamente", "La Iglesia, nuestra Madre", "Vía Crucis"]
+  },
+  {
+    "id": "josemaria-38",
+    "text": "In what year did Opus Dei begin in England?",
+    "options": ["1946", "1947", "1948", "1949"]
+  },
+  {
+    "id": "josemaria-39",
+    "text": "What is the name of the training center for women in Rome?",
+    "options": ["Colegio Romano de Santa María", "Villa Tevere", "Centro ELIS", "Braemar"]
+  },
+  {
+    "id": "josemaria-40",
+    "text": "Which liturgical feast is celebrated on June 26?",
+    "options": ["Saint Joseph", "Saint Josemaría Escrivá", "Our Lady of Mount Carmel", "Saint James the Apostle"]
+  },
+  {
+    "id": "josemaria-41",
+    "text": "What is the last point of \"Camino\"?",
+    "options": ["999", "1000", "998", "1001"]
+  },
+  {
+    "id": "josemaria-42",
+    "text": "In what year did Opus Dei begin in Germany?",
+    "options": ["1950", "1952", "1954", "1956"]
+  },
+  {
+    "id": "josemaria-43",
+    "text": "What happened in Saint Josemaría's life at the age of 2?",
+    "options": ["He was miraculously cured of a serious illness", "His sister died", "They moved to Logroño", "He received Confirmation"]
+  },
+  {
+    "id": "josemaria-44",
+    "text": "To which Marian devotion did he attribute his childhood cure?",
+    "options": ["Our Lady of the Pillar", "Our Lady of Torreciudad", "Our Lady of Fatima", "Our Lady of Lourdes"]
+  },
+  {
+    "id": "josemaria-45",
+    "text": "Which book of Saint Josemaría is a meditation on the Passion of Christ?",
+    "options": ["Vía Crucis", "Santo Rosario", "Forja", "Surco"]
+  },
+  {
+    "id": "josemaria-46",
+    "text": "In what year did Opus Dei begin in Japan?",
+    "options": ["1955", "1958", "1960", "1962"]
+  },
+  {
+    "id": "josemaria-47",
+    "text": "What is the name of the Marian shrine promoted by Saint Josemaría in the Aragonese Pyrenees?",
+    "options": ["Lourdes", "Fátima", "Torreciudad", "Montserrat"]
+  },
+  {
+    "id": "josemaria-48",
+    "text": "What is the motto on the Opus Dei coat of arms?",
+    "options": ["Deo Gratias", "Serviam", "Regnare Christum volumus", "Pax"]
+  },
+  {
+    "id": "josemaria-49",
+    "text": "Which book of Saint Josemaría was published in 1987?",
+    "options": ["Forja", "Surco", "Vía Crucis", "Amigos de Dios"]
+  },
+  {
+    "id": "josemaria-50",
+    "text": "In what year did Opus Dei begin in Brazil?",
+    "options": ["1947", "1948", "1949", "1950"]
+  },
+  {
+    "id": "josemaria-51",
+    "text": "What did Saint Josemaría call Opus Dei centers?",
+    "options": ["Houses", "Homes", "Barracks", "Residences"]
+  },
+  {
+    "id": "josemaria-52",
+    "text": "Which virtue did Saint Josemaría highlight as \"the hinge\" of holiness in the world?",
+    "options": ["Humility", "Obedience", "Diligence", "Chastity"]
+  },
+  {
+    "id": "josemaria-53",
+    "text": "In what year did Opus Dei begin in Kenya?",
+    "options": ["1955", "1958", "1960", "1962"]
+  },
+  {
+    "id": "josemaria-54",
+    "text": "Which book of Saint Josemaría has the subtitle \"Homilies\"?",
+    "options": ["Es Cristo que pasa", "Camino", "Surco", "Forja"]
+  },
+  {
+    "id": "josemaria-55",
+    "text": "What was the name of the first Opus Dei center in Madrid?",
+    "options": ["DYA", "Moncloa", "Retamar", "Tajamar"]
+  },
+  {
+    "id": "josemaria-56",
+    "text": "What did the initials DYA stand for?",
+    "options": ["Law and Architecture", "God and Souls", "Both are correct", "None is correct"]
+  },
+  {
+    "id": "josemaria-57",
+    "text": "In what year did Opus Dei begin in Australia?",
+    "options": ["1960", "1963", "1965", "1968"]
+  },
+  {
+    "id": "josemaria-58",
+    "text": "Which book of Saint Josemaría contains the homily \"Amar al mundo apasionadamente\"?",
+    "options": ["Conversaciones", "Es Cristo que pasa", "Amigos de Dios", "Forja"]
+  },
+  {
+    "id": "josemaria-59",
+    "text": "What was the name of Saint Josemaría's older sister?",
+    "options": ["Carmen", "Lola", "Chon", "Rosario"]
+  },
+  {
+    "id": "josemaria-60",
+    "text": "In what year did Opus Dei begin in the Philippines?",
+    "options": ["1960", "1962", "1964", "1966"]
+  },
+  {
+    "id": "josemaria-61",
+    "text": "What is the name of the current Prelate of Opus Dei (2024)?",
+    "options": ["Álvaro del Portillo", "Javier Echevarría", "Fernando Ocáriz", "Mariano Fazio"]
+  },
+  {
+    "id": "josemaria-62",
+    "text": "Which book of Saint Josemaría was published in 1986?",
+    "options": ["Surco", "Forja", "Vía Crucis", "Amigos de Dios"]
+  },
+  {
+    "id": "josemaria-63",
+    "text": "In what year did Opus Dei begin in Nigeria?",
+    "options": ["1960", "1965", "1970", "1975"]
+  },
+  {
+    "id": "josemaria-64",
+    "text": "What event occurred in Saint Josemaría's life on March 28, 1925?",
+    "options": ["His priestly ordination", "The founding of Opus Dei", "His arrival in Madrid", "His doctorate"]
+  },
+  {
+    "id": "josemaria-65",
+    "text": "In which church in Zaragoza did he celebrate his first solemn Mass?",
+    "options": ["Basilica of the Pillar", "Seminary Church", "Church of San Carlos", "Cathedral of the Seo"]
+  },
+  {
+    "id": "josemaria-66",
+    "text": "Which book of Saint Josemaría deals with the mysteries of the Rosary?",
+    "options": ["Santo Rosario", "Camino", "Surco", "Forja"]
+  },
+  {
+    "id": "josemaria-67",
+    "text": "In what year did Opus Dei begin in Canada?",
+    "options": ["1955", "1957", "1959", "1961"]
+  },
+  {
+    "id": "josemaria-68",
+    "text": "What is the name of the association of priests linked to Opus Dei?",
+    "options": ["Society of the Holy Cross", "Brotherhood of Saint Joseph", "Opus Dei Clergy", "Priests of the Work"]
+  },
+  {
+    "id": "josemaria-69",
+    "text": "Which book of Saint Josemaría has 999 points?",
+    "options": ["Camino", "Surco", "Forja", "None"]
+  },
+  {
+    "id": "josemaria-70",
+    "text": "In what year did Opus Dei begin in Venezuela?",
+    "options": ["1950", "1952", "1954", "1956"]
+  },
+  {
+    "id": "josemaria-71",
+    "text": "How did Saint Josemaría define Opus Dei?",
+    "options": ["A mobilization of Christians", "A part of the Church", "A path of holiness", "All of the above"]
+  },
+  {
+    "id": "josemaria-72",
+    "text": "Which book of Saint Josemaría was published in 1981?",
+    "options": ["Vía Crucis", "Surco", "Forja", "Amigos de Dios"]
+  },
+  {
+    "id": "josemaria-73",
+    "text": "In what year did Opus Dei begin in Peru?",
+    "options": ["1951", "1953", "1955", "1957"]
+  },
+  {
+    "id": "josemaria-74",
+    "text": "What is the name of the apostolic work with young people in Opus Dei?",
+    "options": ["Work of Saint Raphael", "Work of Saint Gabriel", "Work of Saint Michael", "Work of Saint Joseph"]
+  },
+  {
+    "id": "josemaria-75",
+    "text": "What is the name of the apostolic work with married people?",
+    "options": ["Work of Saint Gabriel", "Work of Saint Raphael", "Work of Saint Michael", "Work of Saint Joseph"]
+  },
+  {
+    "id": "josemaria-76",
+    "text": "What is the name of the internal formation work for members?",
+    "options": ["Work of Saint Michael", "Work of Saint Raphael", "Work of Saint Gabriel", "Work of Saint Joseph"]
+  },
+  {
+    "id": "josemaria-77",
+    "text": "In what year did Opus Dei begin in Colombia?",
+    "options": ["1951", "1953", "1955", "1957"]
+  },
+  {
+    "id": "josemaria-78",
+    "text": "Which book of Saint Josemaría was published in 1977?",
+    "options": ["Amigos de Dios", "Surco", "Forja", "Vía Crucis"]
+  },
+  {
+    "id": "josemaria-79",
+    "text": "What was the name of Saint Josemaría's younger brother?",
+    "options": ["Santiago", "Mariano", "José", "Ángel"]
+  },
+  {
+    "id": "josemaria-80",
+    "text": "In what year did Opus Dei begin in Chile?",
+    "options": ["1950", "1953", "1956", "1959"]
+  },
+  {
+    "id": "josemaria-81",
+    "text": "What event occurred on April 27, 1954?",
+    "options": ["Saint Josemaría was cured of diabetes", "Approval of the statutes", "Appointment as Prelate", "Trip to Fatima"]
+  },
+  {
+    "id": "josemaria-82",
+    "text": "Which book of Saint Josemaría deals with divine filiation?",
+    "options": ["All his books", "Camino", "Surco", "Forja"]
+  },
+  {
+    "id": "josemaria-83",
+    "text": "In what year did Opus Dei begin in Guatemala?",
+    "options": ["1950", "1953", "1956", "1959"]
+  },
+  {
+    "id": "josemaria-84",
+    "text": "What is the name of the retreat center in Segovia where Saint Josemaría stayed?",
+    "options": ["Molino Viejo", "Los Rosales", "El Prados", "La Solana"]
+  },
+  {
+    "id": "josemaria-85",
+    "text": "Which book of Saint Josemaría is a compilation of legal articles?",
+    "options": ["La Abadesa de las Huelgas", "Camino", "Surco", "Forja"]
+  },
+  {
+    "id": "josemaria-86",
+    "text": "In what year did Opus Dei begin in Ecuador?",
+    "options": ["1950", "1952", "1954", "1956"]
+  },
+  {
+    "id": "josemaria-87",
+    "text": "What event occurred on May 17, 1992?",
+    "options": ["Beatification of Saint Josemaría", "Canonization", "Transfer of his remains", "Approval of the Prelature"]
+  },
+  {
+    "id": "josemaria-88",
+    "text": "Which book of Saint Josemaría has as its theme the sanctification of ordinary life?",
+    "options": ["All of them", "Camino", "Surco", "Forja"]
+  },
+  {
+    "id": "josemaria-89",
+    "text": "In what year did Opus Dei begin in Uruguay?",
+    "options": ["1954", "1956", "1958", "1960"]
+  },
+  {
+    "id": "josemaria-90",
+    "text": "What is the name of Álvaro del Portillo's successor?",
+    "options": ["Javier Echevarría", "Fernando Ocáriz", "Mariano Fazio", "Pedro Casciaro"]
+  },
+  {
+    "id": "josemaria-91",
+    "text": "Which book of Saint Josemaría focuses on forging the virtues?",
+    "options": ["Forja", "Surco", "Camino", "Amigos de Dios"]
+  },
+  {
+    "id": "josemaria-92",
+    "text": "In what year did Opus Dei begin in Paraguay?",
+    "options": ["1960", "1962", "1964", "1966"]
+  },
+  {
+    "id": "josemaria-93",
+    "text": "What event occurred on October 6, 2002?",
+    "options": ["Canonization of Saint Josemaría", "Beatification", "Centenary of his birth", "Approval of the Prelature"]
+  },
+  {
+    "id": "josemaria-94",
+    "text": "Which book of Saint Josemaría contains the homily \"Hacia la santidad\"?",
+    "options": ["Amigos de Dios", "Es Cristo que pasa", "Forja", "Surco"]
+  },
+  {
+    "id": "josemaria-95",
+    "text": "In what year did Opus Dei begin in Bolivia?",
+    "options": ["1970", "1975", "1978", "1980"]
+  },
+  {
+    "id": "josemaria-96",
+    "text": "What is the name of the first bishop of Opus Dei?",
+    "options": ["Álvaro del Portillo", "Javier Echevarría", "Fernando Ocáriz", "Juan Luis Cipriani"]
+  },
+  {
+    "id": "josemaria-97",
+    "text": "Which book of Saint Josemaría has 1000 points?",
+    "options": ["Surco", "Camino", "Forja", "None"]
+  },
+  {
+    "id": "josemaria-98",
+    "text": "In what year did Opus Dei begin in Puerto Rico?",
+    "options": ["1960", "1965", "1969", "1972"]
+  },
+  {
+    "id": "josemaria-99",
+    "text": "What event occurred on January 9, 1902?",
+    "options": ["Birth of Saint Josemaría", "Baptism", "Confirmation", "First Communion"]
+  },
+  {
+    "id": "josemaria-100",
+    "text": "Which book of Saint Josemaría is the most translated?",
+    "options": ["Camino", "Surco", "Forja", "Es Cristo que pasa"]
+  }
+]

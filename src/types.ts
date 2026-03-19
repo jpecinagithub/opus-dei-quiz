@@ -2,7 +2,7 @@ export type GameMode = 'standard' | 'time-trial' | 'survival';
 export type Topic = 'josemaria' | 'alvaro' | 'javier' | 'guadalupe';
 
 export interface Question {
-  id?: number;
+  id?: number | string;
   text: string;
   options: string[];
   correctAnswer: number; // index
@@ -14,14 +14,12 @@ export interface UserProfile {
   displayName: string;
   photoURL: string;
   email: string;
-  school: string;
 }
 
 export interface ScoreRecord {
   id?: string;
   uid: string;
   displayName: string;
-  school?: string;
   score: number;
   mode: GameMode;
   topic: Topic;
