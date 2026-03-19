@@ -23,7 +23,7 @@ import { ALVARO_QUESTIONS_POOL } from './questions_alvaro';
 import { JAVIER_QUESTIONS_POOL } from './questions_javier';
 import { GUADALUPE_QUESTIONS_POOL } from './questions_guadalupe';
 import { GameMode, Question, ScoreRecord, UserProfile, Topic, OperationType } from './types';
-import { saveScore, saveUserProfile, handleFirestoreError } from './services';
+import { saveScore, saveUserProfile, handleFirestoreError, getUserProfile } from './services';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
@@ -32,6 +32,31 @@ import { Mail, Lock, User as UserIconOutline } from 'lucide-react';
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
+
+const SCHOOL_GROUPS = [
+  {
+    region: 'Bizkaia',
+    schools: [
+      'Ayalde - Munabe',
+      'Umedi',
+      'Unbe Ikastola',
+      'Haurkabi',
+    ],
+  },
+  {
+    region: 'Gipuzkoa',
+    schools: [
+      'Erain - Eskibel',
+      'Erain Txiki',
+    ],
+  },
+  {
+    region: 'La Rioja',
+    schools: [
+      'Alcaste - Las Fuentes',
+    ],
+  },
+];
 
 // --- Components ---
 
@@ -138,21 +163,40 @@ export default function App() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [displayName, setDisplayName] = useState('');
+  const [school, setSchool] = useState('');
   const [authError, setAuthError] = useState<string | null>(null);
+  const [schoolError, setSchoolError] = useState<string | null>(null);
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
+    const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
       if (firebaseUser) {
-        const profile = {
+        const baseProfile = {
           uid: firebaseUser.uid,
           displayName: firebaseUser.displayName || 'Usuario',
           photoURL: firebaseUser.photoURL || `https://ui-avatars.com/api/?name=${encodeURIComponent(firebaseUser.displayName || 'U')}&background=random`,
           email: firebaseUser.email || '',
         };
+        let storedSchool = '';
+        let storedProfile: any = null;
+        try {
+          storedProfile = await getUserProfile(firebaseUser.uid);
+          storedSchool = storedProfile?.school || '';
+        } catch (error) {
+          console.error('Error loading user profile:', error);
+        }
+        const profile = {
+          ...baseProfile,
+          school: storedSchool,
+        };
         setUser(profile);
-        saveUserProfile(profile);
+        setSchool(storedSchool);
+        if (!storedProfile && storedSchool) {
+          saveUserProfile(profile);
+        }
       } else {
         setUser(null);
+        setSchool('');
+        setSchoolError(null);
       }
       setLoading(false);
     });
@@ -205,6 +249,10 @@ export default function App() {
       setAuthError('Por favor, introduce un nombre de usuario.');
       return;
     }
+    if (!school) {
+      setAuthError('Por favor, selecciona tu colegio.');
+      return;
+    }
     try {
       setAuthError(null);
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
@@ -216,6 +264,7 @@ export default function App() {
         displayName: displayName,
         photoURL: `https://ui-avatars.com/api/?name=${encodeURIComponent(displayName)}&background=random`,
         email: email,
+        school: school,
       };
       setUser(profile);
       await saveUserProfile(profile);
@@ -230,6 +279,19 @@ export default function App() {
   };
 
   const handleLogout = () => signOut(auth);
+
+  const handleSchoolSave = async (selectedSchool: string) => {
+    if (!user) return;
+    if (!selectedSchool) {
+      setSchoolError('Por favor, selecciona tu colegio.');
+      return;
+    }
+    setSchoolError(null);
+    const updatedProfile = { ...user, school: selectedSchool };
+    setUser(updatedProfile);
+    await saveUserProfile(updatedProfile);
+    setView('home');
+  };
 
   if (loading) {
     return (
@@ -287,13 +349,32 @@ export default function App() {
 
             <form onSubmit={authMode === 'login' ? handleEmailLogin : handleEmailRegister} className="space-y-4">
               {authMode === 'register' && (
-                <Input 
-                  placeholder="Nombre de usuario" 
-                  value={displayName} 
-                  onChange={(e) => setDisplayName(e.target.value)} 
-                  icon={UserIconOutline}
-                  required
-                />
+                <>
+                  <Input 
+                    placeholder="Nombre de usuario" 
+                    value={displayName} 
+                    onChange={(e) => setDisplayName(e.target.value)} 
+                    icon={UserIconOutline}
+                    required
+                  />
+                  <div className="relative">
+                    <select
+                      value={school}
+                      onChange={(e) => setSchool(e.target.value)}
+                      required
+                      className="w-full bg-stone-50 border border-stone-200 rounded-xl py-3 px-4 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all"
+                    >
+                      <option value="" disabled>Selecciona tu colegio</option>
+                      {SCHOOL_GROUPS.map((group) => (
+                        <optgroup key={group.region} label={group.region}>
+                          {group.schools.map((schoolName) => (
+                            <option key={schoolName} value={schoolName}>{schoolName}</option>
+                          ))}
+                        </optgroup>
+                      ))}
+                    </select>
+                  </div>
+                </>
               )}
               <Input 
                 type="email"
@@ -344,63 +425,78 @@ export default function App() {
   return (
     <ErrorBoundary>
       <div className="min-h-screen bg-stone-50 text-stone-900 font-sans">
-        {/* Navigation */}
-        <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-stone-100 px-6 py-4">
-          <div className="max-w-5xl mx-auto flex items-center justify-between">
-            <div className="flex items-center gap-3 cursor-pointer" onClick={() => setView('home')}>
-              <div className="p-2 bg-emerald-600 text-white rounded-lg">
-                <Globe size={20} />
+        {!user.school ? (
+          <SchoolSetupView 
+            selectedSchool={school}
+            error={schoolError}
+            onChange={(value) => {
+              setSchool(value);
+              setSchoolError(null);
+            }}
+            onSave={() => handleSchoolSave(school)}
+            onLogout={handleLogout}
+          />
+        ) : (
+          <>
+            {/* Navigation */}
+            <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-stone-100 px-6 py-4">
+              <div className="max-w-5xl mx-auto flex items-center justify-between">
+                <div className="flex items-center gap-3 cursor-pointer" onClick={() => setView('home')}>
+                  <div className="p-2 bg-emerald-600 text-white rounded-lg">
+                    <Globe size={20} />
+                  </div>
+                  <span className="font-bold text-xl tracking-tight hidden sm:block">Huellas</span>
+                </div>
+                
+                <div className="flex items-center gap-4">
+                  <button 
+                    onClick={() => setView('leaderboard')}
+                    className={cn(
+                      "p-2 rounded-lg transition-colors",
+                      view === 'leaderboard' ? "bg-stone-100 text-emerald-600" : "text-stone-500 hover:bg-stone-50"
+                    )}
+                  >
+                    <Trophy size={24} />
+                  </button>
+                  <div className="flex items-center gap-3 pl-4 border-l border-stone-100">
+                    <img src={user.photoURL} alt={user.displayName} className="w-8 h-8 rounded-full border border-stone-200" />
+                    <button onClick={handleLogout} className="text-stone-400 hover:text-rose-600 transition-colors">
+                      <LogOut size={20} />
+                    </button>
+                  </div>
+                </div>
               </div>
-              <span className="font-bold text-xl tracking-tight hidden sm:block">Huellas</span>
-            </div>
-            
-            <div className="flex items-center gap-4">
-              <button 
-                onClick={() => setView('leaderboard')}
-                className={cn(
-                  "p-2 rounded-lg transition-colors",
-                  view === 'leaderboard' ? "bg-stone-100 text-emerald-600" : "text-stone-500 hover:bg-stone-50"
-                )}
-              >
-                <Trophy size={24} />
-              </button>
-              <div className="flex items-center gap-3 pl-4 border-l border-stone-100">
-                <img src={user.photoURL} alt={user.displayName} className="w-8 h-8 rounded-full border border-stone-200" />
-                <button onClick={handleLogout} className="text-stone-400 hover:text-rose-600 transition-colors">
-                  <LogOut size={20} />
-                </button>
-              </div>
-            </div>
-          </div>
-        </nav>
+            </nav>
 
-        <main className="max-w-5xl mx-auto p-6">
-          <AnimatePresence mode="wait">
-            {view === 'home' && (
-              <HomeView 
-                allScores={scores}
-                onStart={(mode, selectedTopic) => {
-                  setGameMode(mode);
-                  setTopic(selectedTopic);
-                  setView('game');
-                }} 
-              />
-            )}
-            {view === 'game' && (
-              <GameView 
-                user={user}
-                mode={gameMode} 
-                topic={topic}
-                allScores={scores}
-                onFinish={() => setView('leaderboard')} 
-                onCancel={() => setView('home')}
-              />
-            )}
-            {view === 'leaderboard' && (
-              <LeaderboardView scores={scores} onPlayAgain={() => setView('home')} />
-            )}
-          </AnimatePresence>
-        </main>
+            <main className="max-w-5xl mx-auto p-6">
+              <AnimatePresence mode="wait">
+                {view === 'home' && (
+                  <HomeView 
+                    allScores={scores}
+                    onStart={(mode, selectedTopic) => {
+                      setGameMode(mode);
+                      setTopic(selectedTopic);
+                      setView('game');
+                    }} 
+                  />
+                )}
+                {view === 'game' && (
+                  <GameView 
+                    user={user}
+                    mode={gameMode} 
+                    topic={topic}
+                    allScores={scores}
+                    onFinish={() => setView('leaderboard')} 
+                    onCancel={() => setView('home')}
+                  />
+                )}
+                {view === 'leaderboard' && (
+                  <LeaderboardView scores={scores} onPlayAgain={() => setView('home')} />
+                )}
+              </AnimatePresence>
+            </main>
+          </>
+        )}
       </div>
     </ErrorBoundary>
   );
@@ -649,6 +745,7 @@ function GameView({ user, mode, topic, allScores, onFinish, onCancel }: { user: 
     await saveScore({
       uid: user.uid,
       displayName: user.displayName,
+      school: user.school || 'Sin colegio',
       score: finalPoints,
       mode,
       topic,
@@ -789,28 +886,6 @@ function GameView({ user, mode, topic, allScores, onFinish, onCancel }: { user: 
 }
 
 function LeaderboardView({ scores, onPlayAgain }: { scores: ScoreRecord[]; onPlayAgain: () => void }) {
-  const [modeFilter, setModeFilter] = useState<GameMode | 'all'>('all');
-  const [topicFilter, setTopicFilter] = useState<Topic | 'all'>('all');
-
-  const filteredScores = scores.filter(s => {
-    const matchMode = modeFilter === 'all' || s.mode === modeFilter;
-    const matchTopic = topicFilter === 'all' || s.topic === topicFilter;
-    return matchMode && matchTopic;
-  });
-
-  const modeLabels = {
-    'standard': 'Estándar',
-    'time-trial': 'Contrarreloj',
-    'survival': 'Supervivencia'
-  };
-
-  const topicLabels = {
-    'josemaria': 'San Josemaría',
-    'alvaro': 'Álvaro',
-    'javier': 'Javier',
-    'guadalupe': 'Guadalupe'
-  };
-
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -820,48 +895,10 @@ function LeaderboardView({ scores, onPlayAgain }: { scores: ScoreRecord[]; onPla
     >
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
         <div className="space-y-2">
-          <h2 className="text-3xl font-bold tracking-tight">Clasificación General</h2>
-          <p className="text-stone-500">Los mejores exploradores de la Obra.</p>
+          <h2 className="text-3xl font-bold tracking-tight">Clasificación</h2>
+          <p className="text-stone-500">Ranking general de puntos.</p>
         </div>
         <Button onClick={onPlayAgain} icon={Play}>Jugar de nuevo</Button>
-      </div>
-
-      <div className="space-y-4">
-        <div className="flex flex-col gap-2">
-          <span className="text-xs font-bold text-stone-400 uppercase tracking-wider">Modo de juego</span>
-          <div className="flex gap-2 overflow-x-auto pb-2">
-            {(['all', 'standard', 'time-trial', 'survival'] as const).map(m => (
-              <button
-                key={m}
-                onClick={() => setModeFilter(m)}
-                className={cn(
-                  "px-4 py-2 rounded-full text-sm font-bold transition-all whitespace-nowrap",
-                  modeFilter === m ? "bg-stone-900 text-white" : "bg-stone-100 text-stone-500 hover:bg-stone-200"
-                )}
-              >
-                {m === 'all' ? 'Todos' : modeLabels[m]}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        <div className="flex flex-col gap-2">
-          <span className="text-xs font-bold text-stone-400 uppercase tracking-wider">Tema</span>
-          <div className="flex gap-2 overflow-x-auto pb-2">
-            {(['all', 'josemaria', 'alvaro', 'javier'] as const).map(t => (
-              <button
-                key={t}
-                onClick={() => setTopicFilter(t)}
-                className={cn(
-                  "px-4 py-2 rounded-full text-sm font-bold transition-all whitespace-nowrap",
-                  topicFilter === t ? "bg-emerald-600 text-white" : "bg-stone-100 text-stone-500 hover:bg-stone-200"
-                )}
-              >
-                {t === 'all' ? 'Todos' : topicLabels[t as Topic]}
-              </button>
-            ))}
-          </div>
-        </div>
       </div>
 
       <Card className="p-0 overflow-hidden">
@@ -871,14 +908,12 @@ function LeaderboardView({ scores, onPlayAgain }: { scores: ScoreRecord[]; onPla
               <tr className="bg-stone-50 border-b border-stone-100">
                 <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-stone-400">Posición</th>
                 <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-stone-400">Usuario</th>
-                <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-stone-400">Tema</th>
-                <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-stone-400">Modo</th>
+                <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-stone-400">Colegio</th>
                 <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-stone-400">Puntos</th>
-                <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-stone-400">Tiempo</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-stone-100">
-              {filteredScores.map((score, i) => (
+              {scores.map((score, i) => (
                 <tr key={score.id} className="hover:bg-stone-50 transition-colors">
                   <td className="px-6 py-4">
                     <div className={cn(
@@ -896,27 +931,17 @@ function LeaderboardView({ scores, onPlayAgain }: { scores: ScoreRecord[]; onPla
                     </div>
                   </td>
                   <td className="px-6 py-4">
-                    <span className="text-sm font-medium text-emerald-600 bg-emerald-50 px-2 py-1 rounded-lg">
-                      {topicLabels[score.topic]}
-                    </span>
-                  </td>
-                  <td className="px-6 py-4">
-                    <span className="text-sm font-medium text-stone-500">{modeLabels[score.mode]}</span>
+                    <span className="text-sm text-stone-500">{score.school || 'Sin colegio'}</span>
                   </td>
                   <td className="px-6 py-4">
                     <span className="font-black text-emerald-600 text-lg">{score.score}</span>
                   </td>
-                  <td className="px-6 py-4">
-                    <span className="text-sm text-stone-400">
-                      {score.time ? `${(score.time / 1000).toFixed(2)}s` : '-'}
-                    </span>
-                  </td>
                 </tr>
               ))}
-              {filteredScores.length === 0 && (
+              {scores.length === 0 && (
                 <tr>
-                  <td colSpan={6} className="px-6 py-12 text-center text-stone-400">
-                    No hay puntuaciones registradas para esta combinación todavía.
+                  <td colSpan={4} className="px-6 py-12 text-center text-stone-400">
+                    No hay puntuaciones registradas todavía.
                   </td>
                 </tr>
               )}
@@ -925,5 +950,62 @@ function LeaderboardView({ scores, onPlayAgain }: { scores: ScoreRecord[]; onPla
         </div>
       </Card>
     </motion.div>
+  );
+}
+
+function SchoolSetupView({
+  selectedSchool,
+  error,
+  onChange,
+  onSave,
+  onLogout,
+}: {
+  selectedSchool: string;
+  error: string | null;
+  onChange: (value: string) => void;
+  onSave: () => void;
+  onLogout: () => void;
+}) {
+  return (
+    <div className="min-h-screen bg-stone-50 flex items-center justify-center p-6">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.96 }}
+        animate={{ opacity: 1, scale: 1 }}
+        className="max-w-md w-full space-y-6"
+      >
+        <div className="space-y-2 text-center">
+          <h2 className="text-3xl font-bold tracking-tight">Selecciona tu colegio</h2>
+          <p className="text-stone-500">Es obligatorio para continuar.</p>
+        </div>
+
+        <Card className="space-y-4">
+          <select
+            value={selectedSchool}
+            onChange={(e) => onChange(e.target.value)}
+            className="w-full bg-stone-50 border border-stone-200 rounded-xl py-3 px-4 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all"
+          >
+            <option value="" disabled>Selecciona tu colegio</option>
+            {SCHOOL_GROUPS.map((group) => (
+              <optgroup key={group.region} label={group.region}>
+                {group.schools.map((schoolName) => (
+                  <option key={schoolName} value={schoolName}>{schoolName}</option>
+                ))}
+              </optgroup>
+            ))}
+          </select>
+
+          {error && (
+            <p className="text-rose-600 text-sm font-medium bg-rose-50 p-3 rounded-lg border border-rose-100">
+              {error}
+            </p>
+          )}
+
+          <div className="flex flex-col gap-2">
+            <Button onClick={onSave} className="w-full">Guardar colegio</Button>
+            <Button variant="outline" onClick={onLogout} className="w-full">Cerrar sesión</Button>
+          </div>
+        </Card>
+      </motion.div>
+    </div>
   );
 }

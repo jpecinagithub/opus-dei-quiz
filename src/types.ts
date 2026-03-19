@@ -14,12 +14,14 @@ export interface UserProfile {
   displayName: string;
   photoURL: string;
   email: string;
+  school: string;
 }
 
 export interface ScoreRecord {
   id?: string;
   uid: string;
   displayName: string;
+  school?: string;
   score: number;
   mode: GameMode;
   topic: Topic;
