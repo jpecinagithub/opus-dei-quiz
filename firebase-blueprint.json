@@ -1,0 +1,41 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile information",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "displayName": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "email": { "type": "string" }
+      },
+      "required": ["uid", "displayName", "email"]
+    },
+    "Score": {
+      "title": "Score",
+      "description": "Game score record",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "displayName": { "type": "string" },
+        "score": { "type": "integer" },
+        "mode": { "type": "string", "enum": ["standard", "time-trial", "survival"] },
+        "topic": { "type": "string", "enum": ["josemaria", "alvaro", "javier", "guadalupe"] },
+        "time": { "type": "integer", "description": "Time in milliseconds for time-trial" },
+        "timestamp": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "displayName", "score", "mode", "topic", "timestamp"]
+    }
+  },
+  "firestore": {
+    "/users/{uid}": {
+      "schema": "User",
+      "description": "User profiles"
+    },
+    "/scores/{scoreId}": {
+      "schema": "Score",
+      "description": "Global leaderboard scores"
+    }
+  }
+}
