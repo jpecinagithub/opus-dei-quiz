@@ -129,12 +129,6 @@ export const GUADALUPE_QUESTIONS_POOL: Question[] = [
   },
   {
     id: 1017,
-    text: '¿Qué tipo de capacitación ofrecía en sus centros en México?',
-    options: ['Solo teología', 'Habilidades laborales y formación profesional', 'Solo idiomas', 'Entrenamiento militar'],
-    correctAnswer: 1
-  },
-  {
-    id: 1018,
     text: '¿Cómo era el estilo de vida de Guadalupe a pesar de sus cargos?',
     options: ['Lujoso y ostentoso', 'Sencillo, práctico y resolutivo', 'Complicado y burocrático', 'Aislado del mundo'],
     correctAnswer: 1
@@ -193,12 +187,6 @@ export const GUADALUPE_QUESTIONS_POOL: Question[] = [
     correctAnswer: 0
   },
   {
-    id: 1027,
-    text: '¿Qué valor le daba Guadalupe al "trabajo bien hecho"?',
-    options: ['Ninguno', 'Es una forma de aportar valor a la sociedad y a Dios', 'Solo valor económico', 'Es una carga pesada'],
-    correctAnswer: 1
-  },
-  {
     id: 1028,
     text: '¿Dónde se celebró la ceremonia de beatificación de Guadalupe?',
     options: ['Roma', 'México', 'Madrid', 'Pamplona'],
@@ -214,23 +202,6 @@ export const GUADALUPE_QUESTIONS_POOL: Question[] = [
     id: 1030,
     text: '¿Cómo era la relación de Guadalupe con San Josemaría?',
     options: ['De desconfianza', 'De profunda sintonía espiritual y filial', 'Inexistente', 'Puramente administrativa'],
-    correctAnswer: 1
-  },
-  {
-    id: 1031,
-    text: '¿Qué defendía Guadalupe sobre la dignidad femenina?',
-    options: [
-      'Que la mujer no debe trabajar',
-      'La promoción de la dignidad y autonomía de la mujer',
-      'Que la mujer es inferior al hombre',
-      'Que la mujer solo debe estar en casa'
-    ],
-    correctAnswer: 1
-  },
-  {
-    id: 1032,
-    text: '¿Qué cualidad humana de Guadalupe facilitaba su labor apostólica?',
-    options: ['Su elocuencia rebuscada', 'Su cercanía y naturalidad', 'Su riqueza material', 'Su estatus social'],
     correctAnswer: 1
   },
   {
@@ -257,12 +228,6 @@ export const GUADALUPE_QUESTIONS_POOL: Question[] = [
     correctAnswer: 0
   },
   {
-    id: 1036,
-    text: '¿Qué actitud mantenía Guadalupe ante las dificultades?',
-    options: ['Derrotismo', 'Alegría y espíritu resolutivo', 'Indiferencia', 'Enojo'],
-    correctAnswer: 1
-  },
-  {
     id: 1037,
     text: '¿Qué importancia tenía para ella la formación profesional?',
     options: ['Mucha: era clave para la autonomía de las personas', 'Poca: solo importaba rezar', 'Ninguna', 'Solo para hombres'],
@@ -275,25 +240,8 @@ export const GUADALUPE_QUESTIONS_POOL: Question[] = [
     correctAnswer: 1
   },
   {
-    id: 1039,
-    text: '¿Qué cualidad intelectual le permitió destacar en una época con pocas mujeres universitarias?',
-    options: ['Su inteligencia y rigor', 'Su suerte', 'Su familia influyente', 'Su falta de escrúpulos'],
-    correctAnswer: 0
-  },
-  {
-    id: 1040,
-    text: '¿Qué representa Guadalupe para el liderazgo moderno?',
-    options: [
-      'Un modelo de liderazgo con impacto social y valores',
-      'Que el líder debe ser distante',
-      'Que el liderazgo es solo para políticos',
-      'Que no se puede ser líder y buena persona'
-    ],
-    correctAnswer: 0
-  },
-  {
     id: 1041,
-    text: '¿Cuál era el apellido materno de Guadalupe?',
+    text: '¿Cuál era el apellido completo de Guadalupe?',
     options: ['Escrivá', 'Ortiz de Landázuri', 'Fernández', 'García'],
     correctAnswer: 1
   },
@@ -324,12 +272,6 @@ export const GUADALUPE_QUESTIONS_POOL: Question[] = [
       'Servicio militar obligatorio'
     ],
     correctAnswer: 0
-  },
-  {
-    id: 1045,
-    text: '¿Cómo era percibida por sus alumnas?',
-    options: ['Como una profesora distante', 'Como alguien cercana, alegre y exigente', 'Como alguien que no sabía de su materia', 'Como alguien aburrida'],
-    correctAnswer: 1
   },
   {
     id: 1046,
@@ -370,5 +312,53 @@ export const GUADALUPE_QUESTIONS_POOL: Question[] = [
     text: '¿Qué sentimiento predominaba en Guadalupe incluso ante la muerte?',
     options: ['Miedo', 'Paz y alegría', 'Rencor', 'Desesperación'],
     correctAnswer: 1
+  },
+  {
+    id: 1051,
+    text: '¿En qué fecha nació Guadalupe Ortiz de Landázuri?',
+    options: ['12 de diciembre de 1916', '12 de diciembre de 1914', '18 de mayo de 1916', '16 de julio de 1916'],
+    correctAnswer: 0
+  },
+  {
+    id: 1052,
+    text: '¿En qué fecha falleció Guadalupe Ortiz de Landázuri?',
+    options: ['16 de julio de 1975', '26 de junio de 1975', '18 de mayo de 2019', '12 de diciembre de 1975'],
+    correctAnswer: 0
+  },
+  {
+    id: 1053,
+    text: '¿En qué año se trasladó Guadalupe a México para impulsar la labor del Opus Dei con mujeres?',
+    options: ['1944', '1950', '1956', '1960'],
+    correctAnswer: 1
+  },
+  {
+    id: 1054,
+    text: '¿En qué año dejó México para ayudar en Roma?',
+    options: ['1954', '1956', '1958', '1960'],
+    correctAnswer: 1
+  },
+  {
+    id: 1055,
+    text: '¿En qué fecha fue beatificada Guadalupe Ortiz de Landázuri?',
+    options: ['18 de mayo de 2019', '18 de noviembre de 2001', '12 de diciembre de 2019', '25 de mayo de 2004'],
+    correctAnswer: 0
+  },
+  {
+    id: 1056,
+    text: '¿En qué instituto terminó el bachillerato Guadalupe?',
+    options: ['Instituto Miguel de Cervantes', 'Instituto San Isidro', 'Instituto Cardenal Cisneros', 'Instituto Ortega y Gasset'],
+    correctAnswer: 0
+  },
+  {
+    id: 1057,
+    text: '¿En qué año comenzó sus estudios en la Facultad de Ciencias Químicas de la Universidad Central?',
+    options: ['1931', '1933', '1935', '1937'],
+    correctAnswer: 1
+  },
+  {
+    id: 1058,
+    text: '¿Cómo se llamaba el padre de Guadalupe?',
+    options: ['Manuel Ortiz de Landázuri', 'José Ortiz de Landázuri', 'Antonio Fernández', 'Eduardo Ortiz'],
+    correctAnswer: 0
   }
 ];

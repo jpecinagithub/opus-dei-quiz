@@ -192,16 +192,16 @@ export const QUESTIONS_POOL: Question[] = [
   },
   {
     id: 28,
-    text: "¿Qué libro contiene 1000 puntos de meditación?",
-    options: ["Camino", "Surco", "Forja", "Ninguno de los anteriores"],
-    correctAnswer: 1,
-    category: "books"
-  },
-  {
-    id: 29,
     text: "¿En qué año fue beatificado San Josemaría?",
     options: ["1982", "1992", "2002", "1975"],
     correctAnswer: 1,
+    category: "life"
+  },
+  {
+    id: 29,
+    text: "¿En qué ciudad falleció San Josemaría?",
+    options: ["Roma", "Madrid", "Barbastro", "Pamplona"],
+    correctAnswer: 0,
     category: "life"
   },
   {
@@ -213,7 +213,7 @@ export const QUESTIONS_POOL: Question[] = [
   },
   {
     id: 31,
-    text: "¿Qué animal vio San Josemaría en la nieve que le hizo intuir su vocación?",
+    text: "¿Qué vio San Josemaría en la nieve que le hizo intuir su vocación?",
     options: ["Un perro", "Un pájaro", "Las huellas de un carmelita descalzo", "Un cordero"],
     correctAnswer: 2,
     category: "life"
@@ -347,8 +347,8 @@ export const QUESTIONS_POOL: Question[] = [
   {
     id: 50,
     text: "¿En qué año comenzó el Opus Dei en Brasil?",
-    options: ["1947", "1948", "1949", "1950"],
-    correctAnswer: 0,
+    options: ["1954", "1955", "1956", "1957"],
+    correctAnswer: 3,
     category: "expansion"
   },
   {
@@ -423,10 +423,10 @@ export const QUESTIONS_POOL: Question[] = [
   },
   {
     id: 61,
-    text: "¿Qué nombre recibe el prelado actual del Opus Dei (2024)?",
-    options: ["Álvaro del Portillo", "Javier Echevarría", "Fernando Ocáriz", "Mariano Fazio"],
-    correctAnswer: 2,
-    category: "opus-dei"
+    text: "¿Quién canonizó a San Josemaría?",
+    options: ["Pablo VI", "San Juan Pablo II", "Benedicto XVI", "Francisco"],
+    correctAnswer: 1,
+    category: "life"
   },
   {
     id: 62,
@@ -465,9 +465,9 @@ export const QUESTIONS_POOL: Question[] = [
   },
   {
     id: 67,
-    text: "¿En qué año comenzó el Opus Dei en Canadá?",
-    options: ["1955", "1957", "1959", "1961"],
-    correctAnswer: 1,
+    text: "¿Qué país comenzó en 1957 junto con Brasil y Austria?",
+    options: ["Canadá", "Suiza", "Portugal", "México"],
+    correctAnswer: 0,
     category: "expansion"
   },
   {
@@ -486,9 +486,9 @@ export const QUESTIONS_POOL: Question[] = [
   },
   {
     id: 70,
-    text: "¿En qué año comenzó el Opus Dei en Venezuela?",
-    options: ["1950", "1952", "1954", "1956"],
-    correctAnswer: 1,
+    text: "¿Qué país comenzó en 1951 junto con Colombia?",
+    options: ["Venezuela", "Perú", "Chile", "Ecuador"],
+    correctAnswer: 0,
     category: "expansion"
   },
   {
@@ -598,9 +598,9 @@ export const QUESTIONS_POOL: Question[] = [
   },
   {
     id: 86,
-    text: "¿En qué año comenzó el Opus Dei en Ecuador?",
-    options: ["1950", "1952", "1954", "1956"],
-    correctAnswer: 1,
+    text: "¿Qué país comenzó en 1954?",
+    options: ["Ecuador", "Guatemala", "Perú", "Uruguay"],
+    correctAnswer: 0,
     category: "expansion"
   },
   {
@@ -619,15 +619,15 @@ export const QUESTIONS_POOL: Question[] = [
   },
   {
     id: 89,
-    text: "¿En qué año comenzó el Opus Dei en Uruguay?",
-    options: ["1954", "1956", "1958", "1960"],
-    correctAnswer: 1,
+    text: "¿Qué país comenzó en 1956 junto con Suiza?",
+    options: ["Uruguay", "Paraguay", "Bolivia", "Brasil"],
+    correctAnswer: 0,
     category: "expansion"
   },
   {
     id: 90,
-    text: "¿Qué nombre recibe el sucesor de Álvaro del Portillo?",
-    options: ["Javier Echevarría", "Fernando Ocáriz", "Mariano Fazio", "Pedro Casciaro"],
+    text: "¿Qué significa 'Opus Dei' en latín?",
+    options: ["Obra de Dios", "Camino de Dios", "Casa de Dios", "Amor de Dios"],
     correctAnswer: 0,
     category: "opus-dei"
   },
@@ -640,9 +640,9 @@ export const QUESTIONS_POOL: Question[] = [
   },
   {
     id: 92,
-    text: "¿En qué año comenzó el Opus Dei en Paraguay?",
-    options: ["1960", "1962", "1964", "1966"],
-    correctAnswer: 1,
+    text: "¿Qué país comenzó en 1962?",
+    options: ["Paraguay", "Nigeria", "Australia", "Filipinas"],
+    correctAnswer: 0,
     category: "expansion"
   },
   {
@@ -661,9 +661,9 @@ export const QUESTIONS_POOL: Question[] = [
   },
   {
     id: 95,
-    text: "¿En qué año comenzó el Opus Dei en Bolivia?",
-    options: ["1970", "1975", "1978", "1980"],
-    correctAnswer: 2,
+    text: "¿Qué país comenzó en 1978?",
+    options: ["Bolivia", "Puerto Rico", "India", "Singapur"],
+    correctAnswer: 0,
     category: "expansion"
   },
   {
