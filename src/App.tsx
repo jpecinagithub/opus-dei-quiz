@@ -17,7 +17,7 @@ import {
   Moon,
   Sun
 } from 'lucide-react';
-import { auth, googleProvider, signInWithPopup, signOut, onAuthStateChanged, collection, query, orderBy, limit, onSnapshot, db, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from './firebase';
+import { auth, googleProvider, signInWithPopup, signOut, onAuthStateChanged, collection, onSnapshot, db, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from './firebase';
 import { QUESTIONS_POOL } from './questions';
 import { ALVARO_QUESTIONS_POOL } from './questions_alvaro';
 import { JAVIER_QUESTIONS_POOL } from './questions_javier';
@@ -189,6 +189,7 @@ export default function App() {
   const [gameMode, setGameMode] = useState<GameMode>('standard');
   const [topic, setTopic] = useState<Topic>('josemaria');
   const [scores, setScores] = useState<ScoreRecord[]>([]);
+  const [usersByUid, setUsersByUid] = useState<Record<string, UserProfile>>({});
   
   // Auth states
   const [authMode, setAuthMode] = useState<'login' | 'register'>('login');
@@ -228,7 +229,7 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    const q = query(collection(db, 'scores'), orderBy('score', 'desc'), limit(50));
+    const q = collection(db, 'scores');
     const unsubscribe = onSnapshot(q, (snapshot) => {
       const newScores = snapshot.docs.map(doc => {
         const data = doc.data();
@@ -244,6 +245,28 @@ export default function App() {
     });
     return () => unsubscribe();
   }, []);
+
+  useEffect(() => {
+    const q = collection(db, 'users');
+    const unsubscribe = onSnapshot(q, (snapshot) => {
+      const next: Record<string, UserProfile> = {};
+      snapshot.docs.forEach(doc => {
+        const data = doc.data();
+        if (data?.uid) {
+          next[data.uid] = {
+            uid: data.uid,
+            displayName: data.displayName || t('common.defaultUser'),
+            photoURL: data.photoURL || '',
+            email: data.email || '',
+          };
+        }
+      });
+      setUsersByUid(next);
+    }, (error) => {
+      handleFirestoreError(error, OperationType.LIST, 'users');
+    });
+    return () => unsubscribe();
+  }, [t]);
 
   const handleGoogleLogin = async () => {
     try {
@@ -482,7 +505,7 @@ export default function App() {
               />
             )}
             {view === 'leaderboard' && (
-              <LeaderboardView scores={scores} onPlayAgain={() => setView('home')} />
+              <LeaderboardView scores={scores} usersByUid={usersByUid} onPlayAgain={() => setView('home')} />
             )}
           </AnimatePresence>
         </main>
@@ -796,6 +819,7 @@ function GameView({ user, mode, topic, allScores, onFinish, onCancel }: { user: 
     await saveScore({
       uid: user.uid,
       displayName: user.displayName,
+      email: user.email,
       score: finalPoints,
       mode,
       topic,
@@ -953,8 +977,44 @@ function GameView({ user, mode, topic, allScores, onFinish, onCancel }: { user: 
   );
 }
 
-function LeaderboardView({ scores, onPlayAgain }: { scores: ScoreRecord[]; onPlayAgain: () => void }) {
+function LeaderboardView({ scores, usersByUid, onPlayAgain }: { scores: ScoreRecord[]; usersByUid: Record<string, UserProfile>; onPlayAgain: () => void }) {
   const { t } = useTranslation();
+  const aggregatedScores = React.useMemo(() => {
+    const rows = new Map<string, { key: string; displayName: string; score: number; lastTimestamp: number }>();
+    const emailByUid = new Map<string, string>();
+    Object.values(usersByUid).forEach(user => {
+      if (user.uid && user.email) {
+        emailByUid.set(user.uid, user.email);
+      }
+    });
+    for (const score of scores) {
+      const key = (score.email && score.email.trim().length > 0)
+        ? score.email
+        : (score.uid && emailByUid.get(score.uid)) || score.uid || score.displayName;
+      if (!key) continue;
+      const profileName = score.uid ? usersByUid[score.uid]?.displayName : '';
+      const displayName = score.displayName || profileName || t('common.defaultUser');
+      const timestamp = typeof score.timestamp === 'string'
+        ? Date.parse(score.timestamp)
+        : typeof score.timestamp?.toMillis === 'function'
+          ? score.timestamp.toMillis()
+          : 0;
+
+      const existing = rows.get(key);
+      if (!existing) {
+        rows.set(key, { key, displayName, score: score.score, lastTimestamp: timestamp });
+        continue;
+      }
+      existing.score += score.score;
+      if (timestamp > existing.lastTimestamp) {
+        existing.displayName = displayName;
+        existing.lastTimestamp = timestamp;
+      }
+    }
+    return Array.from(rows.values())
+      .sort((a, b) => b.score - a.score || b.lastTimestamp - a.lastTimestamp);
+  }, [scores, t, usersByUid]);
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -981,8 +1041,8 @@ function LeaderboardView({ scores, onPlayAgain }: { scores: ScoreRecord[]; onPla
               </tr>
             </thead>
             <tbody className="divide-y divide-stone-100 dark:divide-stone-800">
-              {scores.map((score, i) => (
-                <tr key={score.id} className="hover:bg-stone-50 dark:hover:bg-stone-900 transition-colors">
+              {aggregatedScores.map((score, i) => (
+                <tr key={score.key} className="hover:bg-stone-50 dark:hover:bg-stone-900 transition-colors">
                   <td className="px-6 py-4">
                     <div className={cn(
                       "w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm",
@@ -1003,7 +1063,7 @@ function LeaderboardView({ scores, onPlayAgain }: { scores: ScoreRecord[]; onPla
                   </td>
                 </tr>
               ))}
-              {scores.length === 0 && (
+              {aggregatedScores.length === 0 && (
                 <tr>
                   <td colSpan={3} className="px-6 py-12 text-center text-stone-400">
                     {t('leaderboard.noScores')}

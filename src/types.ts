@@ -20,6 +20,7 @@ export interface ScoreRecord {
   id?: string;
   uid: string;
   displayName: string;
+  email?: string;
   score: number;
   mode: GameMode;
   topic: Topic;
