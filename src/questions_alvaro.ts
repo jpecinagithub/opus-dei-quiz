@@ -171,8 +171,8 @@ export const ALVARO_QUESTIONS_POOL: Question[] = [
   },
   {
     id: 2029,
-    text: "¿Qué cargo ocupó Álvaro en la Santa Sede relacionado con el Derecho Canónico?",
-    options: ["Consultor de varias congregaciones", "Prefecto de la Signatura Apostólica", "Cardenal Secretario de Estado", "Camarlengo"],
+    text: "¿Qué Papa lo nombró consultor de la Sagrada Congregación del Concilio en 1959?",
+    options: ["Juan XXIII", "Pablo VI", "Pío XII", "Juan Pablo II"],
     correctAnswer: 0
   },
   {
@@ -183,20 +183,20 @@ export const ALVARO_QUESTIONS_POOL: Question[] = [
   },
   {
     id: 2031,
-    text: "¿Qué milagro se atribuyó para su beatificación?",
-    options: ["Curación de un niño en Chile", "Curación de un cáncer en España", "Multiplicación de panes", "Levitación"],
+    text: "¿En qué fecha fue ordenado sacerdote Álvaro del Portillo?",
+    options: ["25 de junio de 1944", "15 de septiembre de 1975", "7 de diciembre de 1990", "23 de marzo de 1994"],
     correctAnswer: 0
   },
   {
     id: 2032,
-    text: "¿Cuál era la actitud constante de Álvaro del Portillo según quienes le conocieron?",
-    options: ["La paz y la serenidad", "La prisa", "La severidad", "La duda"],
-    correctAnswer: 0
+    text: "¿En qué año terminó Álvaro del Portillo sus estudios de Ingeniería de Caminos?",
+    options: ["1939", "1941", "1944", "1948"],
+    correctAnswer: 1
   },
   {
     id: 2033,
-    text: "¿Qué Papa le ordenó obispo personalmente?",
-    options: ["Juan Pablo II", "Pablo VI", "Juan XXIII", "Pío XII"],
+    text: "¿Dónde recibió la ordenación episcopal?",
+    options: ["Basílica de San Pedro", "Basílica de San Juan de Letrán", "Catedral de Madrid", "Basílica de Santa María la Mayor"],
     correctAnswer: 0
   },
   {
@@ -207,8 +207,8 @@ export const ALVARO_QUESTIONS_POOL: Question[] = [
   },
   {
     id: 2035,
-    text: "¿Qué centro de cuidados paliativos en Madrid fue impulsado por su ejemplo?",
-    options: ["Laguna", "Cudeca", "San Camilo", "La Paz"],
+    text: "¿Cuántos países iniciaron actividades de la prelatura durante su mandato?",
+    options: ["20", "10", "30", "40"],
     correctAnswer: 0
   },
   {
@@ -225,8 +225,8 @@ export const ALVARO_QUESTIONS_POOL: Question[] = [
   },
   {
     id: 2038,
-    text: "¿Qué deporte practicaba Álvaro en su juventud?",
-    options: ["Fútbol", "Tenis", "Atletismo", "Natación"],
+    text: "¿Qué seminario internacional comenzó en 1990 en Roma con su impulso?",
+    options: ["Sedes Sapientiae", "Bidasoa", "Oratorio de San Felipe", "Colegio Capranica"],
     correctAnswer: 0
   },
   {
@@ -237,14 +237,14 @@ export const ALVARO_QUESTIONS_POOL: Question[] = [
   },
   {
     id: 2040,
-    text: "¿Qué Papa elogió su labor en el Concilio Vaticano II?",
-    options: ["Pablo VI", "Juan XXIII", "Pío XII", "Juan Pablo II"],
+    text: "¿En qué año obtuvo el doctorado en Derecho Canónico en la Pontificia Universidad de Santo Tomás?",
+    options: ["1948", "1952", "1944", "1950"],
     correctAnswer: 0
   },
   {
     id: 2041,
-    text: "¿Qué virtud destacaba San Josemaría en Álvaro por encima de todo?",
-    options: ["La lealtad", "La inteligencia", "La fuerza", "La oratoria"],
+    text: "¿Sobre qué tema versó su doctorado civil de 1944?",
+    options: ["La exploración de la costa de California", "La historia del Opus Dei", "La ingeniería de puentes", "La filosofía de Santo Tomás"],
     correctAnswer: 0
   },
   {
@@ -255,8 +255,8 @@ export const ALVARO_QUESTIONS_POOL: Question[] = [
   },
   {
     id: 2043,
-    text: "¿Qué Papa visitó su tumba el día de su fallecimiento?",
-    options: ["Juan Pablo II", "Benedicto XVI", "Francisco", "Ninguno"],
+    text: "¿Dónde celebró su última misa antes de morir?",
+    options: ["Iglesia del Cenáculo (Jerusalén)", "Basílica de San Pedro", "Catedral de Madrid", "Iglesia de Santa María de la Paz"],
     correctAnswer: 0
   },
   {
@@ -273,8 +273,8 @@ export const ALVARO_QUESTIONS_POOL: Question[] = [
   },
   {
     id: 2046,
-    text: "¿Qué oración solía repetir Álvaro: 'Gracias, perdón, ...'?",
-    options: ["ayúdame más", "te quiero", "protégenos", "bendícenos"],
+    text: "¿En qué fecha fue nombrado obispo por el Papa?",
+    options: ["7 de diciembre de 1990", "6 de enero de 1991", "15 de septiembre de 1975", "28 de noviembre de 1982"],
     correctAnswer: 0
   },
   {
@@ -285,20 +285,20 @@ export const ALVARO_QUESTIONS_POOL: Question[] = [
   },
   {
     id: 2048,
-    text: "¿Qué universidad española le nombró Gran Canciller tras la muerte de San Josemaría?",
-    options: ["Universidad de Navarra", "Universidad de Piura", "Universidad de los Andes", "Universidad de la Sabana"],
+    text: "¿En qué fecha fue nombrado Prelado del Opus Dei tras erigirse la prelatura personal?",
+    options: ["28 de noviembre de 1982", "15 de septiembre de 1975", "6 de enero de 1991", "23 de marzo de 1994"],
     correctAnswer: 0
   },
   {
     id: 2049,
-    text: "¿Cuál era su actitud ante las dificultades según sus biógrafos?",
-    options: ["Abandono en la voluntad de Dios", "Preocupación excesiva", "Indiferencia", "Queja"],
+    text: "¿Qué cargo ocupó en el Colegio Romano de la Santa Cruz en 1948?",
+    options: ["Primer rector", "Director espiritual", "Ecónomo", "Profesor invitado"],
     correctAnswer: 0
   },
   {
     id: 2050,
-    text: "¿Qué Papa le definió como 'un ejemplo de fidelidad al Evangelio y al servicio de la Iglesia'?",
-    options: ["Juan Pablo II", "Francisco", "Benedicto XVI", "Pablo VI"],
+    text: "¿Qué lugar ocupaba Álvaro del Portillo entre sus hermanos?",
+    options: ["El tercero de ocho", "El mayor de cinco", "El menor de tres", "El segundo de cuatro"],
     correctAnswer: 0
   }
 ];

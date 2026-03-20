@@ -1,52 +1,502 @@
 [
-  {"id":"guadalupe-1001","text":"In which city was Guadalupe Ortiz de Landázuri born in 1916?","options":["Madrid","Barcelona","Seville","Bilbao"]},
-  {"id":"guadalupe-1002","text":"In which university degree did Guadalupe graduate at the Central University of Madrid?","options":["Physics","Mathematics","Chemistry","Biology"]},
-  {"id":"guadalupe-1003","text":"In what year did Guadalupe meet Saint Josemaría Escrivá?","options":["1936","1944","1950","1928"]},
-  {"id":"guadalupe-1004","text":"What was the key message Guadalupe spread after joining Opus Dei?","options":["Holiness is only for religious","Holiness is lived in daily life and professional work","Science and faith are incompatible","Withdrawal from the world is necessary to be holy"]},
-  {"id":"guadalupe-1005","text":"In which country did Guadalupe live between 1950 and 1956 to promote Opus Dei?","options":["Argentina","Mexico","Colombia","Peru"]},
-  {"id":"guadalupe-1006","text":"What kind of initiatives did Guadalupe promote especially in Mexico?","options":["Only pure research centers","Educational and social initiatives for women","Factories of industrial chemical products","High-complexity hospitals"]},
-  {"id":"guadalupe-1007","text":"Which personality traits did those who knew Guadalupe highlight?","options":["Extreme seriousness","Constant joy and naturalness","Paralyzing shyness","Distant attitude"]},
-  {"id":"guadalupe-1008","text":"What health problem did Guadalupe suffer significantly in her last years?","options":["Vision problems","Heart problems","Mobility problems","Respiratory problems"]},
-  {"id":"guadalupe-1009","text":"In what year was Guadalupe Ortiz de Landázuri beatified?","options":["2000","2010","2019","2022"]},
-  {"id":"guadalupe-1010","text":"What milestone did Guadalupe's beatification mark in Opus Dei?","options":["She was the first lay woman to be beatified","She was the first scientist to be beatified","She was the first person from Madrid to be beatified","She was the first teacher to be beatified"]},
-  {"id":"guadalupe-1011","text":"In which city did Guadalupe die in 1975?","options":["Madrid","Mexico City","Pamplona","Rome"]},
-  {"id":"guadalupe-1012","text":"What did Guadalupe defend about professional work?","options":["That it is a necessary punishment","That well-done work adds value to society","That it is secondary to spiritual life","That only economic success matters"]},
-  {"id":"guadalupe-1013","text":"What was one of the objectives of her social work in Mexico?","options":["Promote dignity and female autonomy","Build monumental churches","Export Spanish products","Organize political events"]},
-  {"id":"guadalupe-1014","text":"How is Guadalupe's leadership described according to her legacy?","options":["Authoritarian leadership","Leadership with social impact","Passive leadership","Purely academic leadership"]},
-  {"id":"guadalupe-1015","text":"What does Guadalupe represent for women in science?","options":["That science is not for women","A female role model in 20th-century science","That one must choose between science and family","That science is only for men"]},
-  {"id":"guadalupe-1016","text":"At which university did she serve as a professor of chemistry?","options":["University of Oxford","Central University of Madrid","Harvard University","University of Salamanca"]},
-  {"id":"guadalupe-1017","text":"What was Guadalupe's lifestyle despite her responsibilities?","options":["Luxurious and ostentatious","Simple, practical, and resolute","Complicated and bureaucratic","Isolated from the world"]},
-  {"id":"guadalupe-1019","text":"What did Guadalupe seek with her initiatives for people with fewer resources?","options":["Create real opportunities","Maintain the status quo","Encourage dependence","Gain votes"]},
-  {"id":"guadalupe-1020","text":"What intellectual quality stood out in Guadalupe during her studies?","options":["Intelligence and rigor","Photographic memory","Constant improvisation","Lack of interest in detail"]},
-  {"id":"guadalupe-1021","text":"In what year was Guadalupe born?","options":["1910","1916","1920","1925"]},
-  {"id":"guadalupe-1022","text":"What was Guadalupe's profession before devoting herself fully to Opus Dei?","options":["Doctor","Chemist and professor","Architect","Lawyer"]},
-  {"id":"guadalupe-1023","text":"What did Guadalupe promote in rural Mexico (Morelos)?","options":["A silver mine","A training center for rural women (Montefalco)","A luxury hotel","An airstrip"]},
-  {"id":"guadalupe-1024","text":"How did Guadalupe face her heart disease?","options":["With bitterness","With optimism and dedication to others","By stopping work completely","By constantly complaining"]},
-  {"id":"guadalupe-1025","text":"What does it mean that Guadalupe was one of the \"first women\" of Opus Dei?","options":["That she was the founder","That she joined in the early days of the women's section","That she was the only woman for years","That she had no contact with other women"]},
-  {"id":"guadalupe-1026","text":"In which branch of chemistry did Guadalupe work during her research period?","options":["Applied chemistry","Nuclear chemistry","Quantum chemistry","Petrochemistry"]},
-  {"id":"guadalupe-1028","text":"Where was Guadalupe's beatification ceremony held?","options":["Rome","Mexico","Madrid","Pamplona"]},
-  {"id":"guadalupe-1029","text":"What type of formation did she promote for women in Mexico?","options":["Integral: professional, human, and spiritual","Only technical","Only domestic","Only sports"]},
-  {"id":"guadalupe-1030","text":"What was Guadalupe's relationship with Saint Josemaría like?","options":["Distrustful","Deep spiritual and filial harmony","Nonexistent","Purely administrative"]},
-  {"id":"guadalupe-1033","text":"In which decade did Guadalupe begin her work in Mexico?","options":["1930s","1940s","1950s","1960s"]},
-  {"id":"guadalupe-1034","text":"What legacy did Guadalupe leave in the scientific field?","options":["An example of integrating professional life and values","Several Nobel Prizes","The discovery of a new element","The invention of penicillin"]},
-  {"id":"guadalupe-1035","text":"What was the name of the training center she promoted in Mexico?","options":["Montefalco","Torreciudad","La Moncloa","Altoclaro"]},
-  {"id":"guadalupe-1037","text":"How important was professional training to her?","options":["Very: it was key to people's autonomy","Little: only prayer mattered","None","Only for men"]},
-  {"id":"guadalupe-1038","text":"In what year did her stage in Mexico end?","options":["1950","1956","1960","1975"]},
-  {"id":"guadalupe-1041","text":"What was Guadalupe's full last name?","options":["Escrivá","Ortiz de Landázuri","Fernández","García"]},
-  {"id":"guadalupe-1042","text":"What type of work did she do in the field of chemistry?","options":["Research and teaching","Only sales","Only cleaning laboratories","None"]},
-  {"id":"guadalupe-1043","text":"How did her faith influence her scientific career?","options":["It made her abandon science","It gave her a purpose of service and excellence","It had no influence","It made her less rigorous"]},
-  {"id":"guadalupe-1044","text":"What social milestone did she achieve in Mexico for rural women?","options":["Access to technical and human formation","The right to vote","Ownership of land","Mandatory military service"]},
-  {"id":"guadalupe-1046","text":"What importance does her beatification have for laypeople?","options":["It shows that a layperson can reach the altars through ordinary life","None","That you must be a priest to be holy","That only scientists are saints"]},
-  {"id":"guadalupe-1047","text":"In which century did Guadalupe carry out most of her activity?","options":["19th century","20th century","21st century","18th century"]},
-  {"id":"guadalupe-1048","text":"What attitude did she have toward the future of women?","options":["Pessimistic","A promoter of their dignity and training","Indifferent","Restrictive"]},
-  {"id":"guadalupe-1049","text":"What is the \"key idea\" of her life?","options":["A demanding career without losing purpose or values","Success at any price","Abandoning professional life for faith","Living without working"]},
-  {"id":"guadalupe-1050","text":"What feeling predominated in Guadalupe even in the face of death?","options":["Fear","Peace and joy","Resentment","Despair"]},
-  {"id":"guadalupe-1051","text":"On what date was Guadalupe Ortiz de Landázuri born?","options":["December 12, 1916","December 12, 1914","May 18, 1916","July 16, 1916"]},
-  {"id":"guadalupe-1052","text":"On what date did Guadalupe Ortiz de Landázuri die?","options":["July 16, 1975","June 26, 1975","May 18, 2019","December 12, 1975"]},
-  {"id":"guadalupe-1053","text":"In what year did Guadalupe move to Mexico to promote Opus Dei work with women?","options":["1944","1950","1956","1960"]},
-  {"id":"guadalupe-1054","text":"In what year did she leave Mexico to help in Rome?","options":["1954","1956","1958","1960"]},
-  {"id":"guadalupe-1055","text":"On what date was Guadalupe Ortiz de Landázuri beatified?","options":["May 18, 2019","November 18, 2001","December 12, 2019","May 25, 2004"]},
-  {"id":"guadalupe-1056","text":"At which institute did Guadalupe finish high school?","options":["Miguel de Cervantes Institute","San Isidro Institute","Cardenal Cisneros Institute","Ortega y Gasset Institute"]},
-  {"id":"guadalupe-1057","text":"In what year did she begin her studies at the Faculty of Chemical Sciences of the Central University?","options":["1931","1933","1935","1937"]},
-  {"id":"guadalupe-1058","text":"What was Guadalupe's father's name?","options":["Manuel Ortiz de Landázuri","José Ortiz de Landázuri","Antonio Fernández","Eduardo Ortiz"]}
+  {
+    "id": "guadalupe-1001",
+    "text": "In which city was Guadalupe Ortiz de Landázuri born in 1916?",
+    "options": [
+      "Madrid",
+      "Barcelona",
+      "Seville",
+      "Bilbao"
+    ]
+  },
+  {
+    "id": "guadalupe-1002",
+    "text": "In which university degree did Guadalupe graduate at the Central University of Madrid?",
+    "options": [
+      "Physics",
+      "Mathematics",
+      "Chemistry",
+      "Biology"
+    ]
+  },
+  {
+    "id": "guadalupe-1003",
+    "text": "In what year did Guadalupe meet Saint Josemaría Escrivá?",
+    "options": [
+      "1936",
+      "1944",
+      "1950",
+      "1928"
+    ]
+  },
+  {
+    "id": "guadalupe-1004",
+    "text": "What was the key message Guadalupe spread after joining Opus Dei?",
+    "options": [
+      "Holiness is only for religious",
+      "Holiness is lived in daily life and professional work",
+      "Science and faith are incompatible",
+      "Withdrawal from the world is necessary to be holy"
+    ]
+  },
+  {
+    "id": "guadalupe-1005",
+    "text": "In which country did Guadalupe live between 1950 and 1956 to promote Opus Dei?",
+    "options": [
+      "Argentina",
+      "Mexico",
+      "Colombia",
+      "Peru"
+    ]
+  },
+  {
+    "id": "guadalupe-1006",
+    "text": "What kind of initiatives did Guadalupe promote especially in Mexico?",
+    "options": [
+      "Only pure research centers",
+      "Educational and social initiatives for women",
+      "Factories of industrial chemical products",
+      "High-complexity hospitals"
+    ]
+  },
+  {
+    "id": "guadalupe-1007",
+    "text": "In which academic year was she director of the Zurbarán university residence?",
+    "options": [
+      "1947-1948",
+      "1944-1945",
+      "1950-1951",
+      "1952-1953"
+    ]
+  },
+  {
+    "id": "guadalupe-1008",
+    "text": "What health problem did Guadalupe suffer significantly in her last years?",
+    "options": [
+      "Vision problems",
+      "Heart problems",
+      "Mobility problems",
+      "Respiratory problems"
+    ]
+  },
+  {
+    "id": "guadalupe-1009",
+    "text": "In what year was Guadalupe Ortiz de Landázuri beatified?",
+    "options": [
+      "2000",
+      "2010",
+      "2019",
+      "2022"
+    ]
+  },
+  {
+    "id": "guadalupe-1010",
+    "text": "What milestone did Guadalupe's beatification mark in Opus Dei?",
+    "options": [
+      "She was the first lay woman to be beatified",
+      "She was the first scientist to be beatified",
+      "She was the first person from Madrid to be beatified",
+      "She was the first teacher to be beatified"
+    ]
+  },
+  {
+    "id": "guadalupe-1011",
+    "text": "In which city did Guadalupe die in 1975?",
+    "options": [
+      "Madrid",
+      "Mexico City",
+      "Pamplona",
+      "Rome"
+    ]
+  },
+  {
+    "id": "guadalupe-1012",
+    "text": "In what year did Guadalupe return to Madrid after the Civil War?",
+    "options": [
+      "1937",
+      "1939",
+      "1941",
+      "1944"
+    ]
+  },
+  {
+    "id": "guadalupe-1013",
+    "text": "What health initiative did she create in Mexico with a doctor friend?",
+    "options": [
+      "A mobile dispensary",
+      "A high-complexity hospital",
+      "A pharmaceutical laboratory",
+      "A private clinic"
+    ]
+  },
+  {
+    "id": "guadalupe-1014",
+    "text": "On which street was the first women's center of Opus Dei where she met St. Josemaría?",
+    "options": [
+      "Jorge Manrique",
+      "Luchana",
+      "Ferraz",
+      "San Bernardo"
+    ]
+  },
+  {
+    "id": "guadalupe-1015",
+    "text": "At which school did she teach for ten years after the Ramiro de Maeztu?",
+    "options": [
+      "Women's School of Industrial Trades",
+      "School of Industrial Engineers",
+      "Miguel de Cervantes Institute",
+      "Zurbarán School"
+    ]
+  },
+  {
+    "id": "guadalupe-1016",
+    "text": "At which institute did she teach Chemistry for two years?",
+    "options": [
+      "Ramiro de Maeztu Institute",
+      "Miguel de Cervantes Institute",
+      "San Isidro Institute",
+      "Cardenal Cisneros Institute"
+    ]
+  },
+  {
+    "id": "guadalupe-1017",
+    "text": "What was Guadalupe's lifestyle despite her responsibilities?",
+    "options": [
+      "Luxurious and ostentatious",
+      "Simple, practical, and resolute",
+      "Complicated and bureaucratic",
+      "Isolated from the world"
+    ]
+  },
+  {
+    "id": "guadalupe-1019",
+    "text": "What did Guadalupe seek with her initiatives for people with fewer resources?",
+    "options": [
+      "Create real opportunities",
+      "Maintain the status quo",
+      "Encourage dependence",
+      "Gain votes"
+    ]
+  },
+  {
+    "id": "guadalupe-1020",
+    "text": "What intellectual quality stood out in Guadalupe during her studies?",
+    "options": [
+      "Intelligence and rigor",
+      "Photographic memory",
+      "Constant improvisation",
+      "Lack of interest in detail"
+    ]
+  },
+  {
+    "id": "guadalupe-1021",
+    "text": "In what year was Guadalupe born?",
+    "options": [
+      "1910",
+      "1916",
+      "1920",
+      "1925"
+    ]
+  },
+  {
+    "id": "guadalupe-1022",
+    "text": "What was Guadalupe's profession before devoting herself fully to Opus Dei?",
+    "options": [
+      "Doctor",
+      "Chemist and professor",
+      "Architect",
+      "Lawyer"
+    ]
+  },
+  {
+    "id": "guadalupe-1023",
+    "text": "What did Guadalupe promote in rural Mexico (Morelos)?",
+    "options": [
+      "A silver mine",
+      "A training center for rural women (Montefalco)",
+      "A luxury hotel",
+      "An airstrip"
+    ]
+  },
+  {
+    "id": "guadalupe-1024",
+    "text": "How did Guadalupe face her heart disease?",
+    "options": [
+      "With bitterness",
+      "With optimism and dedication to others",
+      "By stopping work completely",
+      "By constantly complaining"
+    ]
+  },
+  {
+    "id": "guadalupe-1025",
+    "text": "What does it mean that Guadalupe was one of the \"first women\" of Opus Dei?",
+    "options": [
+      "That she was the founder",
+      "That she joined in the early days of the women's section",
+      "That she was the only woman for years",
+      "That she had no contact with other women"
+    ]
+  },
+  {
+    "id": "guadalupe-1026",
+    "text": "In which branch of chemistry did Guadalupe work during her research period?",
+    "options": [
+      "Applied chemistry",
+      "Nuclear chemistry",
+      "Quantum chemistry",
+      "Petrochemistry"
+    ]
+  },
+  {
+    "id": "guadalupe-1028",
+    "text": "Where was Guadalupe's beatification ceremony held?",
+    "options": [
+      "Rome",
+      "Mexico",
+      "Madrid",
+      "Pamplona"
+    ]
+  },
+  {
+    "id": "guadalupe-1029",
+    "text": "What training did she promote for rural women in Mexico?",
+    "options": [
+      "Cultural and professional training",
+      "Only sports training",
+      "Only domestic training",
+      "Military training"
+    ]
+  },
+  {
+    "id": "guadalupe-1030",
+    "text": "What was Guadalupe's relationship with Saint Josemaría like?",
+    "options": [
+      "Distrustful",
+      "Deep spiritual and filial harmony",
+      "Nonexistent",
+      "Purely administrative"
+    ]
+  },
+  {
+    "id": "guadalupe-1033",
+    "text": "In which decade did Guadalupe begin her work in Mexico?",
+    "options": [
+      "1930s",
+      "1940s",
+      "1950s",
+      "1960s"
+    ]
+  },
+  {
+    "id": "guadalupe-1034",
+    "text": "What legacy did Guadalupe leave in the scientific field?",
+    "options": [
+      "An example of integrating professional life and values",
+      "Several Nobel Prizes",
+      "The discovery of a new element",
+      "The invention of penicillin"
+    ]
+  },
+  {
+    "id": "guadalupe-1035",
+    "text": "What was the name of the former hacienda she promoted in Mexico, now a convention center and retreat house?",
+    "options": [
+      "Montefalco",
+      "Torreciudad",
+      "La Moncloa",
+      "Altoclaro"
+    ]
+  },
+  {
+    "id": "guadalupe-1037",
+    "text": "Which center of studies did she help launch starting in 1968?",
+    "options": [
+      "Center for Studies and Research in Domestic Sciences (CEICID)",
+      "Josemaría Escrivá Center for Studies",
+      "CIMA",
+      "IESE"
+    ]
+  },
+  {
+    "id": "guadalupe-1038",
+    "text": "In what year did her stage in Mexico end?",
+    "options": [
+      "1950",
+      "1956",
+      "1960",
+      "1975"
+    ]
+  },
+  {
+    "id": "guadalupe-1041",
+    "text": "What was Guadalupe's full last name?",
+    "options": [
+      "Escrivá",
+      "Ortiz de Landázuri",
+      "Fernández",
+      "García"
+    ]
+  },
+  {
+    "id": "guadalupe-1042",
+    "text": "What type of work did she do in the field of chemistry?",
+    "options": [
+      "Research and teaching",
+      "Only sales",
+      "Only cleaning laboratories",
+      "None"
+    ]
+  },
+  {
+    "id": "guadalupe-1043",
+    "text": "What award did her research on insulating refractories and rice-husk ash receive?",
+    "options": [
+      "Juan de la Cierva Prize",
+      "Nobel Prize",
+      "Princess of Asturias Prize",
+      "Ramón y Cajal Prize"
+    ]
+  },
+  {
+    "id": "guadalupe-1044",
+    "text": "Which rural school is mentioned in connection with Montefalco?",
+    "options": [
+      "El Peñón",
+      "La Inmaculada",
+      "Santa María",
+      "San José"
+    ]
+  },
+  {
+    "id": "guadalupe-1046",
+    "text": "On what date is her liturgical memorial celebrated?",
+    "options": [
+      "May 18",
+      "July 16",
+      "December 12",
+      "June 26"
+    ]
+  },
+  {
+    "id": "guadalupe-1047",
+    "text": "In which century did Guadalupe carry out most of her activity?",
+    "options": [
+      "19th century",
+      "20th century",
+      "21st century",
+      "18th century"
+    ]
+  },
+  {
+    "id": "guadalupe-1048",
+    "text": "On what date did she defend her doctoral thesis?",
+    "options": [
+      "July 8, 1965",
+      "December 12, 1965",
+      "May 18, 1964",
+      "July 16, 1966"
+    ]
+  },
+  {
+    "id": "guadalupe-1049",
+    "text": "To which city did she move with her family when she was 10?",
+    "options": [
+      "Tetuán",
+      "Pamplona",
+      "Seville",
+      "Barcelona"
+    ]
+  },
+  {
+    "id": "guadalupe-1050",
+    "text": "What feeling predominated in Guadalupe even in the face of death?",
+    "options": [
+      "Fear",
+      "Peace and joy",
+      "Resentment",
+      "Despair"
+    ]
+  },
+  {
+    "id": "guadalupe-1051",
+    "text": "On what date was Guadalupe Ortiz de Landázuri born?",
+    "options": [
+      "December 12, 1916",
+      "December 12, 1914",
+      "May 18, 1916",
+      "July 16, 1916"
+    ]
+  },
+  {
+    "id": "guadalupe-1052",
+    "text": "On what date did Guadalupe Ortiz de Landázuri die?",
+    "options": [
+      "July 16, 1975",
+      "June 26, 1975",
+      "May 18, 2019",
+      "December 12, 1975"
+    ]
+  },
+  {
+    "id": "guadalupe-1053",
+    "text": "In what year did Guadalupe move to Mexico to promote Opus Dei work with women?",
+    "options": [
+      "1944",
+      "1950",
+      "1956",
+      "1960"
+    ]
+  },
+  {
+    "id": "guadalupe-1054",
+    "text": "In what year did she leave Mexico to help in Rome?",
+    "options": [
+      "1954",
+      "1956",
+      "1958",
+      "1960"
+    ]
+  },
+  {
+    "id": "guadalupe-1055",
+    "text": "On what date was Guadalupe Ortiz de Landázuri beatified?",
+    "options": [
+      "May 18, 2019",
+      "November 18, 2001",
+      "December 12, 2019",
+      "May 25, 2004"
+    ]
+  },
+  {
+    "id": "guadalupe-1056",
+    "text": "At which institute did Guadalupe finish high school?",
+    "options": [
+      "Miguel de Cervantes Institute",
+      "San Isidro Institute",
+      "Cardenal Cisneros Institute",
+      "Ortega y Gasset Institute"
+    ]
+  },
+  {
+    "id": "guadalupe-1057",
+    "text": "In what year did she begin her studies at the Faculty of Chemical Sciences of the Central University?",
+    "options": [
+      "1931",
+      "1933",
+      "1935",
+      "1937"
+    ]
+  },
+  {
+    "id": "guadalupe-1058",
+    "text": "What was Guadalupe's father's name?",
+    "options": [
+      "Manuel Ortiz de Landázuri",
+      "José Ortiz de Landázuri",
+      "Antonio Fernández",
+      "Eduardo Ortiz"
+    ]
+  }
 ]

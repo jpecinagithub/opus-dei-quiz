@@ -1,12 +1,12 @@
 export type GameMode = 'standard' | 'time-trial' | 'survival';
-export type Topic = 'josemaria' | 'alvaro' | 'javier' | 'guadalupe';
+export type Topic = 'josemaria' | 'alvaro' | 'javier' | 'guadalupe' | 'monste' | 'dora' | 'muzquiz' | 'isidoro';
 
 export interface Question {
   id?: number | string;
   text: string;
   options: string[];
   correctAnswer: number; // index
-  category?: 'life' | 'opus-dei' | 'expansion' | 'books';
+  category?: 'life' | 'opus-dei' | 'expansion' | 'books' | 'roma' | 'canonizacion' | 'legacy';
 }
 
 export interface UserProfile {

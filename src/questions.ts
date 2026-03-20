@@ -45,9 +45,9 @@ export const QUESTIONS_POOL: Question[] = [
   },
   {
     id: 7,
-    text: "¿Cuál de estos libros fue publicado póstumamente?",
-    options: ["Camino", "Santo Rosario", "La Abadesa de las Huelgas", "Surco"],
-    correctAnswer: 3,
+    text: "¿Qué libro se publicó por primera vez en 1986?",
+    options: ["Surco", "Forja", "Camino", "Amigos de Dios"],
+    correctAnswer: 0,
     category: "books"
   },
   {
@@ -164,8 +164,8 @@ export const QUESTIONS_POOL: Question[] = [
   },
   {
     id: 24,
-    text: "¿Qué libro de San Josemaría se centra en la infancia espiritual?",
-    options: ["Santo Rosario", "Camino", "Surco", "Forja"],
+    text: "¿En qué libro aparecen capítulos titulados 'Infancia espiritual' y 'Vida de infancia'?",
+    options: ["Camino", "Surco", "Forja", "Santo Rosario"],
     correctAnswer: 0,
     category: "books"
   },
@@ -332,15 +332,15 @@ export const QUESTIONS_POOL: Question[] = [
   },
   {
     id: 48,
-    text: "¿Cuál es el lema del escudo del Opus Dei?",
-    options: ["Deo Gratias", "Serviam", "Regnare Christum volumus", "Pax"],
-    correctAnswer: 2,
+    text: "¿Qué jaculatoria aparece en la bula de canonización de San Josemaría?",
+    options: ["Regnare Christum volumus", "Deo gratias", "Serviam", "Pax Christi"],
+    correctAnswer: 0,
     category: "opus-dei"
   },
   {
     id: 49,
-    text: "¿Qué libro de San Josemaría se publicó en 1987?",
-    options: ["Forja", "Surco", "Vía Crucis", "Amigos de Dios"],
+    text: "¿Qué libro se publicó por primera vez en 1987?",
+    options: ["Forja", "Surco", "Amigos de Dios", "Camino"],
     correctAnswer: 0,
     category: "books"
   },
@@ -374,8 +374,8 @@ export const QUESTIONS_POOL: Question[] = [
   },
   {
     id: 54,
-    text: "¿Qué libro de San Josemaría tiene como subtítulo 'Homilías'?",
-    options: ["Es Cristo que pasa", "Camino", "Surco", "Forja"],
+    text: "¿Qué libro se publicó por primera vez en 1934 y contiene comentarios sobre los 15 misterios del Rosario?",
+    options: ["Santo Rosario", "Camino", "Surco", "Forja"],
     correctAnswer: 0,
     category: "books"
   },
@@ -430,9 +430,9 @@ export const QUESTIONS_POOL: Question[] = [
   },
   {
     id: 62,
-    text: "¿Qué libro de San Josemaría se publicó en 1986?",
-    options: ["Surco", "Forja", "Vía Crucis", "Amigos de Dios"],
-    correctAnswer: 0,
+    text: "¿En qué año se publicó por primera vez 'Conversaciones con Mons. Escrivá de Balaguer'?",
+    options: ["1966", "1968", "1970", "1972"],
+    correctAnswer: 1,
     category: "books"
   },
   {
@@ -493,9 +493,9 @@ export const QUESTIONS_POOL: Question[] = [
   },
   {
     id: 71,
-    text: "¿Cómo definía San Josemaría el Opus Dei?",
-    options: ["Una movilización de cristianos", "Una parte de la Iglesia", "Un camino de santidad", "Todas las anteriores"],
-    correctAnswer: 3,
+    text: "¿Qué es el Opus Dei según la web oficial?",
+    options: ["Una prelatura personal de la Iglesia católica", "Una orden religiosa", "Una ONG laica", "Una congregación monástica"],
+    correctAnswer: 0,
     category: "opus-dei"
   },
   {
@@ -563,15 +563,15 @@ export const QUESTIONS_POOL: Question[] = [
   },
   {
     id: 81,
-    text: "¿Qué suceso ocurrió el 27 de abril de 1954?",
-    options: ["San Josemaría se curó de la diabetes", "Aprobación de los estatutos", "Nombramiento como Prelado", "Viaje a Fátima"],
+    text: "¿En qué año terminó San Josemaría sus estudios de doctorado en Derecho?",
+    options: ["1939", "1927", "1946", "1950"],
     correctAnswer: 0,
     category: "life"
   },
   {
     id: 82,
-    text: "¿Qué libro de San Josemaría trata sobre la filiación divina?",
-    options: ["Todos sus libros", "Camino", "Surco", "Forja"],
+    text: "¿Qué libro tiene como hilo conductor la filiación divina?",
+    options: ["Es Cristo que pasa", "Camino", "Surco", "Forja"],
     correctAnswer: 0,
     category: "books"
   },
@@ -584,8 +584,8 @@ export const QUESTIONS_POOL: Question[] = [
   },
   {
     id: 84,
-    text: "¿Qué nombre recibe el centro de retiros en Segovia donde estuvo San Josemaría?",
-    options: ["Molino Viejo", "Los Rosales", "El Prados", "La Solana"],
+    text: "¿En qué iglesia recibió la ordenación sacerdotal San Josemaría?",
+    options: ["Iglesia de San Carlos (Zaragoza)", "Basílica del Pilar", "Catedral de la Seo", "Iglesia de San Pablo"],
     correctAnswer: 0,
     category: "life"
   },
@@ -612,8 +612,8 @@ export const QUESTIONS_POOL: Question[] = [
   },
   {
     id: 88,
-    text: "¿Qué libro de San Josemaría tiene como tema la santificación de la vida ordinaria?",
-    options: ["Todos ellos", "Camino", "Surco", "Forja"],
+    text: "¿Qué libro menciona la santificación del trabajo ordinario como uno de sus temas?",
+    options: ["Es Cristo que pasa", "Camino", "Surco", "Forja"],
     correctAnswer: 0,
     category: "books"
   },
@@ -633,9 +633,9 @@ export const QUESTIONS_POOL: Question[] = [
   },
   {
     id: 91,
-    text: "¿Qué libro de San Josemaría se centra en la forja de las virtudes?",
-    options: ["Forja", "Surco", "Camino", "Amigos de Dios"],
-    correctAnswer: 0,
+    text: "¿Cuántas homilías reúne 'Es Cristo que pasa'?",
+    options: ["12", "15", "18", "21"],
+    correctAnswer: 2,
     category: "books"
   },
   {
@@ -696,9 +696,9 @@ export const QUESTIONS_POOL: Question[] = [
   },
   {
     id: 100,
-    text: "¿Qué libro de San Josemaría es el más traducido?",
-    options: ["Camino", "Surco", "Forja", "Es Cristo que pasa"],
-    correctAnswer: 0,
+    text: "¿En cuántos idiomas se ha publicado Camino?",
+    options: ["Más de 20", "Más de 30", "Más de 50", "Más de 70"],
+    correctAnswer: 2,
     category: "books"
   }
 ];

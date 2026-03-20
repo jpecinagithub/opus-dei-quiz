@@ -22,6 +22,10 @@ import { QUESTIONS_POOL } from './questions';
 import { ALVARO_QUESTIONS_POOL } from './questions_alvaro';
 import { JAVIER_QUESTIONS_POOL } from './questions_javier';
 import { GUADALUPE_QUESTIONS_POOL } from './questions_guadalupe';
+import { MONSTE_QUESTIONS_POOL } from './questions_monste';
+import { MUZQUIZ_QUESTIONS_POOL } from './questions_muzquiz';
+import { DORA_QUESTIONS_POOL } from './questions_dora';
+import { ISIDORO_QUESTIONS_POOL } from './questions_isidoro';
 import { GameMode, Question, ScoreRecord, UserProfile, Topic, OperationType } from './types';
 import { saveScore, saveUserProfile, handleFirestoreError } from './services';
 import { ErrorBoundary } from './components/ErrorBoundary';
@@ -40,11 +44,10 @@ function cn(...inputs: ClassValue[]) {
 type ThemeMode = 'light' | 'dark';
 
 function getInitialTheme(): ThemeMode {
-  if (typeof window === 'undefined') return 'light';
+  if (typeof window === 'undefined') return 'dark';
   const stored = localStorage.getItem('theme');
   if (stored === 'light' || stored === 'dark') return stored;
-  const prefersDark = window.matchMedia?.('(prefers-color-scheme: dark)').matches;
-  return prefersDark ? 'dark' : 'light';
+  return 'dark';
 }
 
 const Input = ({ 
@@ -526,6 +529,34 @@ function HomeView({ onStart, allScores }: { onStart: (mode: GameMode, topic: Top
       desc: t('topics.guadalupe.desc'),
       image: '/images/guadalupeortiz.jpg',
       color: 'bg-rose-100/70 text-rose-600',
+    },
+    {
+      id: 'monste' as Topic,
+      title: t('topics.monste.title'),
+      desc: t('topics.monste.desc'),
+      image: '/images/monste.jpg',
+      color: 'bg-purple-100/70 text-purple-600',
+    },
+    {
+      id: 'muzquiz' as Topic,
+      title: t('topics.muzquiz.title'),
+      desc: t('topics.muzquiz.desc'),
+      image: '/images/jose-luis-muzquiz.jpg',
+      color: 'bg-cyan-100/70 text-cyan-600',
+    },
+    {
+      id: 'dora' as Topic,
+      title: t('topics.dora.title'),
+      desc: t('topics.dora.desc'),
+      image: '/images/dora.jpg',
+      color: 'bg-orange-100/70 text-orange-600',
+    },
+    {
+      id: 'isidoro' as Topic,
+      title: t('topics.isidoro.title'),
+      desc: t('topics.isidoro.desc'),
+      image: '/images/isidoro.jpg',
+      color: 'bg-teal-100/70 text-teal-600',
     }
   ];
 
@@ -664,6 +695,10 @@ function GameView({ user, mode, topic, allScores, onFinish, onCancel }: { user: 
     if (topic === 'alvaro') pool = ALVARO_QUESTIONS_POOL;
     if (topic === 'javier') pool = JAVIER_QUESTIONS_POOL;
     if (topic === 'guadalupe') pool = GUADALUPE_QUESTIONS_POOL;
+    if (topic === 'monste') pool = MONSTE_QUESTIONS_POOL;
+    if (topic === 'muzquiz') pool = MUZQUIZ_QUESTIONS_POOL;
+    if (topic === 'dora') pool = DORA_QUESTIONS_POOL;
+    if (topic === 'isidoro') pool = ISIDORO_QUESTIONS_POOL;
     
     let selected: Question[] = [];
     if (mode === 'survival') {

@@ -49,9 +49,9 @@ export const GUADALUPE_QUESTIONS_POOL: Question[] = [
   },
   {
     id: 1007,
-    text: '¿Cuál de estos rasgos de personalidad destacaban quienes conocieron a Guadalupe?',
-    options: ['Seriedad extrema', 'Alegría constante y naturalidad', 'Timidez paralizante', 'Actitud distante'],
-    correctAnswer: 1
+    text: '¿En qué curso fue directora de la residencia universitaria Zurbarán?',
+    options: ['1947-1948', '1944-1945', '1950-1951', '1952-1953'],
+    correctAnswer: 0
   },
   {
     id: 1008,
@@ -84,48 +84,43 @@ export const GUADALUPE_QUESTIONS_POOL: Question[] = [
   },
   {
     id: 1012,
-    text: '¿Qué defendía Guadalupe sobre el trabajo profesional?',
-    options: [
-      'Que es un castigo necesario',
-      'Que el trabajo bien hecho aporta valor a la sociedad',
-      'Que es secundario frente a la vida espiritual',
-      'Que solo importa el éxito económico'
-    ],
+    text: '¿En qué año regresó Guadalupe a Madrid tras la Guerra Civil?',
+    options: ['1937', '1939', '1941', '1944'],
     correctAnswer: 1
   },
   {
     id: 1013,
-    text: '¿Cuál fue uno de los objetivos de su trabajo social en México?',
+    text: '¿Qué iniciativa sanitaria creó en México con una amiga médico?',
     options: [
-      'Promover la dignidad y autonomía femenina',
-      'Construir iglesias monumentales',
-      'Exportar productos españoles',
-      'Organizar eventos políticos'
+      'Un dispensario ambulante',
+      'Un hospital de alta complejidad',
+      'Un laboratorio farmacéutico',
+      'Una clínica privada'
     ],
     correctAnswer: 0
   },
   {
     id: 1014,
-    text: '¿Cómo se describe el liderazgo de Guadalupe según su legado?',
-    options: ['Liderazgo autoritario', 'Liderazgo con impacto social', 'Liderazgo pasivo', 'Liderazgo puramente académico'],
-    correctAnswer: 1
+    text: '¿En qué calle estaba el primer centro de mujeres del Opus Dei donde se encontró con san Josemaría?',
+    options: ['Jorge Manrique', 'Luchana', 'Ferraz', 'San Bernardo'],
+    correctAnswer: 0
   },
   {
     id: 1015,
-    text: '¿Qué representa Guadalupe para las mujeres en la ciencia?',
+    text: '¿En qué escuela ejerció como profesora durante diez años después del Ramiro de Maeztu?',
     options: [
-      'Que la ciencia no es para mujeres',
-      'Un referente femenino en ciencia en el siglo XX',
-      'Que hay que elegir entre ciencia y familia',
-      'Que la ciencia es solo para hombres'
+      'Escuela Femenina de Maestría industrial',
+      'Escuela de Ingenieros Industriales',
+      'Instituto Miguel de Cervantes',
+      'Colegio Zurbarán'
     ],
-    correctAnswer: 1
+    correctAnswer: 0
   },
   {
     id: 1016,
-    text: '¿En qué universidad ejerció como profesora de química?',
-    options: ['Universidad de Oxford', 'Universidad Central de Madrid', 'Universidad de Harvard', 'Universidad de Salamanca'],
-    correctAnswer: 1
+    text: '¿En qué instituto dio clases de Química durante dos cursos?',
+    options: ['Instituto Ramiro de Maeztu', 'Instituto Miguel de Cervantes', 'Instituto San Isidro', 'Instituto Cardenal Cisneros'],
+    correctAnswer: 0
   },
   {
     id: 1017,
@@ -194,8 +189,8 @@ export const GUADALUPE_QUESTIONS_POOL: Question[] = [
   },
   {
     id: 1029,
-    text: '¿Qué tipo de formación promovía para las mujeres en México?',
-    options: ['Integral: profesional, humana y espiritual', 'Solo técnica', 'Solo doméstica', 'Solo deportiva'],
+    text: '¿Qué formación impulsó para campesinas en zonas rurales de México?',
+    options: ['Formación cultural y profesional', 'Solo formación deportiva', 'Solo formación doméstica', 'Formación militar'],
     correctAnswer: 0
   },
   {
@@ -223,14 +218,19 @@ export const GUADALUPE_QUESTIONS_POOL: Question[] = [
   },
   {
     id: 1035,
-    text: '¿Cómo se llamaba el centro de formación que impulsó en México?',
+    text: '¿Cómo se llamaba la ex hacienda que impulsó en México, hoy sede de centro de convenciones y casa de retiros?',
     options: ['Montefalco', 'Torreciudad', 'La Moncloa', 'Altoclaro'],
     correctAnswer: 0
   },
   {
     id: 1037,
-    text: '¿Qué importancia tenía para ella la formación profesional?',
-    options: ['Mucha: era clave para la autonomía de las personas', 'Poca: solo importaba rezar', 'Ninguna', 'Solo para hombres'],
+    text: '¿Qué centro de estudios puso en marcha a partir de 1968?',
+    options: [
+      'Centro de Estudios e Investigación de Ciencias Domésticas (CEICID)',
+      'Centro de Estudios Josemaría Escrivá',
+      'CIMA',
+      'IESE'
+    ],
     correctAnswer: 0
   },
   {
@@ -253,35 +253,20 @@ export const GUADALUPE_QUESTIONS_POOL: Question[] = [
   },
   {
     id: 1043,
-    text: '¿Cómo influyó su fe en su carrera científica?',
-    options: [
-      'La hizo abandonar la ciencia',
-      'Le dio un propósito de servicio y excelencia',
-      'No tuvo ninguna influencia',
-      'La hizo ser menos rigurosa'
-    ],
-    correctAnswer: 1
+    text: '¿Qué premio obtuvo su investigación sobre refractarios aislantes y cenizas de cascarilla de arroz?',
+    options: ['Premio Juan de la Cierva', 'Premio Nobel', 'Premio Princesa de Asturias', 'Premio Ramón y Cajal'],
+    correctAnswer: 0
   },
   {
     id: 1044,
-    text: '¿Qué hito social logró en México para las mujeres rurales?',
-    options: [
-      'Acceso a formación técnica y humana',
-      'Derecho al voto',
-      'Propiedad de tierras',
-      'Servicio militar obligatorio'
-    ],
+    text: '¿Qué escuela rural se menciona asociada a Montefalco?',
+    options: ['El Peñón', 'La Inmaculada', 'Santa María', 'San José'],
     correctAnswer: 0
   },
   {
     id: 1046,
-    text: '¿Qué importancia tiene su beatificación para los laicos?',
-    options: [
-      'Muestra que un laico puede llegar a los altares por su vida ordinaria',
-      'Ninguna',
-      'Que hay que ser cura para ser santo',
-      'Que solo los científicos son santos'
-    ],
+    text: '¿En qué fecha se celebra su memoria litúrgica?',
+    options: ['18 de mayo', '16 de julio', '12 de diciembre', '26 de junio'],
     correctAnswer: 0
   },
   {
@@ -292,19 +277,14 @@ export const GUADALUPE_QUESTIONS_POOL: Question[] = [
   },
   {
     id: 1048,
-    text: '¿Qué actitud tenía hacia el futuro de las mujeres?',
-    options: ['Pesimista', 'Promotora de su dignidad y capacitación', 'Indiferente', 'Restrictiva'],
-    correctAnswer: 1
+    text: '¿En qué fecha defendió su tesis doctoral?',
+    options: ['8 de julio de 1965', '12 de diciembre de 1965', '18 de mayo de 1964', '16 de julio de 1966'],
+    correctAnswer: 0
   },
   {
     id: 1049,
-    text: '¿Cuál es la "idea clave" de su vida?',
-    options: [
-      'Carrera exigente sin perder propósito ni valores',
-      'Éxito a cualquier precio',
-      'Abandono de la vida profesional por la fe',
-      'Vivir sin trabajar'
-    ],
+    text: '¿A qué ciudad se trasladó con su familia cuando tenía 10 años?',
+    options: ['Tetuán', 'Pamplona', 'Sevilla', 'Barcelona'],
     correctAnswer: 0
   },
   {

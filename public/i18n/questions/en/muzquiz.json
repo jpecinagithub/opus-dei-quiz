@@ -1,0 +1,252 @@
+[
+  {
+    "id": "muzquiz-1",
+    "text": "In which city was José Luis Múzquiz born?",
+    "options": [
+      "Madrid",
+      "Badajoz",
+      "Seville",
+      "Cáceres"
+    ]
+  },
+  {
+    "id": "muzquiz-2",
+    "text": "On what date was José Luis Múzquiz born?",
+    "options": [
+      "October 14, 1912",
+      "December 24, 1910",
+      "February 3, 1914",
+      "January 1, 1912"
+    ]
+  },
+  {
+    "id": "muzquiz-3",
+    "text": "What type of engineering did José Luis Múzquiz study?",
+    "options": [
+      "Industrial Engineering",
+      "Civil Engineering (Roads, Canals and Ports)",
+      "Telecommunications Engineering",
+      "Aeronautical Engineering"
+    ]
+  },
+  {
+    "id": "muzquiz-4",
+    "text": "What position in his class did José Luis Múzquiz graduate in 1936?",
+    "options": [
+      "Number 1",
+      "Number 2",
+      "Number 5",
+      "Number 10"
+    ]
+  },
+  {
+    "id": "muzquiz-5",
+    "text": "In which academic year did José Luis Múzquiz meet Saint Josemaría?",
+    "options": [
+      "1928-29",
+      "1930-31",
+      "1934-35",
+      "1936-37"
+    ]
+  },
+  {
+    "id": "muzquiz-6",
+    "text": "On what date did José Luis Múzquiz join Opus Dei as a numerary?",
+    "options": [
+      "January 21, 1940",
+      "October 14, 1941",
+      "June 25, 1944",
+      "March 1, 1939"
+    ]
+  },
+  {
+    "id": "muzquiz-7",
+    "text": "For which company did José Luis Múzquiz work as an engineer after the Spanish Civil War?",
+    "options": [
+      "Compañía de Ferrocarriles del Norte",
+      "Renfe",
+      "Banco de España",
+      "Telefónica"
+    ]
+  },
+  {
+    "id": "muzquiz-8",
+    "text": "What did his engineering work after the Civil War mainly consist of?",
+    "options": [
+      "Construction of roads",
+      "Reconstruction of railway networks",
+      "Bridge design",
+      "Urban planning"
+    ]
+  },
+  {
+    "id": "muzquiz-9",
+    "text": "Who suggested that José Luis Múzquiz be ordained a priest?",
+    "options": [
+      "The Bishop of Madrid",
+      "The Primate Cardinal",
+      "Saint Josemaría Escrivá",
+      "The Apostolic Nuncio"
+    ]
+  },
+  {
+    "id": "muzquiz-10",
+    "text": "On what date did José Luis Múzquiz receive priestly ordination?",
+    "options": [
+      "June 25, 1944",
+      "September 13, 1943",
+      "October 2, 1945",
+      "December 8, 1944"
+    ]
+  },
+  {
+    "id": "muzquiz-11",
+    "text": "With which other two Opus Dei faithful did José Luis Múzquiz receive the institution's first priestly ordination?",
+    "options": [
+      "Álvaro del Portillo and Josemaría Escrivá",
+      "Álvaro del Portillo and José María Hernández Garnica",
+      "Javier Echevarría and Josemaría Escrivá",
+      "José María Hernández Garnica and Pedro Casciaro"
+    ]
+  },
+  {
+    "id": "muzquiz-12",
+    "text": "How many doctorates did José Luis Múzquiz obtain?",
+    "options": [
+      "One",
+      "Two",
+      "Three",
+      "Four"
+    ]
+  },
+  {
+    "id": "muzquiz-13",
+    "text": "At which universities did José Luis Múzquiz obtain his doctorates?",
+    "options": [
+      "University of Madrid and University of Salamanca",
+      "Polytechnic University of Madrid and University of Valencia",
+      "University of Navarra and Complutense University",
+      "University of Barcelona and University of Seville"
+    ]
+  },
+  {
+    "id": "muzquiz-14",
+    "text": "In which country did he extend Opus Dei's work in 1946?",
+    "options": [
+      "Italy",
+      "Portugal",
+      "France",
+      "England"
+    ]
+  },
+  {
+    "id": "muzquiz-15",
+    "text": "In what year did he move to the United States to help with Opus Dei's apostolic work?",
+    "options": [
+      "1946",
+      "1947",
+      "1949",
+      "1951"
+    ]
+  },
+  {
+    "id": "muzquiz-16",
+    "text": "In which U.S. city did he begin Opus Dei's work?",
+    "options": [
+      "New York",
+      "Boston",
+      "Chicago",
+      "Washington, D.C."
+    ]
+  },
+  {
+    "id": "muzquiz-17",
+    "text": "To which U.S. cities did he take Opus Dei's work?",
+    "options": [
+      "Only Chicago",
+      "Chicago, Boston, New York, Washington and Milwaukee",
+      "Only Boston and New York",
+      "Chicago, Los Angeles and San Francisco"
+    ]
+  },
+  {
+    "id": "muzquiz-18",
+    "text": "From which city did he help promote Opus Dei's work in Europe and Asia?",
+    "options": [
+      "Madrid",
+      "Chicago",
+      "Rome",
+      "Lisbon"
+    ]
+  },
+  {
+    "id": "muzquiz-19",
+    "text": "In which retreat house did he work as chaplain after returning to Spain in 1966?",
+    "options": [
+      "Retreat house of Guadarrama (Madrid)",
+      "Retreat house of Pozalonso (Cádiz)",
+      "Retreat house of Loyola (Basque Country)",
+      "Retreat house of San Ignacio (Barcelona)"
+    ]
+  },
+  {
+    "id": "muzquiz-20",
+    "text": "To which city in Illinois did Álvaro del Portillo ask him to return in 1976?",
+    "options": [
+      "Chicago",
+      "Springfield",
+      "Chestnut",
+      "Milwaukee"
+    ]
+  },
+  {
+    "id": "muzquiz-21",
+    "text": "What happened to José Luis Múzquiz on June 20, 1983?",
+    "options": [
+      "He had a traffic accident",
+      "He suffered a heart crisis while teaching a class",
+      "He was diagnosed with an illness",
+      "He fell on a staircase"
+    ]
+  },
+  {
+    "id": "muzquiz-22",
+    "text": "Where and when did José Luis Múzquiz die?",
+    "options": [
+      "Madrid, October 14, 1983",
+      "Boston, June 21, 1983",
+      "Chicago, June 20, 1983",
+      "Plymouth, December 25, 1983"
+    ]
+  },
+  {
+    "id": "muzquiz-23",
+    "text": "What was the cause of José Luis Múzquiz's death?",
+    "options": [
+      "Cancer",
+      "Stroke",
+      "Acute myocardial infarction",
+      "Pneumonia"
+    ]
+  },
+  {
+    "id": "muzquiz-24",
+    "text": "Where is José Luis Múzquiz buried?",
+    "options": [
+      "In the cathedral of Badajoz",
+      "In the West Roxbury cemetery (Massachusetts)",
+      "In St. Peter's Basilica (Rome)",
+      "In the Pozalonso cemetery (Cádiz)"
+    ]
+  },
+  {
+    "id": "muzquiz-25",
+    "text": "In which city, and under the authority of which Cardinal, was the cause of canonization for José Luis Múzquiz opened?",
+    "options": [
+      "Boston, Cardinal O'Malley",
+      "Madrid, Cardinal Rouco",
+      "Rome, Cardinal Amato",
+      "Chicago, Cardinal Cupich"
+    ]
+  }
+]

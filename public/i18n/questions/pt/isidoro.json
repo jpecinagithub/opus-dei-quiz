@@ -1,0 +1,302 @@
+[
+  {
+    "id": "isidoro-1",
+    "text": "Em que cidade nasceu Isidoro Zorzano?",
+    "options": ["Buenos Aires", "Madrid", "Logroño", "Málaga"],
+    "correctAnswer": 0
+  },
+  {
+    "id": "isidoro-2",
+    "text": "Em que ano nasceu Isidoro Zorzano?",
+    "options": ["1900", "1902", "1904", "1906"],
+    "correctAnswer": 1
+  },
+  {
+    "id": "isidoro-3",
+    "text": "Quantos anos tinha Isidoro Zorzano quando faleceu?",
+    "options": ["35 anos", "40 anos", "45 anos", "50 anos"],
+    "correctAnswer": 1
+  },
+  {
+    "id": "isidoro-4",
+    "text": "Em que data faleceu Isidoro Zorzano?",
+    "options": ["15 de julho", "13 de setembro", "24 de agosto", "2 de outubro"],
+    "correctAnswer": 0
+  },
+  {
+    "id": "isidoro-5",
+    "text": "Em que cidade faleceu Isidoro Zorzano?",
+    "options": ["Madrid", "Buenos Aires", "Málaga", "Logroño"],
+    "correctAnswer": 0
+  },
+  {
+    "id": "isidoro-6",
+    "text": "Qual era a profissão de Isidoro Zorzano?",
+    "options": ["Advogado", "Engenheiro", "Médico", "Arquiteto"],
+    "correctAnswer": 1
+  },
+  {
+    "id": "isidoro-7",
+    "text": "Em que ano Isidoro Zorzano se incorporou ao Opus Dei?",
+    "options": ["1928", "1930", "1932", "1934"],
+    "correctAnswer": 1
+  },
+  {
+    "id": "isidoro-8",
+    "text": "Em que data Isidoro Zorzano se encontrou com São Josemaría em Madrid para descobrir a sua vocação?",
+    "options": ["24 de agosto", "14 de fevereiro", "2 de outubro", "13 de setembro"],
+    "correctAnswer": 0
+  },
+  {
+    "id": "isidoro-9",
+    "text": "Em que rua de Madrid Isidoro Zorzano se encontrou com São Josemaría?",
+    "options": ["Rua Serrano", "Rua Nicasio Gallego", "Rua Ferraz", "Rua Mayor"],
+    "correctAnswer": 1
+  },
+  {
+    "id": "isidoro-10",
+    "text": "Que festividade se celebrava no dia em que Isidoro descobriu a sua vocação no Opus Dei?",
+    "options": ["São José", "São Bartolomeu", "Nossa Senhora do Pilar", "Todos os Santos"],
+    "correctAnswer": 1
+  },
+  {
+    "id": "isidoro-11",
+    "text": "Que trabalho Isidoro Zorzano desempenhava em Málaga antes de se incorporar ao Opus Dei?",
+    "options": ["Professor universitário", "Engenheiro nos Ferrovias Andaluzas", "Gerente de banco", "Advogado"],
+    "correctAnswer": 1
+  },
+  {
+    "id": "isidoro-12",
+    "text": "Em que ano Isidoro Zorzano viaja a Roma para ganhar o Jubileu?",
+    "options": ["1931", "1933", "1935", "1937"],
+    "correctAnswer": 1
+  },
+  {
+    "id": "isidoro-13",
+    "text": "Que Papa recebeu Isidoro Zorzano em Roma durante a sua viagem em 1933?",
+    "options": ["Pio XI", "Pio XII", "João XXIII", "Bento XV"],
+    "correctAnswer": 0
+  },
+  {
+    "id": "isidoro-14",
+    "text": "Que incumbência São Josemaría deu a Isidoro Zorzano durante a sua viagem a Roma?",
+    "options": ["Comprar Recordações para os fiéis", "Comprar uma imagem de São Pedro sentado", "Visitar o Núncio", "Entregar uma carta ao Papa"],
+    "correctAnswer": 1
+  },
+  {
+    "id": "isidoro-15",
+    "text": "Com que idade Isidoro Zorzano começou a estudar engenharia?",
+    "options": ["18 anos", "20 anos", "22 anos", "24 anos"],
+    "correctAnswer": 1
+  },
+  {
+    "id": "isidoro-16",
+    "text": "Em que escola Isidoro Zorzano obteve o título de engenheiro industrial?",
+    "options": ["Universidade de Navarra", "Escola de Engenheiros Industriais de Madrid", "Universidade de Buenos Aires", "Universidade Politécnica de Madrid"],
+    "correctAnswer": 1
+  },
+  {
+    "id": "isidoro-17",
+    "text": "Em que ano Isidoro Zorzano se formou como engenheiro industrial?",
+    "options": ["1925", "1927", "1929", "1931"],
+    "correctAnswer": 1
+  },
+  {
+    "id": "isidoro-18",
+    "text": "Em que cidade Isidoro Zorzano trabalha após se formar, num estaleiro?",
+    "options": ["Cádiz", "Barcelona", "Valência", "Sevilha"],
+    "correctAnswer": 0
+  },
+  {
+    "id": "isidoro-19",
+    "text": "Que cargo Isidoro Zorzano desempenhava na Companhia Nacional dos Ferrovias do Oeste?",
+    "options": ["Diretor geral", "Chefe do Escritório de Estudos de Material e Tração", "Gerente regional", "Subdiretor"],
+    "correctAnswer": 1
+  },
+  {
+    "id": "isidoro-20",
+    "text": "Que cargo Isidoro Zorzano teve dentro do Opus Dei?",
+    "options": ["Prelado", "Vigário Regional", "Administrador", "Secretário"],
+    "correctAnswer": 2
+  },
+  {
+    "id": "isidoro-21",
+    "text": "Em que consistiu a ajuda de Isidoro Zorzano durante a Guerra Civil espanhola?",
+    "options": ["Apenas distribuía alimentos", "Fornecia pão e vinho para celebrar Missa em clandestinidade e ajudava os refugiados", "Organizava abrigos", "Enviava dinheiro às famílias"],
+    "correctAnswer": 1
+  },
+  {
+    "id": "isidoro-22",
+    "text": "Por que Isidoro Zorzano tinha alguma liberdade de movimento durante a Guerra Civil?",
+    "options": ["Era médico", "Era argentino", "Era diplomata", "Trabalhava para o governo"],
+    "correctAnswer": 1
+  },
+  {
+    "id": "isidoro-23",
+    "text": "Que doença diagnosticaram a Isidoro Zorzano no final de 1942?",
+    "options": ["Tuberculose", "Gripe", "Linfogranulomatose maligna", "Pneumonia"],
+    "correctAnswer": 2
+  },
+  {
+    "id": "isidoro-24",
+    "text": "Em que data foi Beatificado Isidoro Zorzano?",
+    "options": ["Ainda não foi beatificado", "2016", "2002", "1992"],
+    "correctAnswer": 0
+  },
+  {
+    "id": "isidoro-25",
+    "text": "Que título Isidoro Zorzano recebeu da Igreja católica?",
+    "options": ["Santo", "Beato", "Venerável", "Servo de Deus"],
+    "correctAnswer": 2
+  },
+  {
+    "id": "isidoro-26",
+    "text": "Em que ano foi declarado venerável Isidoro Zorzano?",
+    "options": ["2014", "2016", "2018", "2020"],
+    "correctAnswer": 1
+  },
+  {
+    "id": "isidoro-27",
+    "text": "Quem autorizou o decreto de declaração como venerável de Isidoro Zorzano?",
+    "options": ["Papa Bento XVI", "Papa Francisco", "Papa João Paulo II", "Papa Paulo VI"],
+    "correctAnswer": 1
+  },
+  {
+    "id": "isidoro-28",
+    "text": "Em que ano começou o processo informativo sobre a vida de Isidoro Zorzano?",
+    "options": ["1943", "1948", "1950", "1961"],
+    "correctAnswer": 1
+  },
+  {
+    "id": "isidoro-29",
+    "text": "Quantos testemunhas declararam no processo informativo de Isidoro Zorzano?",
+    "options": ["51", "71", "91", "31"],
+    "correctAnswer": 1
+  },
+  {
+    "id": "isidoro-30",
+    "text": "Quem foi um dos testemunhas no processo de beatificação de Isidoro Zorzano?",
+    "options": ["São Josemaría Escrivá", "São João Paulo II", "Padre Pio", "Mãe Teresa"],
+    "correctAnswer": 0
+  },
+  {
+    "id": "isidoro-31",
+    "text": "Em que ano foram transladados os restos de Isidoro Zorzano para a paróquia de São Alberto Magno?",
+    "options": ["2005", "2007", "2009", "2011"],
+    "correctAnswer": 2
+  },
+  {
+    "id": "isidoro-32",
+    "text": "Em que rua está localizada a igreja de São Alberto Magno onde repousam os restos de Isidoro Zorzano?",
+    "options": ["Rua Serrano", "Rua Benjamín Palencia", "Rua Jenner", "Rua Ferraz"],
+    "correctAnswer": 1
+  },
+  {
+    "id": "isidoro-33",
+    "text": "Quantos filhos tinha a família Zorzano?",
+    "options": ["3", "4", "5", "6"],
+    "correctAnswer": 2
+  },
+  {
+    "id": "isidoro-34",
+    "text": "Com que idade a família Zorzano emigrou da Argentina para a Espanha?",
+    "options": ["1 ano", "3 anos", "5 anos", "7 anos"],
+    "correctAnswer": 1
+  },
+  {
+    "id": "isidoro-35",
+    "text": "Em que cidade espanhola se estabeleceu a família Zorzano ao regressar da Argentina?",
+    "options": ["Madrid", "Logroño", "Zaragoza", "Barcelona"],
+    "correctAnswer": 1
+  },
+  {
+    "id": "isidoro-36",
+    "text": "Em que ano do bacharelato Isidoro Zorzano conheceu Josemaría Escrivá?",
+    "options": ["Primeiro", "Segundo", "Terceiro", "Quarto"],
+    "correctAnswer": 3
+  },
+  {
+    "id": "isidoro-37",
+    "text": "Com que idade faleceu o pai de Isidoro Zorzano?",
+    "options": ["35 anos", "41 anos", "50 anos", "45 anos"],
+    "correctAnswer": 1
+  },
+  {
+    "id": "isidoro-38",
+    "text": "Que cargo Isidoro Zorzano teve na Ação Católica de Málaga?",
+    "options": ["Presidente", "Vice-presidente", "Tesoureiro", "Secretário"],
+    "correctAnswer": 2
+  },
+  {
+    "id": "isidoro-39",
+    "text": "Em que cidade Isidoro Zorzano trabalhava quando lhe diagnosticaram a doença?",
+    "options": ["Madrid", "Málaga", "Cádiz", "Barcelona"],
+    "correctAnswer": 0
+  },
+  {
+    "id": "isidoro-40",
+    "text": "A que foi promovido Isidoro Zorzano em março de 1943?",
+    "options": ["Engenheiro Principal", "Diretor", "Subdiretor geral", "Chefe de divisão"],
+    "correctAnswer": 0
+  },
+  {
+    "id": "isidoro-41",
+    "text": "De que nacionalidade era Isidoro Zorzano além de espanhol?",
+    "options": ["Argentino", "Mexicano", "Colombiano", "Chileno"],
+    "correctAnswer": 0
+  },
+  {
+    "id": "isidoro-42",
+    "text": "Onde foi batizado Isidoro Zorzano em Buenos Aires?",
+    "options": ["Nossa Senhora da Balvanera", "Catedral de Buenos Aires", "São Inácio", "Nossa Senhora do Pilar"],
+    "correctAnswer": 0
+  },
+  {
+    "id": "isidoro-43",
+    "text": "Em que rua de Buenos Aires nasceu Isidoro Zorzano?",
+    "options": ["Avenida Corrientes e Riobamba", "Rua Florida", "Avenida 9 de Julio", "Rua Santa Fe"],
+    "correctAnswer": 0
+  },
+  {
+    "id": "isidoro-44",
+    "text": "Que obra de apostolado Isidoro Zorzano promoveu em Málaga?",
+    "options": ["Federação malaguenha de Estudantes Católicos", "Cruz Vermelha", "Caritas", "Irmandade da Virgen"],
+    "correctAnswer": 0
+  },
+  {
+    "id": "isidoro-45",
+    "text": "Em que data Isidoro Zorzano pediu o seu ingresso no Opus Dei?",
+    "options": ["24 de agosto", "14 de fevereiro", "5 de setembro", "13 de setembro"],
+    "correctAnswer": 0
+  },
+  {
+    "id": "isidoro-46",
+    "text": "Quanto tempo Isidoro Zorzano trabalhou no estaleiro de Matagorda?",
+    "options": ["Quase seis semanas", "Três meses", "Um ano", "Seis meses"],
+    "correctAnswer": 0
+  },
+  {
+    "id": "isidoro-47",
+    "text": "Qual linha férrea NÃO foi objeto de um projeto de eletrificação preparado por Isidoro Zorzano?",
+    "options": ["Madrid-Barcelona", "Málaga a Bobadilla", "Córdoba a Bélmez", "Almería a Guadix"],
+    "correctAnswer": 0
+  },
+  {
+    "id": "isidoro-48",
+    "text": "Em que instituição educativa Isidoro Zorzano deu aulas em Málaga?",
+    "options": ["Universidade de Málaga", "Escola Industrial", "Instituto de Formação Profissional", "Colégio São Agustín"],
+    "correctAnswer": 1
+  },
+  {
+    "id": "isidoro-49",
+    "text": "A que a Igreja católica atribui o exemplo de Isidoro Zorzano?",
+    "options": ["Santificação do trabalho profissional", "Viver em mosteiro", "Ser missionário", "Pregar nas igrejas"],
+    "correctAnswer": 0
+  },
+  {
+    "id": "isidoro-50",
+    "text": "Em que estação de comboio Isidoro Zorzano trabalhava em Madrid?",
+    "options": ["Estação de Atocha", "Estação de Delicias", "Estação de Chamartín", "Estação do Norte"],
+    "correctAnswer": 1
+  }
+]

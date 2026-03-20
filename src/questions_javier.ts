@@ -164,8 +164,8 @@ export const JAVIER_QUESTIONS_POOL: Question[] = [
   },
   {
     id: 3024,
-    text: "¿Qué Papa visitó a Javier Echevarría en el hospital poco antes de su fallecimiento?",
-    options: ["Juan Pablo II", "Benedicto XVI", "Francisco", "Ninguno de los anteriores"],
+    text: "¿Visitó algún Papa a Javier Echevarría en el hospital poco antes de su fallecimiento?",
+    options: ["Sí, el Papa Francisco", "Sí, el Papa Benedicto XVI", "Sí, San Juan Pablo II", "No"],
     correctAnswer: 3,
     category: "life"
   },

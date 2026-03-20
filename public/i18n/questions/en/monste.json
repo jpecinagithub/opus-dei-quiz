@@ -1,0 +1,502 @@
+[
+  {
+    "id": "monste-2001",
+    "text": "In which city was Montserrat Grases (Montse) born?",
+    "options": [
+      "Barcelona",
+      "Madrid",
+      "Seville",
+      "Zaragoza"
+    ]
+  },
+  {
+    "id": "monste-2002",
+    "text": "On what date was Montse Grases born?",
+    "options": [
+      "July 10, 1941",
+      "October 12, 1941",
+      "May 15, 1940",
+      "August 8, 1942"
+    ]
+  },
+  {
+    "id": "monste-2003",
+    "text": "How many children did Montse Grases' parents have?",
+    "options": [
+      "Five",
+      "Seven",
+      "Eight",
+      "Nine"
+    ]
+  },
+  {
+    "id": "monste-2004",
+    "text": "What type of cancer was diagnosed to Montse Grases in June 1958?",
+    "options": [
+      "Leukemia",
+      "Ewing's sarcoma",
+      "Lymphoma",
+      "Brain tumor"
+    ]
+  },
+  {
+    "id": "monste-2005",
+    "text": "In which part of the body did Montse have Ewing's sarcoma?",
+    "options": [
+      "Right arm",
+      "Left leg",
+      "Spine",
+      "Ribs"
+    ]
+  },
+  {
+    "id": "monste-2006",
+    "text": "On what date did Montse Grases die?",
+    "options": [
+      "March 26, 1959",
+      "April 15, 1959",
+      "February 2, 1959",
+      "December 30, 1958"
+    ]
+  },
+  {
+    "id": "monste-2007",
+    "text": "How old was Montse Grases when she died?",
+    "options": [
+      "16 years old",
+      "17 years old",
+      "18 years old",
+      "19 years old"
+    ]
+  },
+  {
+    "id": "monste-2008",
+    "text": "What institution did St. Josemaría Escrivá de Balaguer found?",
+    "options": [
+      "Red Cross",
+      "Caritas",
+      "Opus Dei",
+      "Messengers of Peace"
+    ]
+  },
+  {
+    "id": "monste-2009",
+    "text": "In what year did Montse request to join Opus Dei as a numerary?",
+    "options": [
+      "1955",
+      "1956",
+      "1957",
+      "1958"
+    ]
+  },
+  {
+    "id": "monste-2010",
+    "text": "On what date did Montse request to join Opus Dei?",
+    "options": [
+      "December 24, 1957",
+      "December 25, 1957",
+      "January 1, 1958",
+      "March 25, 1957"
+    ]
+  },
+  {
+    "id": "monste-2011",
+    "text": "Where did Montse Grases learn to pray?",
+    "options": [
+      "At home",
+      "At the neighborhood church",
+      "At the oratory of the youth center Llar of Opus Dei",
+      "At school"
+    ]
+  },
+  {
+    "id": "monste-2012",
+    "text": "Which youth center of Opus Dei did Montse frequent in Barcelona?",
+    "options": [
+      "Bonaigua Center",
+      "Llar Center",
+      "Montserrat Center",
+      "Paz Center"
+    ]
+  },
+  {
+    "id": "monste-2013",
+    "text": "What studies did Montse pursue after secondary school?",
+    "options": [
+      "Medical School",
+      "Women's Professional School",
+      "Music Conservatory",
+      "Architecture School"
+    ]
+  },
+  {
+    "id": "monste-2014",
+    "text": "What complementary training did Montse receive along with her studies?",
+    "options": [
+      "Piano",
+      "Painting",
+      "Dance",
+      "Languages"
+    ]
+  },
+  {
+    "id": "monste-2015",
+    "text": "What did Montse like to do besides her studies?",
+    "options": [
+      "Only study",
+      "Sports, music, and folk dances like sardanas",
+      "Collect stamps",
+      "Watch television"
+    ]
+  },
+  {
+    "id": "monste-2016",
+    "text": "With whom did Montse visit poor areas of Barcelona to teach catechism?",
+    "options": [
+      "With her siblings",
+      "With her teachers",
+      "With school classmates",
+      "With her neighbors"
+    ]
+  },
+  {
+    "id": "monste-2017",
+    "text": "What was Montse's temperament according to those who knew her?",
+    "options": [
+      "Shy and quiet",
+      "Lively and spontaneous",
+      "Serious and thoughtful",
+      "Sad and melancholic"
+    ]
+  },
+  {
+    "id": "monste-2018",
+    "text": "What position did Montse have among her parents' nine children?",
+    "options": [
+      "The second",
+      "The third",
+      "The fifth",
+      "The eighth"
+    ]
+  },
+  {
+    "id": "monste-2019",
+    "text": "In what year did Montse learn about Opus Dei?",
+    "options": [
+      "1950",
+      "1952",
+      "1954",
+      "1956"
+    ]
+  },
+  {
+    "id": "monste-2020",
+    "text": "Who encouraged Montse to frequent the Opus Dei Llar center?",
+    "options": [
+      "A classmate",
+      "Her parish priest",
+      "Her mother Manolita",
+      "Her spiritual director"
+    ]
+  },
+  {
+    "id": "monste-2021",
+    "text": "What was Montse Grases' mother's name?",
+    "options": [
+      "María",
+      "Manolita García",
+      "Dolores",
+      "Carmen"
+    ]
+  },
+  {
+    "id": "monste-2022",
+    "text": "What was Montse Grases' father's name?",
+    "options": [
+      "Antonio",
+      "José",
+      "Manuel Grases",
+      "Francisco"
+    ]
+  },
+  {
+    "id": "monste-2023",
+    "text": "What were Montse's parents to Opus Dei?",
+    "options": [
+      "Priests",
+      "Numerary members",
+      "Sympathizers",
+      "Members of the Work"
+    ]
+  },
+  {
+    "id": "monste-2024",
+    "text": "Where did the accident occur during the excursion that Montse suffered?",
+    "options": [
+      "At the beach",
+      "In the mountains (La Molina)",
+      "In the park",
+      "At school"
+    ]
+  },
+  {
+    "id": "monste-2025",
+    "text": "In what season did Montse have the fall during the excursion?",
+    "options": [
+      "Spring",
+      "Summer",
+      "Fall",
+      "Winter"
+    ]
+  },
+  {
+    "id": "monste-2026",
+    "text": "How much time passed between the fall and the diagnosis of the illness?",
+    "options": [
+      "One month",
+      "Three months",
+      "Six months",
+      "One year"
+    ]
+  },
+  {
+    "id": "monste-2027",
+    "text": "How many daily radiotherapy sessions did Montse undergo?",
+    "options": [
+      "20",
+      "30",
+      "40",
+      "50"
+    ]
+  },
+  {
+    "id": "monste-2028",
+    "text": "What did visitors say about Montse during her illness?",
+    "options": [
+      "She was a normal person",
+      "Her attitude brought them closer to God",
+      "She should be left alone",
+      "They should take her to another doctor"
+    ]
+  },
+  {
+    "id": "monste-2029",
+    "text": "What words did Montse say moments before dying?",
+    "options": [
+      "\"I don't want to die\"",
+      "\"Little Virgin: How much I love you! When will you come for me?\"",
+      "\"Give me more time\"",
+      "\"No more suffering\""
+    ]
+  },
+  {
+    "id": "monste-2030",
+    "text": "What day of Holy Week did Montse die?",
+    "options": [
+      "Palm Sunday",
+      "Holy Thursday",
+      "Good Friday",
+      "Easter Sunday"
+    ]
+  },
+  {
+    "id": "monste-2031",
+    "text": "How long did Montse's illness last?",
+    "options": [
+      "Three months",
+      "Six months",
+      "Nine months",
+      "One year"
+    ]
+  },
+  {
+    "id": "monste-2032",
+    "text": "What did Montse show during her illness?",
+    "options": [
+      "Sadness and resignation",
+      "Constant complaints",
+      "Contagious joy and ability to make friends",
+      "Indifference"
+    ]
+  },
+  {
+    "id": "monste-2033",
+    "text": "What type of comprehensive formation did Montse promote for women?",
+    "options": [
+      "Only spiritual",
+      "Professional, human, and spiritual",
+      "Only domestic",
+      "Only intellectual"
+    ]
+  },
+  {
+    "id": "monste-2034",
+    "text": "What liturgical feast is celebrated on Montse's day of death?",
+    "options": [
+      "St. Joseph",
+      "The Annunciation",
+      "Holy Thursday",
+      "The Assumption"
+    ]
+  },
+  {
+    "id": "monste-2035",
+    "text": "What virtue stands out in the life of Montse Grases?",
+    "options": [
+      "Extreme austerity",
+      "Joy, simplicity, and self-forgetfulness",
+      "Melancholy",
+      "Isolation"
+    ]
+  },
+  {
+    "id": "monste-2036",
+    "text": "Where were Montse's remains transferred in 1994?",
+    "options": [
+      "Barcelona Cathedral",
+      "Oratory of Bonaigua College",
+      "Montserrat Monastery",
+      "Sagrada Familia Church"
+    ]
+  },
+  {
+    "id": "monste-2037",
+    "text": "In what year was Montse Grases declared venerable?",
+    "options": [
+      "2010",
+      "2012",
+      "2014",
+      "2016"
+    ]
+  },
+  {
+    "id": "monste-2038",
+    "text": "Which Pope authorized the promulgation of the decree on heroic virtues of Montse?",
+    "options": [
+      "Benedict XVI",
+      "John Paul II",
+      "Francis",
+      "Paul VI"
+    ]
+  },
+  {
+    "id": "monste-2039",
+    "text": "Which Congregation of the Holy See decrees on heroic virtues?",
+    "options": [
+      "Congregation for the Doctrine of the Faith",
+      "Congregation for Divine Worship",
+      "Congregation for the Causes of Saints",
+      "Congregation for Bishops"
+    ]
+  },
+  {
+    "id": "monste-2040",
+    "text": "In what year was the informative process of Montse's cause opened?",
+    "options": [
+      "1959",
+      "1962",
+      "1965",
+      "1970"
+    ]
+  },
+  {
+    "id": "monste-2041",
+    "text": "Who was the Archbishop of Barcelona who inaugurated the informative process?",
+    "options": [
+      "Msgr. Marcelo González Martín",
+      "Msgr. Gregorio Modrego Casaus",
+      "Msgr. Ricardo María Carles Gordó",
+      "Msgr. Juan José Omella"
+    ]
+  },
+  {
+    "id": "monste-2042",
+    "text": "In what year did the diocesan informative process conclude?",
+    "options": [
+      "1965",
+      "1968",
+      "1970",
+      "1975"
+    ]
+  },
+  {
+    "id": "monste-2043",
+    "text": "In what year was a supplementary investigation of the cause carried out?",
+    "options": [
+      "1985",
+      "1988",
+      "1993",
+      "1998"
+    ]
+  },
+  {
+    "id": "monste-2044",
+    "text": "On what date was the validity of Montse's additional diocesan process declared?",
+    "options": [
+      "January 21, 1994",
+      "May 15, 1992",
+      "June 10, 1993",
+      "October 28, 1993"
+    ]
+  },
+  {
+    "id": "monste-2045",
+    "text": "Who was the first postulator of Montse Grases' cause?",
+    "options": [
+      "Msgr. Flavio Capucci",
+      "Msgr. José Luis Gutiérrez Gómez",
+      "Msgr. Salvador Canals Navarrete",
+      "Msgr. Benito Badrinas Amat"
+    ]
+  },
+  {
+    "id": "monste-2046",
+    "text": "On what date was the decree on heroic virtues of Montse made public?",
+    "options": [
+      "April 26, 2016",
+      "April 27, 2016",
+      "April 19, 2016",
+      "June 30, 2015"
+    ]
+  },
+  {
+    "id": "monste-2047",
+    "text": "Which Marian festival is celebrated on the day the declaration of venerable was announced?",
+    "options": [
+      "Our Lady of the Pilar",
+      "Our Lady of Montserrat",
+      "Our Lady of Fatima",
+      "Our Lady of Lourdes"
+    ]
+  },
+  {
+    "id": "monste-2048",
+    "text": "Who is considered the engine of a cause of beatification and canonization?",
+    "options": [
+      "The Bishops",
+      "The Holy See",
+      "The fame of sanctity and favors",
+      "The family members"
+    ]
+  },
+  {
+    "id": "monste-2049",
+    "text": "What words describe Montse according to the Prelate of Opus Dei, Msgr. Javier Echevarría?",
+    "options": [
+      "A wise elder",
+      "A young woman with a brief life who was a gift from God",
+      "A brilliant scientist",
+      "A prolific writer"
+    ]
+  },
+  {
+    "id": "monste-2050",
+    "text": "In which cemetery was Montse buried after her death?",
+    "options": [
+      "Southwest Cemetery of Barcelona",
+      "Montjuïc Cemetery",
+      "Les Corts Cemetery",
+      "Poblenou Cemetery"
+    ]
+  }
+]

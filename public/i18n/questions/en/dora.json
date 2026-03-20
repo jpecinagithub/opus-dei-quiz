@@ -1,0 +1,502 @@
+[
+  {
+    "id": "dora-1",
+    "text": "What was Dora del Hoyo's full name?",
+    "options": [
+      "Dolores del Hoyo Alonso",
+      "Salvadora Honorata del Hoyo Alonso",
+      "María del Hoyo Alonso",
+      "Ana del Hoyo Alonso"
+    ]
+  },
+  {
+    "id": "dora-2",
+    "text": "In which town in León was Dora del Hoyo born?",
+    "options": [
+      "Cistierna",
+      "Boca de Huérgano",
+      "León (city)",
+      "Cruz de Flamenca"
+    ]
+  },
+  {
+    "id": "dora-3",
+    "text": "On what date was Dora del Hoyo born?",
+    "options": [
+      "January 11, 1914",
+      "January 12, 1914",
+      "January 11, 1913",
+      "January 10, 1914"
+    ]
+  },
+  {
+    "id": "dora-4",
+    "text": "On what date did Dora del Hoyo die?",
+    "options": [
+      "January 10, 2004",
+      "January 11, 2004",
+      "January 9, 2004",
+      "January 10, 2005"
+    ]
+  },
+  {
+    "id": "dora-5",
+    "text": "How old was Dora del Hoyo when she died?",
+    "options": [
+      "90 years old",
+      "89 years old",
+      "91 years old",
+      "88 years old"
+    ]
+  },
+  {
+    "id": "dora-6",
+    "text": "What was Dora del Hoyo's profession?",
+    "options": [
+      "Nurse",
+      "Teacher",
+      "Domestic worker",
+      "Seamstress"
+    ]
+  },
+  {
+    "id": "dora-7",
+    "text": "What did Dora del Hoyo's parents do for a living?",
+    "options": [
+      "Merchants",
+      "Farmers",
+      "Artisans",
+      "Professionals"
+    ]
+  },
+  {
+    "id": "dora-8",
+    "text": "How many siblings did Dora del Hoyo have?",
+    "options": [
+      "Five",
+      "Six",
+      "Four",
+      "Seven"
+    ]
+  },
+  {
+    "id": "dora-9",
+    "text": "With which book did Dora del Hoyo learn to read as a child?",
+    "options": [
+      "The Bible",
+      "Don Quixote of La Mancha",
+      "Platero y yo",
+      "Lazarillo"
+    ]
+  },
+  {
+    "id": "dora-10",
+    "text": "What did Dora del Hoyo dream of doing when she was young?",
+    "options": [
+      "To be a teacher",
+      "To open a hotel in Madrid",
+      "To travel around Europe",
+      "To work in a hospital"
+    ]
+  },
+  {
+    "id": "dora-11",
+    "text": "At what age did Dora del Hoyo move to Madrid?",
+    "options": [
+      "20 years old",
+      "26 years old",
+      "29 years old",
+      "22 years old"
+    ]
+  },
+  {
+    "id": "dora-12",
+    "text": "For whom did Dora del Hoyo first work in Madrid?",
+    "options": [
+      "Dukes of Nájera",
+      "Marchioness of Almunia",
+      "German family",
+      "Counts of Barcelona"
+    ]
+  },
+  {
+    "id": "dora-13",
+    "text": "For which family did Dora del Hoyo work before joining Opus Dei?",
+    "options": [
+      "An English family",
+      "A German diplomat",
+      "The Spanish royal family",
+      "A bank"
+    ]
+  },
+  {
+    "id": "dora-14",
+    "text": "In what year did Dora del Hoyo begin working at the Moncloa University Residence?",
+    "options": [
+      "1943",
+      "1944",
+      "1945",
+      "1946"
+    ]
+  },
+  {
+    "id": "dora-15",
+    "text": "How old was Dora del Hoyo when she started working at the Moncloa University Residence?",
+    "options": [
+      "26 years old",
+      "29 years old",
+      "31 years old",
+      "33 years old"
+    ]
+  },
+  {
+    "id": "dora-16",
+    "text": "Whom did Dora del Hoyo meet at the Moncloa University Residence?",
+    "options": [
+      "Pope Pius XII",
+      "Saint Josemaría Escrivá",
+      "Cardinal Montini",
+      "Álvaro del Portillo"
+    ]
+  },
+  {
+    "id": "dora-17",
+    "text": "What type of numerary was Dora del Hoyo in Opus Dei?",
+    "options": [
+      "Numerary",
+      "Assistant numerary",
+      "Supernumerary",
+      "Associate"
+    ]
+  },
+  {
+    "id": "dora-18",
+    "text": "Why was Dora del Hoyo historically significant in Opus Dei?",
+    "options": [
+      "She was the first priestess",
+      "She was the first assistant numerary",
+      "She was the first university student",
+      "She was the first foreigner"
+    ]
+  },
+  {
+    "id": "dora-19",
+    "text": "On what date did Dora del Hoyo request admission to Opus Dei?",
+    "options": [
+      "March 14, 1946",
+      "December 27, 1946",
+      "January 11, 1944",
+      "December 25, 1945"
+    ]
+  },
+  {
+    "id": "dora-20",
+    "text": "In which city did Dora del Hoyo request admission to Opus Dei?",
+    "options": [
+      "Madrid",
+      "Rome",
+      "Bilbao",
+      "León"
+    ]
+  },
+  {
+    "id": "dora-21",
+    "text": "In what year did Dora del Hoyo move to Rome?",
+    "options": [
+      "1944",
+      "1945",
+      "1946",
+      "1947"
+    ]
+  },
+  {
+    "id": "dora-22",
+    "text": "On what date did Dora del Hoyo move to Rome?",
+    "options": [
+      "March 14",
+      "December 27",
+      "January 11",
+      "January 6"
+    ]
+  },
+  {
+    "id": "dora-23",
+    "text": "Who suggested that Dora del Hoyo move to Rome?",
+    "options": [
+      "Álvaro del Portillo",
+      "Javier Echevarría",
+      "Saint Josemaría Escrivá",
+      "The Cardinal"
+    ]
+  },
+  {
+    "id": "dora-24",
+    "text": "What work did Dora del Hoyo do in Rome?",
+    "options": [
+      "Teaching",
+      "Secretarial work",
+      "Domestic service",
+      "Nursing"
+    ]
+  },
+  {
+    "id": "dora-25",
+    "text": "What was the first Opus Dei center in Rome where Dora worked?",
+    "options": [
+      "Santa María de la Paz",
+      "Villa Tevere",
+      "Roman College",
+      "Pontifical"
+    ]
+  },
+  {
+    "id": "dora-26",
+    "text": "From what year did Dora del Hoyo work at the Roman College of the Holy Cross?",
+    "options": [
+      "1970",
+      "1974",
+      "1976",
+      "1980"
+    ]
+  },
+  {
+    "id": "dora-27",
+    "text": "What type of training did Dora del Hoyo give to the young women?",
+    "options": [
+      "Academic training",
+      "Professional domestic training",
+      "Spiritual training",
+      "Musical training"
+    ]
+  },
+  {
+    "id": "dora-28",
+    "text": "What message did Dora convey about household tasks?",
+    "options": [
+      "They were a sacrifice",
+      "One could find God through them",
+      "They were only for women",
+      "They were not important"
+    ]
+  },
+  {
+    "id": "dora-29",
+    "text": "Where are Dora del Hoyo's remains buried?",
+    "options": [
+      "In the cathedral of Madrid",
+      "In Santa María de la Paz (Rome)",
+      "In the cemetery of Madrid",
+      "In León"
+    ]
+  },
+  {
+    "id": "dora-30",
+    "text": "Near whom do Dora del Hoyo's remains rest in Rome?",
+    "options": [
+      "Only Álvaro del Portillo",
+      "Saint Josemaría and Álvaro del Portillo",
+      "Only Saint Josemaría",
+      "The Popes"
+    ]
+  },
+  {
+    "id": "dora-31",
+    "text": "On what date was the canonization process for Dora del Hoyo opened?",
+    "options": [
+      "June 18, 2012",
+      "January 10, 2004",
+      "March 14, 1946",
+      "December 27, 2011"
+    ]
+  },
+  {
+    "id": "dora-32",
+    "text": "Who initiated the canonization process for Dora del Hoyo?",
+    "options": [
+      "Pope Benedict XVI",
+      "Monsignor Álvaro del Portillo",
+      "Monsignor Javier Echevarría",
+      "Cardinal Rouco"
+    ]
+  },
+  {
+    "id": "dora-33",
+    "text": "In what year did the instructive phase of Dora's canonization cause conclude?",
+    "options": [
+      "2014",
+      "2015",
+      "2016",
+      "2017"
+    ]
+  },
+  {
+    "id": "dora-34",
+    "text": "What title did Dora del Hoyo receive in the canonization process?",
+    "options": [
+      "Blessed",
+      "Saint",
+      "Servant of God",
+      "Venerable"
+    ]
+  },
+  {
+    "id": "dora-35",
+    "text": "Who described Dora as someone of whom it was said: 'there are no unimportant things, everything depends on the love with which it is done'?",
+    "options": [
+      "Saint Josemaría",
+      "Javier Echevarría",
+      "Álvaro del Portillo",
+      "Ana Sastre"
+    ]
+  },
+  {
+    "id": "dora-36",
+    "text": "What did Saint Josemaría say about the importance of work in the home?",
+    "options": [
+      "It was a minor job",
+      "It was a matter of first importance",
+      "It only mattered for women",
+      "It was not important"
+    ]
+  },
+  {
+    "id": "dora-37",
+    "text": "What did Msgr. Javier Echevarría compare between Dora's tasks and those of the Virgin Mary?",
+    "options": [
+      "Strength",
+      "The tasks in the house of Nazareth",
+      "Obedience",
+      "Humility"
+    ]
+  },
+  {
+    "id": "dora-38",
+    "text": "What did Dora del Hoyo convey in her daily work?",
+    "options": [
+      "Perfection",
+      "Generous and fruitful joy",
+      "Speed",
+      "Silence"
+    ]
+  },
+  {
+    "id": "dora-39",
+    "text": "What did the 'fidelity' that characterized Dora consist of, according to testimonies?",
+    "options": [
+      "Not changing jobs",
+      "Being faithful to Christian life",
+      "Not asking for raises",
+      "Not leaving Rome"
+    ]
+  },
+  {
+    "id": "dora-40",
+    "text": "What type of Church did Dora say she embodied with her work?",
+    "options": [
+      "Cathedral Church",
+      "Domestic Church",
+      "Mission Church",
+      "Sacramental Church"
+    ]
+  },
+  {
+    "id": "dora-41",
+    "text": "How many years did Dora del Hoyo remain in Rome until her death?",
+    "options": [
+      "Almost 50 years",
+      "Almost 58 years",
+      "Almost 40 years",
+      "Almost 60 years"
+    ]
+  },
+  {
+    "id": "dora-42",
+    "text": "What did Dora know how to instill in the young women she trained?",
+    "options": [
+      "That service was inferior",
+      "That one could find God in household work",
+      "That they should be housewives",
+      "That domestic work was only for them"
+    ]
+  },
+  {
+    "id": "dora-43",
+    "text": "To which institution did the young women Dora trained in Rome belong?",
+    "options": [
+      "The university",
+      "Opus Dei",
+      "The local church",
+      "Domestic service"
+    ]
+  },
+  {
+    "id": "dora-44",
+    "text": "How was Dora del Hoyo known for her well-done work?",
+    "options": [
+      "As the 'cook'",
+      "As a 'professional of the home'",
+      "As the 'boss'",
+      "As the 'mother'"
+    ]
+  },
+  {
+    "id": "dora-45",
+    "text": "Which famous phrase did Dora attribute to Saint Josemaría about domestic work?",
+    "options": [
+      "'There is no small work'",
+      "'Work in the home is God's work'",
+      "'All tasks can be sanctified'",
+      "'Service is love'"
+    ]
+  },
+  {
+    "id": "dora-46",
+    "text": "What was Dora's presence like according to those who knew her?",
+    "options": [
+      "Nervous and agitated",
+      "Serene and peace-bringing",
+      "Distracted",
+      "Melancholic"
+    ]
+  },
+  {
+    "id": "dora-47",
+    "text": "What characterized Dora del Hoyo's prayer according to testimonies?",
+    "options": [
+      "It was very long",
+      "It was intense",
+      "It was infrequent",
+      "It was only communal"
+    ]
+  },
+  {
+    "id": "dora-48",
+    "text": "What did Saint Josemaría especially value in Dora?",
+    "options": [
+      "Her intelligence",
+      "Her fidelity and perfectly finished work",
+      "Her eloquence",
+      "Her academic training"
+    ]
+  },
+  {
+    "id": "dora-49",
+    "text": "In which country was the book 'Una luz encendida' about Dora del Hoyo published?",
+    "options": [
+      "Italy",
+      "Mexico",
+      "Spain",
+      "Argentina"
+    ]
+  },
+  {
+    "id": "dora-50",
+    "text": "What characterized family life in Dora del Hoyo's home?",
+    "options": [
+      "Worldly life",
+      "Deep Christian faith",
+      "Aristocratic life",
+      "Intellectual life"
+    ]
+  }
+]

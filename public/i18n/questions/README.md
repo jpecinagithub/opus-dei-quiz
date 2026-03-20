@@ -19,6 +19,8 @@ Rutas esperadas:
 - `public/i18n/questions/it/<topic>.json`
 - `public/i18n/questions/pt/<topic>.json`
 
-`topic` puede ser: `josemaria`, `alvaro`, `javier`, `guadalupe`.
+`topic` puede ser: `josemaria`, `alvaro`, `javier`, `guadalupe`, `monste`, `muzquiz`, `dora`, `isidoro`.
 
 Si no existe traducción para una pregunta, la app mostrará el texto en español.
+
+Nota: las preguntas en español se mantienen en los archivos TS (`src/questions_*.ts`). Las traducciones solo son necesarias para otros idiomas.

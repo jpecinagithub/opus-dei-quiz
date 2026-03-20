@@ -3,12 +3,14 @@ import { QUESTIONS_POOL } from '../questions';
 import { ALVARO_QUESTIONS_POOL } from '../questions_alvaro';
 import { JAVIER_QUESTIONS_POOL } from '../questions_javier';
 import { GUADALUPE_QUESTIONS_POOL } from '../questions_guadalupe';
+import { MONSTE_QUESTIONS_POOL } from '../questions_monste';
 
 const pools = [
   { name: 'josemaria', data: QUESTIONS_POOL, min: 100 },
   { name: 'alvaro', data: ALVARO_QUESTIONS_POOL, min: 50 },
   { name: 'javier', data: JAVIER_QUESTIONS_POOL, min: 50 },
   { name: 'guadalupe', data: GUADALUPE_QUESTIONS_POOL, min: 50 },
+  { name: 'monste', data: MONSTE_QUESTIONS_POOL, min: 50 },
 ];
 
 describe('Question pools', () => {
